@@ -1,0 +1,1 @@
+First things first, this application desperately needs refactoring (particularly the server-side).  It is far from DRY and has no tests.  But for just learning MongoDB, and having only learned Angular a few weeks ago, this was a decent first go!
