@@ -13,46 +13,50 @@
  	<!-- SKILLS -->
 	<div>
 		<h2>Skills</h2>
-		<ul ng-repeat="skill in skills" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>{{skill.level}} - {{skill.title}}
-				<p ng-show="showAddendum">{{skill.addendum}}</p>
+		<ul ng-repeat="entry in skills" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>{{entry.level}} - {{entry.title}}
+				<p ng-show="showAddendum">{{entry.addendum}}</p>
 			</li>
 		</ul>
 	</div>
 
- 	<!-- SKILLS -->
+ 	<!-- EXPERIENCE -->
 	<div>
 		<h2>Experience</h2>
-		{{experience}}
-		<ul ng-repeat="skill in skills">
-			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		<ul ng-repeat="entry in experience" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>{{entry.title}}
+				<p ng-show="showAddendum">{{entry.addendum}}</p>
+			</li>
 		</ul>
 	</div>
 
  	<!-- EMPLOYMENT -->
 	<div>
 		<h2>Employment</h2>
-		{{employment}}
-		<ul ng-repeat="skill in skills">
-			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		<ul ng-repeat="entry in employment" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>{{entry.title}} for {{entry.organization}} from {{entry.start}} to {{entry.end}}
+				<p ng-show="showAddendum">{{entry.addendum}}</p>
+			</li>
 		</ul>
 	</div>
 
  	<!-- EDUCATION -->
 	<div>
 		<h2>Education</h2>
-		{{education}}
-		<ul ng-repeat="skill in skills">
-			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		<ul ng-repeat="entry in education" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>Earned a {{entry.level}} in {{entry.program}} from {{entry.institution}} in {{entry.graduated}}
+				<p ng-show="showAddendum">{{entry.addendum}}</p>
+			</li>
 		</ul>
 	</div>
 
  	<!-- AWARDS -->
 	<div>
 		<h2>Awards</h2>
-		{{awards}}
-		<ul ng-repeat="skill in skills">
-			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		<ul ng-repeat="entry in awards" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>Earned a {{entry.title}} from {{entry.organization}} in {{entry.graduated}}
+				<p ng-show="showAddendum">{{entry.addendum}}</p>
+			</li>
 		</ul>
 	</div>
 

@@ -36,7 +36,7 @@ app.factory('mainService', function($http) {
 	factoryReturn.getAwards = function() {
 		return $http({
 			method: 'GET',
-			url: baseUrl + '/skills'
+			url: baseUrl + '/awards'
 		});
 	};
 
