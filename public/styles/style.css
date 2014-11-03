@@ -1,0 +1,26 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.resume {
+	width: 100%;
+}
+
+.resume-entry {
+	width: 100%;
+	height: auto;
+	border: solid 1px red;
+}
+
+.resume-details {
+	width: 45%;
+	float: left;
+}
+
+.resume-addendum {
+	width: 45%;
+	float: left;
+	opacity: 0;
+}

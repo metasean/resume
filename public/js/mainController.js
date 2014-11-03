@@ -11,13 +11,21 @@ var app = angular.module('resumeApp');
 
 app.controller('mainController', function($scope, mainService) {
 
-	$scope.title = "MetaSean's Resume";
+	$scope.title = "Sean Duncan";
 
 	// SHOW ADDENDUM VAR AND FUNCTION
-	$scope.showVariable = false;
+	$scope.showAddendum = false;
 
 	$scope.toggleAddendum = function() {
 		$scope.showAddendum = !$scope.showAddendum;
+	};
+
+
+	$scope.overAddendum = function() {
+		$scope.showAddendum = true;
+	};
+	$scope.offAddendum = function() {
+		$scope.showAddendum = false;
 	};
 
 

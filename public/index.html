@@ -1,68 +1,87 @@
 <! DOCTYPE html>
 <html ng-app="resumeApp">
 <head>
-	<title>MetaSean's Resume</title>
+	<title>MetaSean's Application</title>
 	<link rel="stylesheet" type="text/css" href="styles/style.css">
 </head>
 <body ng-controller="mainController">
 	<h2>{{title}}</h2>
 
-	<!-- BUTTON CONTROLS -->
-<!-- 	<button ng-click="toggleVariable()">Button Text</button>
+	<!-- STANDARD COVER LETTER STUFF -->
+	<div class="cover-letter">
+		<p>Welcome to my online cover letter and resume for Agency Fusion's Web Developer position.</p>
+		<p>My background is in Instructional Technology.  Coming from a field with that name, it may be clear that I've interacted with a wide range of technologies - and I have.  What may not be clear is why I am looking for a career shift.  More importantly, it may not be clear why I'd be a great match for Agency Fusion.</p>
+		<p>My professional interactions with programming, and web development in particular, are extremely varied.  For example, I've documented Fortran code, I developed a major, state-wide reporting system in Microsoft Access, I developed the CSS for a large web app over a decade ago, I've been on the design team for large Java projects, I've developed prototype apps with Ruby on Rails, I've been in charge of 508 (i.e. web accessibility) for more projects than I can recollect, and I even had the opportunity to teach kids the basics of electronics and programming with Arduinos.  Strangely, programming has never been the focus of any of my jobs; but it's always been one of the highlights and the time has come for me to do it as a primary part of my job.</p>
+		<p>So, why do I think I'd be a great addition to Agency Fusion's paper doll gallery?  Simply put, I love the aspects of web design and development that many creative people don't.  I'm not the person to design the eye candy, but I am the person who will figure out how to make the eye candy a reality.  Not only that, I have a wonderful breadth of experience with a wide-range technologies.</p>
+		<p>For most of my career I haven't been eating and breathing any specific technologies.  Before making the actual career shift, I felt it was important to really focus on one technology for a while.  To that end, I'm halfway through a JavaScript bootcamp.  If anything, this has reinforced my desire to be coding more often.  The irony of focusing on JavaScript is that it is a broad field in and of itself.  We've covered a pretty wide swath of territory, to include HTML5, CSS3, vanilla JavaScript, jQuery, AngularJS, node.js, express, mySQL, and mongoDb.  Over the next couple of weeks, we'll add Firebase and test-driven development to that list.  This site itself is a demonstration of the skills I've picked up (as well as more practice).
+	</div>
+
+	<!-- STANDARD RESUME STUFF -->
+	<div class="resume">
 
  	<!-- SKILLS -->
-	<div>
+	<div class="resume-section">
 		<h2>Skills</h2>
-		<ul ng-repeat="entry in skills" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>{{entry.level}} - {{entry.title}}
-				<p ng-show="showAddendum">{{entry.addendum}}</p>
-			</li>
-		</ul>
+		<table>
+		<tr class="resume-entry" ng-repeat="entry in skills" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<td class="resume-details">{{entry.level}} - {{entry.title}}</td>
+			<td class="resume-addendum show" show-me="showAddendum">{{entry.addendum}}</td>
+		</tr>
+	</table>
 	</div>
 
  	<!-- EXPERIENCE -->
-	<div>
+	<div class="resume-section">
 		<h2>Experience</h2>
-		<ul ng-repeat="entry in experience" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>{{entry.title}}
-				<p ng-show="showAddendum">{{entry.addendum}}</p>
-			</li>
-		</ul>
+		<table>
+		<tr class="resume-entry" ng-repeat="entry in experience" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<td class="resume-details">{{entry.title}}</td>
+			<td class="resume-addendum" show-me="showAddendum">{{entry.addendum}}</td>
+		</tr>
+	</table>
 	</div>
 
  	<!-- EMPLOYMENT -->
-	<div>
+	<div class="resume-section">
 		<h2>Employment</h2>
-		<ul ng-repeat="entry in employment" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>{{entry.title}} for {{entry.organization}} from {{entry.start}} to {{entry.end}}
-				<p ng-show="showAddendum">{{entry.addendum}}</p>
-			</li>
-		</ul>
+		<table>
+		<tr class="resume-entry" ng-repeat="entry in employment" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<td class="resume-details" >{{entry.title}} for {{entry.organization}} from {{entry.start}} to {{entry.end}}</td>
+			<td class="resume-addendum" show-me="showAddendum">{{entry.addendum}}</td>
+		</tr>
+	</table>
 	</div>
 
  	<!-- EDUCATION -->
-	<div>
+	<div class="resume-section">
 		<h2>Education</h2>
-		<ul ng-repeat="entry in education" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>Earned a {{entry.level}} in {{entry.program}} from {{entry.institution}} in {{entry.graduated}}
-				<p ng-show="showAddendum">{{entry.addendum}}</p>
-			</li>
-		</ul>
+		<table>
+		<tr class="resume-entry" ng-repeat="entry in education" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<td class="resume-details">Earned a {{entry.level}} in {{entry.program}} from {{entry.institution}} in {{entry.graduated}}</td>
+			<td class="resume-addendum" show-me="showAddendum">{{entry.addendum}}</td>
+		</tr>
+	</table>
 	</div>
 
  	<!-- AWARDS -->
-	<div>
+	<div class="resume-section">
 		<h2>Awards</h2>
-		<ul ng-repeat="entry in awards" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
-			<li>Earned a {{entry.title}} from {{entry.organization}} in {{entry.graduated}}
-				<p ng-show="showAddendum">{{entry.addendum}}</p>
-			</li>
-		</ul>
+		<table>
+		<tr class="resume-entry" ng-repeat="entry in awards" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<td class="resume-details">Earned a {{entry.title}} from {{entry.organization}} in {{entry.graduated}}</td>
+			<td class="resume-addendum" show-me="showAddendum">{{entry.addendum}}</td>
+		</tr>
+	</table>
 	</div>
+</div> <!-- resume div -->
 
 
 	<!-- SCRIPTS -->
-	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/angular.js"></script>
+	<script type="text/javascript" src="js/angular-animate.js"></script>
+	<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+	<script type="text/javascript" src="js/EasePack.min.js"></script>
+	<script type="text/javascript" src="js/TweenLite.min.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 	<script type="text/javascript" src="js/mainController.js"></script>
 	<script type="text/javascript" src="js/mainService.js"></script>
