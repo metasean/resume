@@ -59,9 +59,10 @@ app.post('/experience/:id/update', experience.update);
 app.post('/experience/:id/delete', experience.remove);
 
 
+app.set('port', (process.env.PORT || 4200));
 app.use(express.static(__dirname + '/../public'));
 
 
-var server = app.listen(process.env.PORT || 4200, function() {
-console.log("Express server listening on port %d", server.address().port);
+app.listen(app.get('port'), function() {
+	console.log("Express server listening on port: %d", app.get('port'));
 });

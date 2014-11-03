@@ -3,22 +3,26 @@
   "version": "0.0.1",
   "description": "Resume Generator",
   "main": "server/app.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "author": "MetaSean",
+  "license": "AGPL",,
+  "homepage": "https://github.com/metasean/resume",
   "repository": {
     "type": "git",
     "url": "https://github.com/metasean/resume"
   },
-  "author": "MetaSean",
-  "license": "AGPL",
   "bugs": {
     "url": "https://github.com/metasean/resume/issues"
   },
-  "homepage": "https://github.com/metasean/resume",
+  "engines": {
+    "node": "0.10.x"
+  },
   "dependencies": {
     "body-parser": "^1.9.2",
     "express": "^4.10.1",
     "mongoose": "^3.8.18"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "server/app.js" 
   }
 }
