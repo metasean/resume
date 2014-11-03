@@ -1,0 +1,67 @@
+<! DOCTYPE html>
+<html ng-app="resumeApp">
+<head>
+	<title>MetaSean's Resume</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body ng-controller="mainController">
+	<h2>{{title}}</h2>
+
+	<!-- BUTTON CONTROLS -->
+<!-- 	<button ng-click="toggleVariable()">Button Text</button>
+
+ 	<!-- SKILLS -->
+	<div>
+		<h2>Skills</h2>
+		<ul ng-repeat="skill in skills" ng-mouseover="showAddendum = true" ng-mouseleave="showAddendum = false">
+			<li>{{skill.level}} - {{skill.title}}
+				<p ng-show="showAddendum">{{skill.addendum}}</p>
+			</li>
+		</ul>
+	</div>
+
+ 	<!-- SKILLS -->
+	<div>
+		<h2>Experience</h2>
+		{{experience}}
+		<ul ng-repeat="skill in skills">
+			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		</ul>
+	</div>
+
+ 	<!-- EMPLOYMENT -->
+	<div>
+		<h2>Employment</h2>
+		{{employment}}
+		<ul ng-repeat="skill in skills">
+			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		</ul>
+	</div>
+
+ 	<!-- EDUCATION -->
+	<div>
+		<h2>Education</h2>
+		{{education}}
+		<ul ng-repeat="skill in skills">
+			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		</ul>
+	</div>
+
+ 	<!-- AWARDS -->
+	<div>
+		<h2>Awards</h2>
+		{{awards}}
+		<ul ng-repeat="skill in skills">
+			<!-- <li>{{skill.level}} - {{skill.title}}</li> -->
+		</ul>
+	</div>
+
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/angular.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/mainController.js"></script>
+	<script type="text/javascript" src="js/mainService.js"></script>
+
+</body>
+</html>

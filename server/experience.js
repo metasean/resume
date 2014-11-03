@@ -1,10 +1,7 @@
 var mongoose = require('mongoose');
 
 var ExpSchema = new mongoose.Schema({
-	institution: String,
-	program: String,
-	level: String,
-	graduated: Number,
+	title: String,
 	addendum: String
 });
 var Experience = mongoose.model('Experience', ExpSchema);
@@ -52,10 +49,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var newExperience = new Experience({
-		institution: req.body.institution,
-		program: req.body.program,
-		level: req.body.level,
-		graduated: req.body.graduated,
+		title: req.body.title,
 		addendum: req.body.addendum
 	});
 	console.log(newExperience);
@@ -72,10 +66,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Experience({
-		institution: req.body.institution,
-		program: req.body.program,
-		level: req.body.level,
-		graduated: req.body.graduated,
+		title: req.body.title,
 		addendum: req.body.addendum
 	});
 	console.log(data);

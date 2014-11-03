@@ -50,7 +50,18 @@ app.post('/skills', skills.insert);
 app.post('/skills/:id/update', skills.update);
 app.post('/skills/:id/delete', skills.remove);
 
+// EXPERIENCE API
+var experience = require('./experience.js');
+app.get('/experience', experience.list);
+app.get('/experience/:id', experience.show);
+app.post('/experience', experience.insert);
+app.post('/experience/:id/update', experience.update);
+app.post('/experience/:id/delete', experience.remove);
 
-app.use(express.static(__dirname + '/public'));
 
-app.listen(4200);
+app.use(express.static(__dirname + '/../public'));
+
+
+var server = app.listen(process.env.PORT || 4200, function() {
+console.log("Express server listening on port %d", server.address().port);
+});
