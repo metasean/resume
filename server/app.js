@@ -3,7 +3,10 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 
-mongoose.connect('mongodb://localhost/resume');
+// http://www.elliotbradbury.com/use-mongohq-heroku-without-verifying-account/
+// http://stackoverflow.com/questions/7575664/node-js-connecting-to-mongodb-using-mongohq-on-heroku
+// https://docs.compose.io/languages/mongoose.html
+mongoose.connect(process.env.MONGOHQ_URL ||'mongodb://localhost/resume');
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
