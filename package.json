@@ -4,7 +4,7 @@
   "description": "Resume Generator",
   "main": "server/app.js",
   "author": "MetaSean",
-  "license": "AGPL",,
+  "license": "AGPL",
   "homepage": "https://github.com/metasean/resume",
   "repository": {
     "type": "git",

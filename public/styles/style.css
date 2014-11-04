@@ -4,8 +4,20 @@ html, body {
 	margin: 0;
 }
 
-.resume {
+h1, h2, h3 {
 	width: 100%;
+	padding-top: 1.0em;
+	margin: auto;
+}
+
+.cover-letter {
+	width: calc(100% - 3.5em);
+	margin: auto;
+}
+
+.resume {
+	width: calc(100% - 3.5em);
+	margin: auto;
 }
 
 .resume-entry {
@@ -15,12 +27,21 @@ html, body {
 }
 
 .resume-details {
-	width: 45%;
-	float: left;
+	min-width: 10em;
+	max-width: 50%;
+	padding: 0.5em 0.5em 0.5em 0em;
+}
+
+.yellow-box {
+	/* Inspiration is the sincerest form of flattery ;-) */
+	background: url(http://www.agencyfusion.com/cmsimages/yellow_arrow.gif) top center no-repeat;
 }
 
 .resume-addendum {
-	width: 45%;
-	float: left;
 	opacity: 0;
+	background-color: #ffffff;
+	padding: 0.5em 1.0em 0.5em 0.5em;
 }
+
+
+/* yellow_box{padding-top:6px;white-space:normal;position:absolute;font-style:italic} */

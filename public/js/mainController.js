@@ -15,17 +15,15 @@ app.controller('mainController', function($scope, mainService) {
 
 	// SHOW ADDENDUM VAR AND FUNCTION
 	$scope.showAddendum = false;
-
-	$scope.toggleAddendum = function() {
-		$scope.showAddendum = !$scope.showAddendum;
-	};
-
+	$scope.showArrow = false;
 
 	$scope.overAddendum = function() {
 		$scope.showAddendum = true;
+		$scope.showArrow = true;
 	};
 	$scope.offAddendum = function() {
 		$scope.showAddendum = false;
+		$scope.showArrow = false;
 	};
 
 
