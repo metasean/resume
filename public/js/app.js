@@ -19,6 +19,7 @@ app.animation(".show", function() {
 	var cssVal;
 	return {
 		addClass: function(element, className) {
+			console.log(element);
 			if (className = "showAddendum") {
 				TweenLite.to(element, 1, {opacity: 1, backgroundColor: '#fff008'});
 			} else if (className = "showArrow") {
