@@ -8,7 +8,7 @@ var bodyParser = require('body-parser');
 // https://docs.compose.io/languages/mongoose.html
 // heroku config:set NODE_ENV=production
 
-var mongoUri = 'mongodb://localhost/resume' || 'mongodb://metasean-resume.herokuapp.com' || process.env.MONGOHQ_URL;
+var mongoUri = process.env.MONGOHQ_URL || 'mongodb://localhost/resume';// || 'mongodb://metasean-resume.herokuapp.com' || process.env.MONGOHQ_URL;
 mongoose.connect(mongoUri);
 
 var db = mongoose.connection;
@@ -65,7 +65,7 @@ app.post('/experience/:id/update', experience.update);
 app.post('/experience/:id/delete', experience.remove);
 
 
-app.set('port', (process.env.PORT || 4200));
+app.set('port', (4200 || process.env.PORT ));
 app.use(express.static(__dirname + '/../public'));
 
 

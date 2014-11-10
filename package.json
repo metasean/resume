@@ -1,6 +1,5 @@
 {
-  "name": "resume",
-  "version": "0.0.1",
+  "version": "0.0.1-8",
   "description": "Resume Generator",
   "main": "server/app.js",
   "author": "MetaSean",
@@ -23,6 +22,8 @@
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "server/app.js" 
-  }
+    "start": "server/app.js"
+  },
+  "name": "meteasean-resume",
+  "subdomain": "meteasean-resume"
 }
