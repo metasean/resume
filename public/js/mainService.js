@@ -3,7 +3,7 @@ var app = angular.module('resumeApp');
 app.factory('mainService', function($http) {
 
 	var factoryReturn = {};
-	var baseUrl = MONGOHQ_URL || 'http://localhost:4200';
+	var baseUrl = 'http://localhost:4200' || MONGOHQ_URL;
 
 	factoryReturn.getSkills = function() {
 		return $http({

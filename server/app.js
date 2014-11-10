@@ -1,6 +1,4 @@
 var express = require('express');
-var MongoClient = require('mongodb').MongoClient;
-var Server = require('mongodb').Server;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
@@ -10,7 +8,7 @@ var bodyParser = require('body-parser');
 // https://docs.compose.io/languages/mongoose.html
 // heroku config:set NODE_ENV=production
 
-var mongoUri = process.env.MONGOHQ_URL) || 'http://metasean-resume.herokuapp.com'; // ||'mongodb://localhost/resume');
+var mongoUri = 'mongodb://localhost/resume' || 'mongodb://metasean-resume.herokuapp.com' || process.env.MONGOHQ_URL;
 mongoose.connect(mongoUri);
 
 var db = mongoose.connection;
