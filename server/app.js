@@ -1,4 +1,6 @@
 var express = require('express');
+var MongoClient = require('mongodb').MongoClient;
+var Server = require('mongodb').Server;
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
@@ -6,7 +8,10 @@ var bodyParser = require('body-parser');
 // http://www.elliotbradbury.com/use-mongohq-heroku-without-verifying-account/
 // http://stackoverflow.com/questions/7575664/node-js-connecting-to-mongodb-using-mongohq-on-heroku
 // https://docs.compose.io/languages/mongoose.html
-mongoose.connect(process.env.MONGOHQ_URL ||'mongodb://localhost/resume');
+// heroku config:set NODE_ENV=production
+
+var mongoUri = process.env.MONGOHQ_URL) || 'http://metasean-resume.herokuapp.com'; // ||'mongodb://localhost/resume');
+mongoose.connect(mongoUri);
 
 var db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));

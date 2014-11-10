@@ -1,9 +1,7 @@
 /*
 	
 	Remember:
-	ONE MUST GO TO localhost:3000/index.html to access
-	OR
-	ONE MUST GO TO localhost:8080/index.html to access
+	ONE MUST GO TO localhost:3000/index.html to access (where port is defined in server/app.js)
 
 */
 

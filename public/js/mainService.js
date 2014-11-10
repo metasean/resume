@@ -3,7 +3,7 @@ var app = angular.module('resumeApp');
 app.factory('mainService', function($http) {
 
 	var factoryReturn = {};
-	var baseUrl = 'http://metasean-resume.herokuapp.com' || 'http://localhost:4200';
+	var baseUrl = MONGOHQ_URL || 'http://localhost:4200';
 
 	factoryReturn.getSkills = function() {
 		return $http({
