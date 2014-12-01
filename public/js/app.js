@@ -1,37 +1,27 @@
-var app = angular.module('resumeApp', ["ngAnimate"]);
+var app = angular.module('resumeApp', ["ui.router", "ngAnimate"]);
 
 
-app.directive("showMe", function($animate) {
-	return function(scope, element, attrs) {
-		console.log(attrs.showMe)
-		scope.$watch(attrs.showMe, function(newVal) {
-			if (newVal) {
-				$animate.addClass(element, attrs.showMe);
-			} else {
-				$animate.removeClass(element, attrs.showMe);
+
+app.config(function ($stateProvider, $urlRouterProvider) {
+	$stateProvider
+		.state('landing', {
+			url: '/',
+			templateUrl: '../index.html'
+		})
+		.state('admin', {
+			url: '/admin',
+			templateUrl: '../admin.html'
+		})
+		.state('application', {
+			url: '/:applicationId',
+			templateUrl: '../application.html',
+			resolve:{
+				applicationId: ['$stateParams', function($stateParams){
+					console.log(applicationId);
+					return $stateParams.applicationId;
+				}]
 			}
 		})
-	}
-})
 
-// mucho kudos to https://thinkster.io/egghead/animating-the-angular-way/
-app.animation(".show", function() {
-	var cssVal;
-	return {
-		addClass: function(element, className) {
-			console.log(element);
-			if (className = "showAddendum") {
-				TweenLite.to(element, 1, {opacity: 1, backgroundColor: '#fff008'});
-			} else if (className = "showArrow") {
-				TweenLite.to(element, 1, {opacity: 1, backgroundColor: 'red'});
-			};
-		},
-		removeClass: function(element, className) {
-			if (className = "showAddendum") {
-				TweenLite.to(element, 1, {opacity: 0, backgroundColor: '#ffffff'});
-			} else if (className = "showArrow") {
-				TweenLite.to(element, 1, {opacity: 0, backgroundColor: '#ffffff'});
-			};
-		}
-	}
-})
+	$urlRouterProvider.otherwise('/');
+});

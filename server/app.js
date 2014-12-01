@@ -8,6 +8,7 @@ var bodyParser = require('body-parser');
 // https://docs.compose.io/languages/mongoose.html
 // heroku config:set NODE_ENV=production
 
+//var mongoUri = 'mongodb://localhost/resume';
 var mongoUri = process.env.MONGOHQ_URL || 'mongodb://localhost/resume';// || 'mongodb://metasean-resume.herokuapp.com' || process.env.MONGOHQ_URL;
 mongoose.connect(mongoUri);
 
@@ -63,6 +64,14 @@ app.get('/experience/:id', experience.show);
 app.post('/experience', experience.insert);
 app.post('/experience/:id/update', experience.update);
 app.post('/experience/:id/delete', experience.remove);
+
+// APPLICATIONS API
+var applications = require('./applications.js');
+app.get('/applications', applications.list);
+app.get('/applications/:id', applications.show);
+app.post('/applications', applications.insert);
+app.post('/applications/:id/update', applications.update);
+app.post('/applications/:id/delete', applications.remove);
 
 
 app.set('port', (4200 || process.env.PORT ));

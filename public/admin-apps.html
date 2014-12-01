@@ -1,0 +1,51 @@
+<! DOCTYPE html>
+<html ng-app="resumeApp">
+<head>
+	<title>MetaSean's Resume</title>
+	<link rel="stylesheet" type="text/css" href="styles/style.css">
+</head>
+<body ng-controller="mainController">
+
+	<div class="">
+		<h3>Active Applications</h3>
+		<button ng-click="newApplications()">new</button>
+		<table class="admin-input">
+			<tr ng-repeat="entry in applications" class="resume-entry">
+				<td>
+					<button ng-click="saveApplications(entry)">S</button>
+					<br/><br/>
+					<button ng-click="deleteApplications(entry._id)">X</button>
+				</td>
+				<td>
+					<input ng-model="entry.title" placeholder="company &amp;/or position" type='text' class="title"/>
+					<br />
+					Available at:
+					<input ng-model="entry.url" placeholder="url" type='text' class="title"/>
+				</td>
+				<td>
+					<textarea ng-model="entry.coverLetter" placeholder="cover letter" type='text' class="textual"></textarea>
+				</td>
+			</tr>
+		</table>
+
+
+
+
+	<!-- Angular UI Router -->
+
+	<!-- SCRIPTS -->
+	<script type="text/javascript" src="js/angular.js"></script>
+	<!-- Angular UI Router -->
+	<script type="text/javascript" src="js/angular-ui-router.min.js"></script>
+
+
+	<script type="text/javascript" src="js/angular-animate.js"></script>
+	<script type="text/javascript" src="js/CSSPlugin.min.js"></script>
+	<script type="text/javascript" src="js/EasePack.min.js"></script>
+	<script type="text/javascript" src="js/TweenLite.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/mainController.js"></script>
+	<script type="text/javascript" src="js/mainService.js"></script>
+
+</body>
+</html>
