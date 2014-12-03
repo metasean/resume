@@ -20,7 +20,15 @@ app.factory('mainService', function($location, $http) {
 		return $http({
 			method: 'POST',
 			url: baseUrl + '/skills'
-		});
+		})
+			.success(function(data) {
+				console.log("successful update");
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log("error on update");
+				console.log(data);
+			});
 	};
 
 	factoryReturn.saveSkills = function(data) {
@@ -30,17 +38,29 @@ app.factory('mainService', function($location, $http) {
 			url: baseUrl + '/skills/' + data._id + '/update',
 			data: data
 		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
-			deferred.resolve(response.data.results);
-		})*/;
+			.success(function(data) {
+				console.log("successful update");
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log("error on update");
+				console.log(data);
+			})
 	};
 
 	factoryReturn.deleteSkills = function(id) {
 		return $http({
 			method: 'POST',
 			url: baseUrl + '/skills/' + id + '/delete'
-		});
+		})
+			.success(function(data) {
+				console.log("successful update");
+				console.log(data);
+			})
+			.error(function(data) {
+				console.log("error on update");
+				console.log(data);
+			});
 	};
 
 	// EXPERIENCE

@@ -10,9 +10,13 @@
 
 var app = angular.module('resumeApp');
 
-app.controller('mainController', function($scope, mainService) {
+app.controller('mainController', function($scope, $window, mainService) {
 
-	$scope.title = "Sean Duncan";
+	$scope.title = "Sean Duncan's Cover Letter and Resume";
+
+	$scope.reloadRoute = function() {
+		$window.location.reload();
+	};
 
 	// SHOW ADDENDUM VAR AND FUNCTION
 	$scope.showMe = false;
@@ -36,18 +40,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newSkills = function() {
-		mainService.addSkills();
+		mainService.addSkills()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	$scope.saveSkills = function(skill) {
 		mainService.saveSkills(skill)
 			.then(function(data) {
 				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteSkills = function(id) {
-		mainService.deleteSkills(id);
+		mainService.deleteSkills(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	// Experience
@@ -57,18 +70,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newExperience = function() {
-		mainService.addExperience();
+		mainService.addExperience()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});;
 	};
 
 	$scope.saveExperience = function(exp) {
 		mainService.saveExperiences(exp)
 			.then(function(data) {
-				$scope.experience = data.data;
+				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteExperience = function(id) {
-		mainService.deleteExperience(id);
+		mainService.deleteExperience(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	// Employment
@@ -78,18 +100,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newEmployment = function() {
-		mainService.addEmployment();
+		mainService.addEmployment()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	$scope.saveEmployment = function(emp) {
 		mainService.saveEmployment(emp)
 			.then(function(data) {
-				$scope.employment = data.data;
+				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteEmployment = function(id) {
-		mainService.deleteEmployment(id);
+		mainService.deleteEmployment(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	// Education
@@ -99,18 +130,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newEducation = function() {
-		mainService.addEducation();
+		mainService.addEducation()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	$scope.saveEducation = function(edu) {
 		mainService.saveEducation(edu)
 			.then(function(data) {
-				$scope.education = data.data;
+				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteEducation = function(id) {
-		mainService.deleteEducation(id);
+		mainService.deleteEducation(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 
@@ -121,18 +161,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newAwards = function() {
-		mainService.addAwards();
+		mainService.addAwards()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	$scope.saveAwards = function(award) {
 		mainService.saveAwards(award)
 			.then(function(data) {
-				$scope.awards = data.data;
+				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteAwards = function(id) {
-		mainService.deleteAwards(id);
+		mainService.deleteAwards(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 
@@ -144,18 +193,27 @@ app.controller('mainController', function($scope, mainService) {
 	});
 
 	$scope.newApplications = function() {
-		mainService.addApplications();
+		mainService.addApplications()
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 	$scope.saveApplications = function(app) {
 		mainService.saveApplications(app)
 			.then(function(data) {
-				$scope.applications = data.data;
+				$scope.skills = data.data;
+				$scope.reloadRoute();
 			});
 	};
 
 	$scope.deleteApplications = function(id) {
-		mainService.deleteApplications(id);
+		mainService.deleteApplications(id)
+			.then(function(data) {
+				$scope.skills = data.data;
+				$scope.reloadRoute();
+			});
 	};
 
 });
