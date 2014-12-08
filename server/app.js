@@ -8,8 +8,7 @@ var bodyParser = require('body-parser');
 // https://docs.compose.io/languages/mongoose.html
 // heroku config:set NODE_ENV=production
 
-//var mongoUri = 'mongodb://localhost/resume';
-var mongoUri = process.env.MONGOHQ_URL || 'mongodb://localhost/resume';// || 'mongodb://metasean-resume.herokuapp.com' || process.env.MONGOHQ_URL;
+var mongoUri = process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'mongodb://localhost/resume';
 mongoose.connect(mongoUri);
 
 var db = mongoose.connection;
