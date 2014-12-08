@@ -19,9 +19,9 @@ var list = function (req, res) {
 	});
 };
 
-var show = function (req, res) {
+var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 	// limit(1) trick per: http://codeandcodes.com/tag/findone/
-	Application.find({_id: req.params.id}).limit(1).exec(function (err, data) {
+	Application.find({url: req.params.url}).limit(1).exec(function (err, data) {
 		console.log('GET Application list request ...');
 		try {
 			res.json(data);

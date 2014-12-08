@@ -3,9 +3,8 @@ var app = angular.module('resumeApp');
 app.factory('mainService', function($location, $http) {
 
 	var factoryReturn = {};
-//	var baseUrl = 'http://meteasean-resume.jit.su' || 'metasean-resume.herokuapp.com';
-//	var baseUrl = 'http://localhost:4200' ;
-	var baseUrl = "https://" + $location.host() + ":" + $location.port();
+//	var baseUrl = "https://" + $location.host() + ":" + $location.port();
+	var baseUrl = $location.protocol() + "://" + $location.host() + ":" + $location.port();
 	console.log(baseUrl);
 
 		    // SKILLS
@@ -213,6 +212,13 @@ app.factory('mainService', function($location, $http) {
 		});
 	};
 
+	factoryReturn.getApplication = function(applicationId) {
+		return $http({
+			method: 'GET',
+			url: baseUrl + '/applications/applicationId'
+		});
+	};
+
 	factoryReturn.addApplications = function() {
 		return $http({
 			method: 'POST',
@@ -223,7 +229,7 @@ app.factory('mainService', function($location, $http) {
 	factoryReturn.saveApplications = function(data) {
 		console.log(data);
 		return $http({
-			method: 'PUT',
+			method: 'POST',
 			url: baseUrl + '/applications/' + data._id + '/update',
 			data: data
 		})

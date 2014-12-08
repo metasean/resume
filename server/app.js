@@ -67,7 +67,7 @@ app.post('/experience/:id/delete', experience.remove);
 // APPLICATIONS API
 var applications = require('./applications.js');
 app.get('/applications', applications.list);
-app.get('/applications/:id', applications.show);
+app.get('/applications/:id', applications.show);  // !!!! FIND BY URL NOT BY ID !!!!!
 app.post('/applications', applications.insert);
 app.post('/applications/:id/update', applications.update);
 app.post('/applications/:id/delete', applications.remove);

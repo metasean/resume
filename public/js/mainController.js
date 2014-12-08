@@ -186,7 +186,7 @@ app.controller('mainController', function($scope, $window, mainService) {
 
 
 
-	// Awards
+	// Applications
 	mainService.getApplications().then(function(data) {
 		//console.log("mainController.getAwards");
 		$scope.applications = data.data;

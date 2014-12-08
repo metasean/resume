@@ -1,0 +1,154 @@
+<!-- ACTIVE APPLICATIONS -->
+<div class="">
+  <h3>Active Applications</h3>
+  <button ng-click="newApplications()">new</button>
+  <table class="admin-input">
+    <tr ng-repeat="entry in applications" class="resume-entry">
+      <td>
+        <button ng-click="saveApplications(entry)">S</button>
+        <br/><br/>
+        <button ng-click="deleteApplications(entry._id)">X</button>
+      </td>
+      <td>
+        <input ng-model="entry.title" placeholder="company &amp;/or position" type='text' class="title"/>
+        <br />
+        Available at:
+        <input ng-model="entry.url" placeholder="url" type='text' class="title"/>
+      </td>
+      <td>
+        <textarea ng-model="entry.coverLetter" placeholder="cover letter" type='text' class="textual"></textarea>
+      </td>
+    </tr>
+  </table>
+  <hr />
+
+  <!-- SKILLS -->
+  <div class="resume-section">
+    <h3>Skills</h3>
+    <button ng-click="newSkills()">new</button>
+    <table class="admin-input">
+      <tr ng-repeat="entry in skills" class="resume-entry">
+        <td>
+          <button ng-click="saveSkills(entry)">S</button>
+          <br/><br/>
+          <button ng-click="deleteSkills(entry._id)">X</button>
+        </td>
+        <td><input ng-model="entry.order" placeholder="order" type='text' class="singular"/></td>
+        <td>
+          <div class="resume-details">
+            <input ng-model="entry.level" placeholder="level" type='text' class="singular"/> - <input ng-model="entry.title" placeholder="title" type='text' class="title"/>
+          </div>
+        </td>
+        <td>
+          <div>
+            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="resume-section">
+    <h3>Experience</h3>
+    <button ng-click="newExperience()">new</button>
+    <table class="admin-input">
+      <tr ng-repeat="entry in experience" class="resume-entry">
+        <td>
+          <button ng-click="saveExperience(entry)">S</button>
+          <br/><br/>
+          <button ng-click="deleteExperience(entry._id)">X</button>
+        </td>
+        <td><input ng-model="entry.order" placeholder="order" type='text' class="singular"/></td>
+        <td>
+          <div class="resume-details">
+            <input ng-model="entry.title" placeholder="title" type='text' class="title"/>
+          </div>
+        </td>
+        <td>
+          <div>
+            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- EMPLOYMENT -->
+  <div class="resume-section">
+    <h3>Employment</h3>
+    <button ng-click="newEmployment()">new</button>
+    <table class="admin-input">
+      <tr ng-repeat="entry in employment" class="resume-entry">
+        <td>
+          <button ng-click="saveEmployment(entry)">S</button>
+          <br/><br/>
+          <button ng-click="deleteEmployment(entry._id)">X</button>
+        </td>
+        <td><input ng-model="entry.order" placeholder="order" type='text' class="singular"/></td>
+        <td>
+          <div class="resume-details">
+            <input ng-model="entry.title" placeholder="title" type='text' class="title"/> for <input ng-model="entry.organization" placeholder="organization" type='text' class="title"/> from <input ng-model="entry.start" placeholder="start" type='text' class="date"/> to <input ng-model="entry.end" placeholder="end" type='text' class="date"/>
+          </div>
+        </td>
+        <td>
+          <div>
+            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="resume-section">
+    <h3>Education</h3>
+    <button ng-click="newEducation()">new</button>
+    <table class="admin-input">
+      <tr ng-repeat="entry in education" class="resume-entry">
+        <td>
+          <button ng-click="saveEducation(entry)">S</button>
+          <br/><br/>
+          <button ng-click="deleteEducation(entry._id)">X</button>
+        </td>
+        <td><input ng-model="entry.order" placeholder="order" type='text' class="singular"/></td>
+        <td>
+          <div class="resume-details">
+            Earned a <input ng-model="entry.level" placeholder="level" type='text' class="date"/> in <input ng-model="entry.program" placeholder="program" type='text' class="title"/> from <input ng-model="entry.institution" placeholder="institution" type='text' class="title"/> in <input ng-model="entry.graduated" placeholder="graduated" type='text' class="date"/>
+          </div>
+        </td>
+        <td>
+          <div>
+            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+
+  <!-- AWARDS -->
+  <div class="resume-section">
+    <h3>Awards &amp; Honors</h3>
+    <button ng-click="newAwards()">new</button>
+    <table class="admin-input">
+      <tr ng-repeat="entry in awards" class="resume-entry">
+        <td>
+          <button ng-click="saveAwards(entry)">S</button>
+          <br/><br/>
+          <button ng-click="deleteAwards(entry._id)">X</button>
+        </td>
+        <td><input ng-model="entry.order" placeholder="order" type='text' class="singular"/></td>
+        <td>
+          <div class="resume-details">
+            Earned a <input ng-model="entry.title" placeholder="title" type='text' class="title"/> from <input ng-model="entry.organization" placeholder="organization" type='text' class="title"/> in <input ng-model="entry.graduated" placeholder="year" type='text' class="date"/>
+          </div>
+        </td>
+        <td>
+          <div>
+            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+</div> <!-- resume div -->

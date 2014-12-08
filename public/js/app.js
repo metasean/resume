@@ -6,15 +6,15 @@ app.config(function ($stateProvider, $urlRouterProvider) {
 	$stateProvider
 		.state('landing', {
 			url: '/',
-			templateUrl: '../index.html'
+			templateUrl: '../partials/resume.html'
 		})
 		.state('admin', {
 			url: '/admin',
 			templateUrl: '../admin.html'
 		})
-		.state('application', {
+		.state('landing/application', {
 			url: '/:applicationId',
-			templateUrl: '../application.html',
+			templateUrl: '../partials/application.html',
 			resolve:{
 				applicationId: ['$stateParams', function($stateParams){
 					console.log(applicationId);
