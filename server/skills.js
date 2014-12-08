@@ -62,8 +62,8 @@ var update = function(req, res) {
 	console.log('Update Skill request ...');
 //	Skill.findOneAndUpdate(query, updateVal, function (err, data) {
 //	Skill.update(query, updateVal, function (err, data) {
-//	Skill.where(query).update(updateVal, function (err, data) {
-	Skill.update(query, {$set: updateVal}, function (err, data) {
+	Skill.where(query).update(updateVal, function (err, data) {
+//	Skill.update(query, {$set: updateVal}, function (err, data) {
 		try {
 			console.log("API update success");
 			console.log("MongoDB Update's WriteResult: " + data);

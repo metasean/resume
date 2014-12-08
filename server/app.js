@@ -74,7 +74,7 @@ app.post('/applications/:id/update', applications.update);
 app.post('/applications/:id/delete', applications.remove);
 
 
-app.set('port', (4200 || process.env.PORT ));
+app.set('port', (process.env.PORT || 4200));
 app.use(express.static(__dirname + '/../public'));
 
 
