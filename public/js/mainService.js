@@ -5,19 +5,19 @@ app.factory('mainService', function($location, $http) {
 	var factoryReturn = {};
 //	var baseUrl = 'http://meteasean-resume.jit.su' || 'metasean-resume.herokuapp.com';
 //	var baseUrl = 'http://localhost:4200' ;
-	var baseUrl = "http://" + $location.host() + ":" + $location.port();
+	var baseUrl = "https://" + $location.host() + ":" + $location.port();
 	console.log(baseUrl);
 
 		    // SKILLS
 	factoryReturn.getSkills = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/skills'
 		});
 	};
 
 	factoryReturn.addSkills = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/skills'
 		})
@@ -33,7 +33,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveSkills = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/skills/' + data._id + '/update',
 			data: data
@@ -49,7 +49,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteSkills = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/skills/' + id + '/delete'
 		})
@@ -65,14 +65,14 @@ app.factory('mainService', function($location, $http) {
 
 	// EXPERIENCE
 	factoryReturn.getExperience = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/experience'
 		});
 	};
 
 	factoryReturn.addExperience = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/experience'
 		});
@@ -80,7 +80,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveExperience = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/experience/' + data._id + '/update',
 			data: data
@@ -92,7 +92,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteExperience = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/experience/' + id + '/delete'
 		});
@@ -100,14 +100,14 @@ app.factory('mainService', function($location, $http) {
 
 	// EMPLOYMENT
 	factoryReturn.getEmployment = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/employment'
 		});
 	};
 
 	factoryReturn.addEmployment = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/employment'
 		});
@@ -115,7 +115,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveEmployment = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/employment/' + data._id + '/update',
 			data: data
@@ -127,7 +127,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteEmployment = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/employment/' + id + '/delete'
 		});
@@ -135,14 +135,14 @@ app.factory('mainService', function($location, $http) {
 
 	// EDUCATION
 	factoryReturn.getEducation = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/education'
 		});
 	};
 
 	factoryReturn.addEducation = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/education'
 		});
@@ -150,7 +150,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveEducation = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/education/' + data._id + '/update',
 			data: data
@@ -162,7 +162,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteEducation = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/education/' + id + '/delete'
 		});
@@ -170,14 +170,14 @@ app.factory('mainService', function($location, $http) {
 
 	// AWARDS
 	factoryReturn.getAwards = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/awards'
 		});
 	};
 
 	factoryReturn.addAwards = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/awards'
 		});
@@ -185,7 +185,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveAwards = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/awards/' + data._id + '/update',
 			data: data
@@ -197,7 +197,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteAwards = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/awards/' + id + '/delete'
 		});
@@ -207,14 +207,14 @@ app.factory('mainService', function($location, $http) {
 
 	// APPLICATIONS
 	factoryReturn.getApplications = function() {
-		return $https({
+		return $http({
 			method: 'GET',
 			url: baseUrl + '/applications'
 		});
 	};
 
 	factoryReturn.addApplications = function() {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/applications'
 		});
@@ -222,7 +222,7 @@ app.factory('mainService', function($location, $http) {
 
 	factoryReturn.saveApplications = function(data) {
 		console.log(data);
-		return $https({
+		return $http({
 			method: 'PUT',
 			url: baseUrl + '/applications/' + data._id + '/update',
 			data: data
@@ -234,7 +234,7 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.deleteApplications = function(id) {
-		return $https({
+		return $http({
 			method: 'POST',
 			url: baseUrl + '/applications/' + id + '/delete'
 		});
