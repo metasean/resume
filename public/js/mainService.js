@@ -223,7 +223,7 @@ app.factory('mainService', function($location, $http) {
 	factoryReturn.saveApplications = function(data) {
 		console.log(data);
 		return $http({
-			method: 'POST',
+			method: 'PUT',
 			url: baseUrl + '/applications/' + data._id + '/update',
 			data: data
 		})

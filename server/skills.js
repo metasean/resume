@@ -9,7 +9,7 @@ var Skill = mongoose.model('Skill', SkillSchema);
 
 var list = function (req, res) {
 	Skill.find(function (err, data) {
-		console.log('GET Skill list request ...');
+		console.log('List Skills request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -22,7 +22,7 @@ var list = function (req, res) {
 var show = function (req, res) {
 	// limit(1) trick per: http://codeandcodes.com/tag/findone/
 	Skill.find({_id: req.params.id}).limit(1).exec(function (err, data) { 
-		console.log('GET Skill list request ...');
+		console.log('Show Skill request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -38,7 +38,7 @@ var insert = function(req, res) {
 		level: req.body.level,
 		addendum: req.body.addendum
 	});
-	console.log(data);
+	console.log('Insert Skill request ...');
 	data.save(function (err, data) {
 		try {
 			console.log("Skill created");
@@ -56,12 +56,21 @@ var update = function(req, res) {
 		level: req.body.level,
 		addendum: req.body.addendum
 	});
-	console.log(data);
-	Skill.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {
+	var query = {_id: req.params.id};
+	var updateVal = req.body;
+
+	console.log('Update Skill request ...');
+//	Skill.findOneAndUpdate(query, updateVal, function (err, data) {
+//	Skill.update(query, updateVal, function (err, data) {
+//	Skill.where(query).update(updateVal, function (err, data) {
+	Skill.update(query, {$set: updateVal}, function (err, data) {
 		try {
-			console.log(req.body);
+			console.log("API update success");
+			console.log("MongoDB Update's WriteResult: " + data);
+			console.log("error info: " + err)
 			res.send({success: true});
 		} catch (err) {
+			console.log("API update errored");
 			console.error(err);
 			res.status(404).send(error);
 		};
@@ -70,7 +79,7 @@ var update = function(req, res) {
 
 var remove = function(req, res) {
 	Skill.findOneAndRemove({_id: req.params.id}, function (err, data) { 
-		console.log('POST Skill findOneAndRemove request ...');
+		console.log('Remove Skill request ...');
 		try {
 			res.json(data);
 		} catch (err) {

@@ -27,7 +27,7 @@ var testApi = function(req, res){
 
 var list = function (req, res) {
 	Education.find(function (err, data) {
-		console.log('GET education list request ...');
+		//console.log('GET education list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -40,7 +40,7 @@ var list = function (req, res) {
 var show = function (req, res) {
 	// limit(1) trick per: http://codeandcodes.com/tag/findone/
 	Education.find({_id: req.params.id}).limit(1).exec(function (err, data) { 
-		console.log('GET education list request ...');
+		//console.log('GET education list request ...');
 		try {
 			res.json(data);
 		} catch (err) {

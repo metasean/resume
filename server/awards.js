@@ -10,7 +10,7 @@ var Award = mongoose.model('Award', AwardSchema);
 
 var list = function (req, res) {
 	Award.find(function (err, data) {
-		console.log('GET Award list request ...');
+		//console.log('GET Award list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -23,7 +23,7 @@ var list = function (req, res) {
 var show = function (req, res) {
 	// limit(1) trick per: http://codeandcodes.com/tag/findone/
 	Award.find({_id: req.params.id}).limit(1).exec(function (err, data) { 
-		console.log('GET Award list request ...');
+		//console.log('GET Award list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
