@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var EmpSchema = new mongoose.Schema({
+	order: Number,
 	organization: String,
 	title: String,
 	start: Number,
@@ -36,6 +37,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Employment({
+		order: Number,
 		organization: req.body.organization,
 		title: req.body.title,
 		start: req.body.start,
@@ -56,6 +58,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Employment({
+		order: Number,
 		organization: req.body.organization,
 		title: req.body.title,
 		start: req.body.start,

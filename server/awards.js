@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var AwardSchema = new mongoose.Schema({
+	order: Number,
 	organization: String,
 	title: String,
 	date: Number,
@@ -35,6 +36,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Award({
+		order: Number,
 		organization: req.body.organization,
 		title: req.body.title,
 		date: req.body.date,
@@ -54,6 +56,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Award({
+		order: Number,
 		organization: req.body.organization,
 		title: req.body.title,
 		date: req.body.date,

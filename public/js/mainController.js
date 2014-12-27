@@ -10,9 +10,11 @@
 
 var app = angular.module('resumeApp');
 
-app.controller('mainController', function($scope, $window, mainService) {
+app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {//, applicationsRef, skillsRef, experienceRef, employmentRef, educationRef, awardsRef) {
+
 
 	$scope.title = "Sean Duncan's Cover Letter and Resume";
+	console.log("mainController $scope.title: " + $scope.title);
 
 	$scope.reloadRoute = function() {
 		$window.location.reload();
@@ -192,6 +194,17 @@ app.controller('mainController', function($scope, $window, mainService) {
 		$scope.applications = data.data;
 	});
 
+
+/*****************************************************************************/  
+
+	console.log("applicationRef returned ... ");
+	$scope.application = applicationRef;          // for admin.html
+	//$scope.application = applicationRef.data[0];  // for application.html
+
+	console.log($scope.application);
+
+/*****************************************************************************/
+
 	$scope.newApplications = function() {
 		mainService.addApplications()
 			.then(function(data) {
@@ -215,5 +228,4 @@ app.controller('mainController', function($scope, $window, mainService) {
 				$scope.reloadRoute();
 			});
 	};
-
 });

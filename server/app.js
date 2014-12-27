@@ -74,7 +74,11 @@ app.post('/applications/:id/delete', applications.remove);
 
 
 app.set('port', (process.env.PORT || 4200));
+
+
 app.use(express.static(__dirname + '/../public'));
+
+
 
 
 app.listen(app.get('port'), function() {

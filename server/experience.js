@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var ExpSchema = new mongoose.Schema({
+	order: Number,
 	title: String,
 	addendum: String
 });
@@ -49,6 +50,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var newExperience = new Experience({
+		order: Number,
 		title: req.body.title,
 		addendum: req.body.addendum
 	});
@@ -66,6 +68,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Experience({
+		order: Number,
 		title: req.body.title,
 		addendum: req.body.addendum
 	});

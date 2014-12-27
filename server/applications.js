@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var ApplicationSchema = new mongoose.Schema({
+	order: Number,
 	title: String,
 	url: String,
 	coverLetter: String
@@ -21,8 +22,9 @@ var list = function (req, res) {
 
 var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 	// limit(1) trick per: http://codeandcodes.com/tag/findone/
-	Application.find({url: req.params.url}).limit(1).exec(function (err, data) {
-		console.log('GET Application list request ...');
+	Application.find({url: req.params.id}).limit(1).exec(function (err, data) {
+		console.log(req.params);
+		console.log('GET Application list request for ' + req.params.id + '...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -34,6 +36,7 @@ var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 
 var insert = function(req, res) {
 	var data = new Application({
+		order: Number,
 		title: req.body.title,
 		url: String,
 		coverLetter: req.body.coverLetter
@@ -52,6 +55,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Application({
+		order: Number,
 		title: req.body.title,
 		url: String,
 		coverLetter: req.body.coverLetter

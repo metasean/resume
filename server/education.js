@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var EduSchema = new mongoose.Schema({
+	order: Number,
 	institution: String,
 	program: String,
 	level: String,
@@ -52,6 +53,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var newEducation = new Education({
+		order: Number,
 		institution: req.body.institution,
 		program: req.body.program,
 		level: req.body.level,
@@ -72,6 +74,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Education({
+		order: Number,
 		institution: req.body.institution,
 		program: req.body.program,
 		level: req.body.level,

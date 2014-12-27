@@ -2,10 +2,12 @@ var app = angular.module('resumeApp');
 
 app.factory('mainService', function($location, $http) {
 
+	//debugger;
+
 	var factoryReturn = {};
 //	var baseUrl = "https://" + $location.host() + ":" + $location.port();
 	var baseUrl = $location.protocol() + "://" + $location.host() + ":" + $location.port();
-	console.log(baseUrl);
+	console.log("baseUrl is: " + baseUrl);
 
 		    // SKILLS
 	factoryReturn.getSkills = function() {
@@ -213,10 +215,19 @@ app.factory('mainService', function($location, $http) {
 	};
 
 	factoryReturn.getApplication = function(applicationId) {
+		console.log("mainService getApplication: " + baseUrl + '/applications/' + applicationId);
 		return $http({
 			method: 'GET',
-			url: baseUrl + '/applications/applicationId'
-		});
+			url: baseUrl + '/applications/' + applicationId
+		})
+		.success(function(data, status, headers, config){
+			console.log("mainService getApplication(" + applicationId + "): successful")
+			console.log(data)
+			return(data)
+		})
+		.error(function(err, status, headers, config){
+			console.log("mainService getApplication(" + applicationId + "): error is " + err)
+		})
 	};
 
 	factoryReturn.addApplications = function() {
@@ -234,7 +245,8 @@ app.factory('mainService', function($location, $http) {
 			data: data
 		})
 			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
+			.error(function(){console.log("error on update")})
+			/*.then(function(response){
 		 deferred.resolve(response.data.results);
 		 })*/;
 	};

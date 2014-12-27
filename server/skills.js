@@ -1,6 +1,7 @@
 var mongoose = require('mongoose');
 
 var SkillSchema = new mongoose.Schema({
+	order: Number,
 	title: String,
 	level: Number,
 	addendum: String
@@ -34,6 +35,7 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Skill({
+		order: Number,
 		title: req.body.title,
 		level: req.body.level,
 		addendum: req.body.addendum
@@ -52,6 +54,7 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Skill({
+		order: Number,
 		title: req.body.title,
 		level: req.body.level,
 		addendum: req.body.addendum
