@@ -58,12 +58,12 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Employment({
-		order: Number,
-		organization: req.body.organization,
-		title: req.body.title,
-		start: req.body.start,
-		end: req.body.end,
-		addendum: req.body.addendum
+		order: 999,
+		organization: 'organization',
+		title: 'title',
+		start: 'start',
+		end: 'end',
+		addendum: 'addendum'
 	});
 	console.log(data);
 	Employment.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {

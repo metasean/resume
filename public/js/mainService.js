@@ -1,262 +1,111 @@
 var app = angular.module('resumeApp');
 
-app.factory('mainService', function($location, $http) {
+app.factory('mainService', ['$location', '$http', function($location, $http) {
 
-	//debugger;
+	var categoriesTEST = ['Applications'];
 
 	var factoryReturn = {};
-//	var baseUrl = "https://" + $location.host() + ":" + $location.port();
+	var categories = ['Applications', 'Skills', 'Experience', 'Employment', 'Education', 'Awards'];
 	var baseUrl = $location.protocol() + "://" + $location.host() + ":" + $location.port();
+
 	console.log("baseUrl is: " + baseUrl);
 
-		    // SKILLS
-	factoryReturn.getSkills = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/skills'
-		});
-	};
-
-	factoryReturn.addSkills = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/skills'
-		})
-			.success(function(data) {
-				console.log("successful update");
-				console.log(data);
+	// GET CATEGORY LISTS
+	categories.forEach(function(category) {
+		var lower = category.toLowerCase();
+		factoryReturn['get' + category] = function() {
+			return $http({
+				method: 'GET',
+				url: baseUrl + '/' + lower
 			})
-			.error(function(data) {
-				console.log("error on update");
-				console.log(data);
-			});
-	};
+				.success(function (data) {
+					console.log("Successfully retrieved " + category + " list");
+					console.log(data);
+				})
+				.error(function (data) {
+					console.log("mainService get" + category + ": error is " + err);
+					console.log(data);
+				});
+		}
+	});
 
-	factoryReturn.saveSkills = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/skills/' + data._id + '/update',
-			data: data
-		})
-			.success(function(data) {
-				console.log("successful update");
-				console.log(data);
+	// ADD NEW CATEGORY ENTRY
+	categories.forEach(function(category) {
+		var lower = category.toLowerCase();
+		factoryReturn['add' + category] = function () {
+			return $http({
+				method: 'POST',
+				url   : baseUrl + '/' + lower
 			})
-			.error(function(data) {
-				console.log("error on update");
-				console.log(data);
+				.success(function (data) {
+					console.log("successful update");
+					console.log(data);
+				})
+				.error(function (data) {
+					console.log("error on update");
+					console.log(data);
+				});
+		};
+	});
+
+	// SAVE CATEGORY ENTRY
+	categories.forEach(function(category) {
+		var lower = category.toLowerCase();
+		factoryReturn['save' + category] = function (data) {
+			console.log(data);
+			return $http({
+				method: 'POST',
+				url   : baseUrl + '/' + lower + '/' + data._id + '/update',
+				data  : data
 			})
-	};
+				.success(function(data) {
+					console.log("successful update");
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log("error on update");
+					console.log(data);
+				});
+		};
+	});
 
-	factoryReturn.deleteSkills = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/skills/' + id + '/delete'
-		})
-			.success(function(data) {
-				console.log("successful update");
-				console.log(data);
+
+	// DELETE CATEGORY ENTRY
+	categories.forEach(function(category) {
+		var lower = category.toLowerCase();
+		factoryReturn["delete" + category] = function(id) {
+			return $http({
+				method: 'POST',
+				url: baseUrl + '/' + lower + '/' + id + '/delete'
 			})
-			.error(function(data) {
-				console.log("error on update");
-				console.log(data);
-			});
-	};
+				.success(function(data) {
+					console.log("successful update");
+					console.log(data);
+				})
+				.error(function(data) {
+					console.log("error on update");
+					console.log(data);
+				});
+		};
+	});
 
-	// EXPERIENCE
-	factoryReturn.getExperience = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/experience'
-		});
-	};
-
-	factoryReturn.addExperience = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/experience'
-		});
-	};
-
-	factoryReturn.saveExperience = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/experience/' + data._id + '/update',
-			data: data
-		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
-		 deferred.resolve(response.data.results);
-		 })*/;
-	};
-
-	factoryReturn.deleteExperience = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/experience/' + id + '/delete'
-		});
-	};
-
-	// EMPLOYMENT
-	factoryReturn.getEmployment = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/employment'
-		});
-	};
-
-	factoryReturn.addEmployment = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/employment'
-		});
-	};
-
-	factoryReturn.saveEmployment = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/employment/' + data._id + '/update',
-			data: data
-		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
-		 deferred.resolve(response.data.results);
-		 })*/;
-	};
-
-	factoryReturn.deleteEmployment = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/employment/' + id + '/delete'
-		});
-	};
-
-	// EDUCATION
-	factoryReturn.getEducation = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/education'
-		});
-	};
-
-	factoryReturn.addEducation = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/education'
-		});
-	};
-
-	factoryReturn.saveEducation = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/education/' + data._id + '/update',
-			data: data
-		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
-		 deferred.resolve(response.data.results);
-		 })*/;
-	};
-
-	factoryReturn.deleteEducation = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/education/' + id + '/delete'
-		});
-	};
-
-	// AWARDS
-	factoryReturn.getAwards = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/awards'
-		});
-	};
-
-	factoryReturn.addAwards = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/awards'
-		});
-	};
-
-	factoryReturn.saveAwards = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/awards/' + data._id + '/update',
-			data: data
-		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})/*.then(function(response){
-		 deferred.resolve(response.data.results);
-		 })*/;
-	};
-
-	factoryReturn.deleteAwards = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/awards/' + id + '/delete'
-		});
-	};
-
-
-
-	// APPLICATIONS
-	factoryReturn.getApplications = function() {
-		return $http({
-			method: 'GET',
-			url: baseUrl + '/applications'
-		});
-	};
-
+	// GET APPLICATION BY URL
+	// used to facilitate application-specific urls
 	factoryReturn.getApplication = function(applicationId) {
 		console.log("mainService getApplication: " + baseUrl + '/applications/' + applicationId);
 		return $http({
 			method: 'GET',
 			url: baseUrl + '/applications/' + applicationId
 		})
-		.success(function(data, status, headers, config){
-			console.log("mainService getApplication(" + applicationId + "): successful")
-			console.log(data)
-			return(data)
-		})
-		.error(function(err, status, headers, config){
-			console.log("mainService getApplication(" + applicationId + "): error is " + err)
-		})
-	};
-
-	factoryReturn.addApplications = function() {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/applications'
-		});
-	};
-
-	factoryReturn.saveApplications = function(data) {
-		console.log(data);
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/applications/' + data._id + '/update',
-			data: data
-		})
-			.success(function(){console.log("successful update")})
-			.error(function(){console.log("error on update")})
-			/*.then(function(response){
-		 deferred.resolve(response.data.results);
-		 })*/;
-	};
-
-	factoryReturn.deleteApplications = function(id) {
-		return $http({
-			method: 'POST',
-			url: baseUrl + '/applications/' + id + '/delete'
-		});
+			.success(function(data, status, headers, config){
+				console.log("mainService getApplication(" + applicationId + "): successful")
+				console.log(data)
+				return(data)
+			})
+			.error(function(err, status, headers, config){
+				console.log("mainService getApplication(" + applicationId + "): error is " + err)
+			})
 	};
 
 	return factoryReturn;
-});
+}]);

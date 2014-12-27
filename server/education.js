@@ -53,12 +53,12 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var newEducation = new Education({
-		order: Number,
-		institution: req.body.institution,
-		program: req.body.program,
-		level: req.body.level,
-		graduated: req.body.graduated,
-		addendum: req.body.addendum
+		order: 999,
+		institution: 'institution',
+		program: 'program',
+		level: 'level',
+		graduated: 'graduated',
+		addendum: 'addendum'
 	});
 	console.log(newEducation);
 	newEducation.save(function (err, newEducation) {

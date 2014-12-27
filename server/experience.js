@@ -68,9 +68,9 @@ var insert = function(req, res) {
 
 var update = function(req, res) {
 	var data = new Experience({
-		order: Number,
-		title: req.body.title,
-		addendum: req.body.addendum
+		order: 999,
+		title: 'title',
+		addendum: 'addendum'
 	});
 	console.log(data);
 	Experience.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {

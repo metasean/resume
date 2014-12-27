@@ -35,15 +35,16 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Skill({
-		order: Number,
-		title: req.body.title,
-		level: req.body.level,
-		addendum: req.body.addendum
+		order: 999,
+		title: 'title',
+		level: 0,
+		addendum: 'addendum'
 	});
 	console.log('Insert Skill request ...');
 	data.save(function (err, data) {
 		try {
-			console.log("Skill created");
+			console.log("Skill created...");
+			console.log(data);
 			res.send({success: true});
 		} catch (err) {
 			console.error(err);

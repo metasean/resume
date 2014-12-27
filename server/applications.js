@@ -36,10 +36,10 @@ var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 
 var insert = function(req, res) {
 	var data = new Application({
-		order: Number,
-		title: req.body.title,
-		url: String,
-		coverLetter: req.body.coverLetter
+		order: 999,
+		title: 'title',
+		url: 'url',
+		coverLetter: 'cover letter'
 	});
 	console.log(data);
 	data.save(function (err, data) {
