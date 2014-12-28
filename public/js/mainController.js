@@ -1,13 +1,3 @@
-/*
-
-	To run locally:
-	from directory: sudo mongod
-  from directory: mongo
-  from directory: nodemon
-	ONE MUST GO TO localhost:4200/index.html to access (where port is defined in server/app.js)
-
-*/
-
 var app = angular.module('resumeApp');
 
 app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {//, applicationsRef, skillsRef, experienceRef, employmentRef, educationRef, awardsRef) {
@@ -36,10 +26,11 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// MAIN DATA CALLS
 	// Skills
-	mainService.getSkills().then(function(data) {
-		//console.log("mainController.getSkills");
-		$scope.skills = data.data;
-	});
+	mainService.getSkills()
+		.then(function(data) {
+			//console.log("mainController.getSkills");
+			$scope.skills = data.data;
+		});
 
 	$scope.newSkills = function() {
 		mainService.addSkills()
@@ -195,13 +186,12 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	});
 
 
-/*****************************************************************************/  
+/*****************************************************************************/
 
-	console.log("applicationRef returned ... ");
-	$scope.application = applicationRef;          // for admin.html
-	//$scope.application = applicationRef.data[0];  // for application.html
-
-	console.log($scope.application);
+	$scope.application = (applicationRef.data[0] === undefined) ?
+												"no application specified" :
+												applicationRef.data[0] ;
+	console.log("applicationRef.data[0] returned ==> %o ", $scope.application);
 
 /*****************************************************************************/
 

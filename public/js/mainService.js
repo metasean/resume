@@ -19,12 +19,11 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url: baseUrl + '/' + lower
 			})
 				.success(function (data) {
-					console.log("Successfully retrieved " + category + " list");
-					console.log(data);
+					console.log("Successfully retrieved %s ==> %o", category, data);
 				})
 				.error(function (data) {
-					console.log("mainService get" + category + ": error is " + err);
-					console.log(data);
+					console.error("mainService get" + category + ": error is " + err);
+					console.error(data);
 				});
 		}
 	});
@@ -38,12 +37,12 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url   : baseUrl + '/' + lower
 			})
 				.success(function (data) {
-					console.log("successful update");
+					console.log("Successfully created a new " + category + " entry");
 					console.log(data);
 				})
 				.error(function (data) {
-					console.log("error on update");
-					console.log(data);
+					console.error("mainService created" + category + ": error is " + err);
+					console.error(data);
 				});
 		};
 	});
@@ -59,12 +58,12 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				data  : data
 			})
 				.success(function(data) {
-					console.log("successful update");
+					console.log("Successfully updated " + category + " " + data._id + " entry");
 					console.log(data);
 				})
 				.error(function(data) {
-					console.log("error on update");
-					console.log(data);
+					console.error("mainService update" + category + ": error is " + err);
+					console.error(data);
 				});
 		};
 	});
@@ -79,12 +78,12 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url: baseUrl + '/' + lower + '/' + id + '/delete'
 			})
 				.success(function(data) {
-					console.log("successful update");
+					console.log("Successfully deleted " + category + " " + data._id + " entry");
 					console.log(data);
 				})
 				.error(function(data) {
-					console.log("error on update");
-					console.log(data);
+					console.error("mainService delete" + category + ": error is " + err);
+					console.error(data);
 				});
 		};
 	});
@@ -98,12 +97,12 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 			url: baseUrl + '/applications/' + applicationId
 		})
 			.success(function(data, status, headers, config){
-				console.log("mainService getApplication(" + applicationId + "): successful")
-				console.log(data)
+				console.log("Successfully returned mainService getApplication(%s) ==> %o", applicationId, data);
 				return(data)
 			})
 			.error(function(err, status, headers, config){
-				console.log("mainService getApplication(" + applicationId + "): error is " + err)
+				console.error("mainService getApplication(" + applicationId + "): error is " + err);
+				console.error(data);
 			})
 	};
 

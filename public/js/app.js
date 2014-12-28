@@ -14,7 +14,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		.state('landing', {
 			url: '/',
 			templateUrl: '../partials/resume.html',
-          	controller: 'mainController',
+			controller: 'mainController',
 			resolve: {
 				applicationRef: [function() {
 					return ''; //need to refactor
@@ -25,22 +25,23 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 		.state('admin', {
 			url: '/admin',
 			templateUrl: '../partials/admin.html',
-          	controller: 'mainController',
+			controller: 'mainController',
 			resolve: {
-				applicationRef: [function() {
-					return ''; //need to refactor
-					//this is a hack because I'm using the some controller for too many views
+				applicationRef: ['mainService', '$stateParams', function(mainService, $stateParams) {
+					var dataCall = mainService.getApplication($stateParams.applicationId)
+					return dataCall;
 				}]
 			}
 		})
 		.state('application', {
 			url: '/:applicationId',
 			templateUrl: '../partials/application.html',
-          	controller: 'mainController',
+			controller: 'mainController',
 			resolve: {
 				applicationRef: ['mainService', '$stateParams', function(mainService, $stateParams) {
-					var dataCall = mainService.getApplication($stateParams.applicationId)
-					return dataCall[0];
+					var dataCall = mainService.getApplication($stateParams.applicationId);
+					//return dataCall[0];
+					return dataCall;
 				}]
 			}
 		});
