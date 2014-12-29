@@ -44,27 +44,8 @@ table, table tr, table td {
 	padding: 0.5em 0.5em 0.5em 0em;
 }
 
-.speech-arrow {
-	width: 0;
-	height: 0;
-	border-top: 0.5em solid transparent;
-	border-bottom: 0.5em solid transparent;
-	border-right: 0.5em solid #FFF008;
-}
-
 .resume-entry {
 	width: 100%;
-}
-
-.resume-addendum {
-	background-color: #FFF008;
-	width: 100%;
-	min-width: 25em;
-	/* height: 100%; */
-	padding: 0.5em 1.0em 0.5em 0.5em;
-	border-radius: 0.15em;
-	font-style: italic;
-	display: block;
 }
 
 .admin-input {
@@ -105,34 +86,3 @@ textarea.textual {
 	height: 7em;
 }
 
-/* yellow_box{padding-top:6px;white-space:normal;position:absolute;font-style:italic} */
-
-/***************************************
-   ANIMATION
-***************************************/
-
-.animation.ng-show, .animation.ng-hide,
-.animation {
-
-	/* cross-browser css-transition entries */
-	-webkit-transition:all linear 0.5s;
-	-moz-transition:all linear 0.5s;
-	-o-transition:all linear 0.5s;
-	transition:all linear 0.5s;
-
-	/* magic sauce that lets the divs
-         work within the td */
-	display:block!important; 
-
-	width: 100%;
-}
-
-.animation.ng-show,
-.animation.ng-show-active {
-	opacity: 1;
-}
-
-.animation.ng-hide,
-.animation.ng-hide-active {
-	opacity: 0;
-}

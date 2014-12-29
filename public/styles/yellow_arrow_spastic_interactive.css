@@ -1,0 +1,138 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    color: #717073;
+}
+
+h1, h2, h3 {
+    width: 100%;
+    padding-top: 1.0em;
+    margin: auto;
+}
+
+table, table tr, table td {
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
+}
+
+.cover-letter {
+    width: calc(100% - 3.5em);
+    margin: auto;
+}
+
+.resume {
+    width: calc(100% - 3.5em);
+    margin: auto;
+}
+
+.resume-section table,
+.resume-section table tr,
+.resume-section table tr td,
+.resume-section table tr td div,
+.resume-section,
+.resume-section tr,
+.resume-section tr td,
+.resume-section tr td div {
+    width: 100%:
+}
+
+.resume-details {
+    min-width: 10em;
+    /*max-width: 50%; */
+    padding: 0.5em 0.5em 0.5em 0em;
+}
+
+.speech-arrow {
+    width: 0;
+    height: 0;
+    border-top: 0.5em solid transparent;
+    border-bottom: 0.5em solid transparent;
+    border-right: 0.5em solid #FFF008;
+}
+
+.resume-entry {
+    width: 100%;
+}
+
+.resume-addendum {
+    background-color: #FFF008;
+    width: 100%;
+    min-width: 25em;
+    /* height: 100%; */
+    padding: 0.5em 1.0em 0.5em 0.5em;
+    border-radius: 0.15em;
+    font-style: italic;
+    display: block;
+}
+
+.admin-input {
+    width: 100%;
+}
+
+.admin-input tr td {
+    border: 1px solid dimgray;
+    padding: 0.5em;
+    min-width: 25%;
+    max-width: 50%;
+}
+
+.admin-input tr td input {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+input.singular {
+    max-width: 2em;
+}
+
+input.date {
+    min-width: 8em;
+    max-width: 10em;
+}
+
+input.title {
+    min-width: 10em;
+    max-width: 20em;
+}
+
+textarea.textual {
+    min-width: 40em;
+    height: 7em;
+}
+
+/* yellow_box{padding-top:6px;white-space:normal;position:absolute;font-style:italic} */
+
+/***************************************
+   ANIMATION
+***************************************/
+
+.animation.ng-show, .animation.ng-hide,
+.animation {
+
+    /* cross-browser css-transition entries */
+    -webkit-transition:all linear 0.5s;
+    -moz-transition:all linear 0.5s;
+    -o-transition:all linear 0.5s;
+    transition:all linear 0.5s;
+
+    /* magic sauce that lets the divs
+         work within the td */
+    display:block!important;
+
+    width: 100%;
+}
+
+.animation.ng-show,
+.animation.ng-show-active {
+    opacity: 1;
+}
+
+.animation.ng-hide,
+.animation.ng-hide-active {
+    opacity: 0;
+}

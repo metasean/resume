@@ -1,6 +1,21 @@
+
+<link rel="stylesheet" ng-href="styles/{{ css }}.css">
+
 <!-- STANDARD COVER LETTER STUFF -->
 <div class="cover-letter">
+
   <h2>{{title}} for {{application.title}}</h2>
+
+  <div class="style-selector">
+    <form>
+      <div class="style-selection-group">
+        <label>This is an interactive resume.  Please select how you would like it displayed:</label>
+        <select class="form-control" ng-model="css" ng-options="style.css as style.title for style in styles"></select>
+      </div>
+    </form>
+  </div>
+
+
   <p>{{application.coverLetter}}<p>
     <div ng-show=false>
       <p>Welcome to my online cover letter and resume for XXX's Web Developer position.</p>

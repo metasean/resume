@@ -1,10 +1,45 @@
 var app = angular.module('resumeApp');
 
+// REFACTOR: separate out controller functionality
 app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {//, applicationsRef, skillsRef, experienceRef, employmentRef, educationRef, awardsRef) {
 
 
 	$scope.title = "Sean Duncan's Cover Letter and Resume";
 	console.log("mainController $scope.title: " + $scope.title);
+
+	/*****************************************************************************\
+	 |
+	 |  STYLE SWITCHER
+	 |  based on:
+	 |  https://scotch.io/tutorials/use-angularjs-and-nghref-to-grab-css-dynamically
+	 |  with customizations and appropriate ui-sref modifications
+	 |
+	 \*****************************************************************************/
+
+	// array of available styles
+	// ADD: set up styles model in database
+	// ADD: add available styles to applications model
+	$scope.styles = [
+		{name: 'dull', title: 'Dull - Standard', css: 'style', table: true,
+			description: 'Standard tabular resume'},
+		{name: 'spastic', title: 'Spastic - Yellow Larson', css: 'yellow_arrow_spastic_interactive', table: true,
+			description: 'manual, vertical, yellow larson scanner - move mouse up and down over right column at a moderate speed to see the effect'}
+	];
+
+	// default style name
+	// ADD: move default page style to applications model
+	$scope.style = 'dull';
+
+	$scope.css = 'style';
+	$scope.html = true;
+
+
+	/*****************************************************************************\
+	 |
+	 |  DATA BLOCK
+	 |  REFACTOR: DRY data calls
+	 |
+	 \*****************************************************************************/
 
 	$scope.reloadRoute = function() {
 		$window.location.reload();
