@@ -25,7 +25,7 @@ var testApi = function(req, res){
 
 var list = function (req, res) {
 	Experience.find(function (err, data) {
-		//console.log('GET Experience list request ...');
+		console.log('GET Experience list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -49,13 +49,13 @@ var show = function (req, res) {
 };
 
 var insert = function(req, res) {
-	var newExperience = new Experience({
-		order: Number,
-		title: req.body.title,
-		addendum: req.body.addendum
+	var data = new Experience({
+		order: 999,
+		title: 'title',
+		addendum: 'addendum'
 	});
-	console.log(newExperience);
-	newExperience.save(function (err, newExperience) {
+	console.log(data);
+	data.save(function (err, newExperience) {
 		try {
 			console.log("Experience created");
 			res.send({success: true});
@@ -67,13 +67,11 @@ var insert = function(req, res) {
 };
 
 var update = function(req, res) {
-	var data = new Experience({
-		order: 999,
-		title: 'title',
-		addendum: 'addendum'
-	});
-	console.log(data);
-	Experience.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {
+	var query = {_id: req.params.id};
+	var updateVal = req.body;
+
+	console.log('Update Experience ...');
+	Experience.where(query).update(updateVal, function (err, data) {
 		try {
 			console.log(req.body);
 			res.send({success: true});

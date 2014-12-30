@@ -13,7 +13,7 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 	$stateProvider
 		.state('landing', {
 			url: '/',
-			templateUrl: '../partials/resume.html',
+			templateUrl: '../partials/metasean.html',
 			controller: 'mainController',
 			resolve: {
 				applicationRef: [function() {

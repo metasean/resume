@@ -54,24 +54,13 @@ var insert = function(req, res) {
 };
 
 var update = function(req, res) {
-	var data = new Skill({
-		order: Number,
-		title: req.body.title,
-		level: req.body.level,
-		addendum: req.body.addendum
-	});
 	var query = {_id: req.params.id};
 	var updateVal = req.body;
 
-	console.log('Update Skill request ...');
-//	Skill.findOneAndUpdate(query, updateVal, function (err, data) {
-//	Skill.update(query, updateVal, function (err, data) {
+	console.log('Update Skill ...');
 	Skill.where(query).update(updateVal, function (err, data) {
-//	Skill.update(query, {$set: updateVal}, function (err, data) {
 		try {
-			console.log("API update success");
-			console.log("MongoDB Update's WriteResult: " + data);
-			console.log("error info: " + err)
+			console.log("MongoDB Update's WriteResult: %o", data);
 			res.send({success: true});
 		} catch (err) {
 			console.log("API update errored");

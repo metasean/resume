@@ -3,11 +3,6 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 var bodyParser = require('body-parser');
 
-// http://www.elliotbradbury.com/use-mongohq-heroku-without-verifying-account/
-// http://stackoverflow.com/questions/7575664/node-js-connecting-to-mongodb-using-mongohq-on-heroku
-// https://docs.compose.io/languages/mongoose.html
-// heroku config:set NODE_ENV=production
-
 var mongoUri = process.env.MONGOHQ_URL || process.env.MONGOLAB_URI ||'mongodb://localhost/resume';
 mongoose.connect(mongoUri);
 
@@ -25,7 +20,6 @@ app.use(bodyParser.json());
 
 // EDUCATION API
 var education = require('./education.js');
-app.get('/api', education.testApi);
 app.get('/education', education.list);
 app.get('/education/:id', education.show);
 app.post('/education', education.insert);

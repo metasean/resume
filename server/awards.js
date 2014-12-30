@@ -4,14 +4,14 @@ var AwardSchema = new mongoose.Schema({
 	order: Number,
 	organization: String,
 	title: String,
-	date: Number,
+	date: String,
 	addendum: String
 });
 var Award = mongoose.model('Award', AwardSchema);
 
 var list = function (req, res) {
 	Award.find(function (err, data) {
-		//console.log('GET Award list request ...');
+		console.log('GET Award list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -39,7 +39,7 @@ var insert = function(req, res) {
 		order: 999,
 		organization: 'organization',
 		title: 'title',
-		date: 'date',
+		date: 'date-field',
 		addendum: 'addendum'
 	});
 	console.log(data);
@@ -55,15 +55,11 @@ var insert = function(req, res) {
 };
 
 var update = function(req, res) {
-	var data = new Award({
-		order: Number,
-		organization: req.body.organization,
-		title: req.body.title,
-		date: req.body.date,
-		addendum: req.body.addendum
-	});
-	console.log(data);
-	Award.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {
+	var query = {_id: req.params.id};
+	var updateVal = req.body;
+
+	console.log('Update Award ...');
+	Award.where(query).update(updateVal, function (err, data) {
 		try {
 			console.log(req.body);
 			res.send({success: true});

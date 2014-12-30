@@ -4,15 +4,15 @@ var EmpSchema = new mongoose.Schema({
 	order: Number,
 	organization: String,
 	title: String,
-	start: Number,
-	end: Number,
+	start: String,
+	end: String,
 	addendum: String
 });
 var Employment = mongoose.model('Employment', EmpSchema);
 
 var list = function (req, res) {
 	Employment.find(function (err, data) {
-		//console.log('GET Employment list request ...');
+		console.log('GET Employment list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -37,17 +37,18 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Employment({
-		order: Number,
-		organization: req.body.organization,
-		title: req.body.title,
-		start: req.body.start,
-		end: req.body.end,
-		addendum: req.body.addendum
+		order: 999,
+		organization: 'organization',
+		title: 'title',
+		start: 'start',
+		end: 'end',
+		addendum: 'addendum'
 	});
-	console.log(data);
+	console.log('Insert Employment request ...');
 	data.save(function (err, data) {
 		try {
-			console.log("Employment created");
+			console.log("Employment created ...");
+			console.log(data);
 			res.send({success: true});
 		} catch (err) {
 			console.error(err);
@@ -57,16 +58,11 @@ var insert = function(req, res) {
 };
 
 var update = function(req, res) {
-	var data = new Employment({
-		order: 999,
-		organization: 'organization',
-		title: 'title',
-		start: 'start',
-		end: 'end',
-		addendum: 'addendum'
-	});
-	console.log(data);
-	Employment.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {
+	var query = {_id: req.params.id};
+	var updateVal = req.body;
+
+	console.log('Update Employment ...');
+	Employment.where(query).update(updateVal, function (err, data) {
 		try {
 			console.log(req.body);
 			res.send({success: true});

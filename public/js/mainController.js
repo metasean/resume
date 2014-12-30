@@ -1,7 +1,7 @@
 var app = angular.module('resumeApp');
 
 // REFACTOR: separate out controller functionality
-app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {//, applicationsRef, skillsRef, experienceRef, employmentRef, educationRef, awardsRef) {
+app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {
 
 
 	$scope.title = "Sean Duncan's Cover Letter and Resume";
@@ -10,28 +10,45 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	/*****************************************************************************\
 	 |
 	 |  STYLE SWITCHER
-	 |  based on:
-	 |  https://scotch.io/tutorials/use-angularjs-and-nghref-to-grab-css-dynamically
-	 |  with customizations and appropriate ui-sref modifications
 	 |
 	 \*****************************************************************************/
 
+
+
 	// array of available styles
 	// ADD: set up styles model in database
-	// ADD: add available styles to applications model
+	// ADD: add available styles to the Applications model
 	$scope.styles = [
-		{name: 'dull', title: 'Dull - Standard', css: 'style', table: true,
-			description: 'Standard tabular resume'},
-		{name: 'spastic', title: 'Spastic - Yellow Larson', css: 'yellow_arrow_spastic_interactive', table: true,
-			description: 'manual, vertical, yellow larson scanner - move mouse up and down over right column at a moderate speed to see the effect'}
+		{
+			name       : 'dull',
+			title      : 'Dull - Standard',
+			css        : 'dull-standard',
+			table      : true,
+			description: 'Standard tabular resume'
+		},
+		{
+			name       : 'yellow_arrow_ui',
+			title      : 'Yellow Conversation',
+			css        : 'yellow_arrow_spastic_interactive',
+			table      : false,
+			description: 'A textual conversation about my resume details.'
+		},
+		{
+			name       : 'spastic',
+			title      : 'Spastic - Yellow Larson',
+			css        : 'yellow_arrow_spastic_interactive',
+			table      : true,
+			description: 'Move your mouse up and down over the resume portion to see a vertical Larson Scanner effect.' +
+			'\n Or take your time and learn a bit more about me.'
+		}
 	];
 
-	// default style name
+	// initiallize a default style
 	// ADD: move default page style to applications model
-	$scope.style = 'dull';
+	$scope.style = $scope.styles[0];
 
-	$scope.css = 'style';
-	$scope.html = true;
+	//$scope.css = 'dull-standard';
+	//$scope.html = true;
 
 
 	/*****************************************************************************\
@@ -100,15 +117,15 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	$scope.newExperience = function() {
 		mainService.addExperience()
 			.then(function(data) {
-				$scope.skills = data.data;
+				$scope.experience = data.data;
 				$scope.reloadRoute();
 			});;
 	};
 
 	$scope.saveExperience = function(exp) {
-		mainService.saveExperiences(exp)
+		mainService.saveExperience(exp)
 			.then(function(data) {
-				$scope.skills = data.data;
+				$scope.experience = data.data;
 				$scope.reloadRoute();
 			});
 	};
@@ -116,7 +133,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	$scope.deleteExperience = function(id) {
 		mainService.deleteExperience(id)
 			.then(function(data) {
-				$scope.skills = data.data;
+				$scope.experience = data.data;
 				$scope.reloadRoute();
 			});
 	};
@@ -216,7 +233,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Applications
 	mainService.getApplications().then(function(data) {
-		//console.log("mainController.getAwards");
+		//console.log("mainController.getApplications");
 		$scope.applications = data.data;
 	});
 

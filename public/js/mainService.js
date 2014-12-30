@@ -62,7 +62,7 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 					console.log(data);
 				})
 				.error(function(data) {
-					console.error("mainService update" + category + ": error is " + err);
+					console.error("mainService save" + category + ": error is " + err);
 					console.error(data);
 				});
 		};

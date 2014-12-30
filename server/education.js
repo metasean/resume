@@ -5,7 +5,7 @@ var EduSchema = new mongoose.Schema({
 	institution: String,
 	program: String,
 	level: String,
-	graduated: Number,
+	graduated: String,
 	addendum: String
 });
 var Education = mongoose.model('Education', EduSchema);
@@ -28,7 +28,7 @@ var testApi = function(req, res){
 
 var list = function (req, res) {
 	Education.find(function (err, data) {
-		//console.log('GET education list request ...');
+		console.log('GET education list request ...');
 		try {
 			res.json(data);
 		} catch (err) {
@@ -52,7 +52,7 @@ var show = function (req, res) {
 };
 
 var insert = function(req, res) {
-	var newEducation = new Education({
+	var data = new Education({
 		order: 999,
 		institution: 'institution',
 		program: 'program',
@@ -60,8 +60,8 @@ var insert = function(req, res) {
 		graduated: 'graduated',
 		addendum: 'addendum'
 	});
-	console.log(newEducation);
-	newEducation.save(function (err, newEducation) {
+	console.log(data);
+	data.save(function (err, newEducation) {
 		try {
 			console.log("education created");
 			res.send({success: true});
@@ -73,16 +73,11 @@ var insert = function(req, res) {
 };
 
 var update = function(req, res) {
-	var data = new Education({
-		order: Number,
-		institution: req.body.institution,
-		program: req.body.program,
-		level: req.body.level,
-		graduated: req.body.graduated,
-		addendum: req.body.addendum
-	});
-	console.log(data);
-	Education.findOneAndUpdate({_id: req.params.id}, req.body, function (err, data) {
+	var query = {_id: req.params.id};
+	var updateVal = req.body;
+
+	console.log('Update Education ...');
+	Education.where(query).update(updateVal, function (err, data) {
 		try {
 			console.log(req.body);
 			res.send({success: true});

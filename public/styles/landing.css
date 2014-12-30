@@ -1,0 +1,60 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+    font-family: 'Muli', sans-serif;
+}
+
+#banner {
+    background-image: url("http://d13pix9kaak6wt.cloudfront.net/background/users/m/e/t/metasean_1419460177_9.jpg");
+    background-color: #eeeeee;
+    background-size: cover;
+    width: 100%;
+}
+
+#content {
+    display: inline-block;
+    width: 34em;
+    padding: 1em;
+    text-align: left;
+}
+
+h1, h4 {
+    text-decoration: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    color: #2D1D3F;\
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+h1 {
+    font-family: 'Muli', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+    text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
+}
+
+h2 {
+    font-family: "Julius Sans One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+h3 {
+    font-family: "Julius Sans One", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+}
+
+h4 {
+    font-family: 'woff', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}
