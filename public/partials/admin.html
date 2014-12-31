@@ -1,11 +1,15 @@
-<!-- ACTIVE APPLICATIONS -->
+
+<link rel="stylesheet" href="styles/admin.css" type="text/css"/>
+
+<!-- APPLICATIONS -->
 <div class="">
   <h3>Active Applications</h3>
   <button ng-click="newApplications()">new</button>
   <table class="admin-input">
     <tr ng-repeat="entry in applications" class="resume-entry">
       <td>
-        <input ng-model="entry.title" placeholder="company &amp;/or position" type='text' class="title"/>
+        <input ng-model="entry.position" placeholder="position" type='text' class="title"/> at
+        <input ng-model="entry.organization" placeholder="organization &amp;/or position" type='text' class="title"/>
         <br />
         Available at:
         <input ng-model="entry.url" placeholder="url" type='text' class="title"/>
@@ -14,9 +18,9 @@
         <textarea ng-model="entry.coverLetter" placeholder="cover letter" type='text' class="textual"></textarea>
       </td>
       <td class="buttons">
-        <button ng-click="saveApplication(entry)">Save</button>
+        <button ng-click="saveApplications(entry)">Save</button>
         <br/><br/>
-        <button ng-click="deleteApplication(entry._id)">Delete</button>
+        <button ng-click="deleteApplications(entry._id)">Delete</button>
       </td>
     </tr>
   </table>

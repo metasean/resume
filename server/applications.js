@@ -2,7 +2,8 @@ var mongoose = require('mongoose');
 
 var ApplicationSchema = new mongoose.Schema({
 	order: Number,
-	title: String,
+	position: String,
+	organization: String,
 	url: String,
 	coverLetter: String
 });
@@ -36,10 +37,11 @@ var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 
 var insert = function(req, res) {
 	var data = new Application({
-		order: 999,
-		title: 'title',
-		url: 'url',
-		coverLetter: 'cover letter'
+		order: 99,
+		position: '',
+		organization: '',
+		url: '',
+		coverLetter: ''
 	});
 	console.log(data);
 	data.save(function (err, data) {
@@ -56,7 +58,8 @@ var insert = function(req, res) {
 var update = function(req, res) {
 	var data = new Application({
 		order: Number,
-		title: req.body.title,
+		position: req.body.position,
+		organization: req.body.organization,
 		url: String,
 		coverLetter: req.body.coverLetter
 	});

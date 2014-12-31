@@ -3,9 +3,10 @@ var app = angular.module('resumeApp');
 // REFACTOR: separate out controller functionality
 app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {
 
-
-	$scope.title = "Sean Duncan's Cover Letter and Resume";
+	// ADD: add applicant to the Applications model
+	$scope.applicant = "Sean Duncan";
 	console.log("mainController $scope.title: " + $scope.title);
+	$scope.printUrl = $location.absUrl();
 
 	/*****************************************************************************\
 	 |
@@ -18,6 +19,8 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	// array of available styles
 	// ADD: set up styles model in database
 	// ADD: add available styles to the Applications model
+	/* REFACTOR: change "table: true|false" approach to an "html: partial.html" approach,
+	             or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
 	$scope.styles = [
 		{
 			name       : 'dull',
@@ -29,9 +32,9 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		{
 			name       : 'yellow_arrow_ui',
 			title      : 'Yellow Conversation',
-			css        : 'yellow_arrow_spastic_interactive',
+			css        : 'dull-standard',
 			table      : false,
-			description: 'A textual conversation about my resume details.'
+			description: 'COMING SOON (Will be a textual conversation about my resume details.)'
 		},
 		{
 			name       : 'spastic',
@@ -46,9 +49,6 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	// initiallize a default style
 	// ADD: move default page style to applications model
 	$scope.style = $scope.styles[0];
-
-	//$scope.css = 'dull-standard';
-	//$scope.html = true;
 
 
 	/*****************************************************************************\

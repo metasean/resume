@@ -1,0 +1,134 @@
+html, body {
+	height: 100%;
+	width: 100%;
+	margin: 0;
+}
+
+.wrap-break {
+	display: inline-block;
+}
+
+/* By default, do not display print-only elements */
+/*.print-header ,*/
+.print {
+	display: none;
+}
+
+
+
+/* temporarily using <pre> to deal with line breaks,
+   <pre> not designed to inherit typical typography,
+   so it must be intentially be set                  */
+/* REFACTOR: deal with line breaks in a more Angular way */
+pre.cover-letter {
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	font-size: 1rem;
+	/* http://stackoverflow.com/a/248013/4285306 */
+	white-space: pre-wrap;       /* CSS 3 */
+	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
+	white-space: -pre-wrap;      /* Opera 4-6 */
+	white-space: -o-pre-wrap;    /* Opera 7 */
+	word-wrap: break-word;       /* Internet Explorer 5.5+ */
+}
+
+/*
+h1, h2, h3 {
+	width: 100%;
+	padding-top: 1.0em;
+	margin: auto;
+}
+
+table, table tr, table td {
+	padding: 0;
+	border: 0;
+	border-spacing: 0;
+}
+
+.cover-letter {
+	width: calc(100% - 3.5em);
+	margin: auto;
+}
+
+.resume {
+	width: calc(100% - 3.5em);
+	margin: auto;
+}
+
+.resume-section table,
+.resume-section table tr,
+.resume-section table tr td,
+.resume-section table tr td div,
+.resume-section,
+.resume-section tr,
+.resume-section tr td,
+.resume-section tr td div {
+	width: 100%:
+}
+
+.resume-details {
+	min-width: 10em;
+	padding: 0.5em 0.5em 0.5em 0em;
+}
+
+.resume-entry {
+	width: 100%;
+}
+
+.admin-input {
+	width: 100%;
+}
+
+.admin-input tr td {
+	border: 1px solid dimgray;
+	padding: 0.5em;
+	/*min-width: 25%;*/ /*
+}
+
+.admin-input tr td input {
+	width: 100%;
+	box-sizing: border-box;
+	-webkit-box-sizing:border-box;
+	-moz-box-sizing: border-box;
+}
+
+td.order {
+	width: 2.5em;
+	text-align: center;
+	vertical-align: top;
+}
+
+td.skill-level {
+	width: 17.5em;
+	text-align: center;
+	vertical-align: top;
+}
+
+td.buttons {
+	width: 4em;
+	text-align: center;
+	vertical-align: top;
+}
+
+input.singular {
+	max-width: 3em;
+}
+
+input.date {
+	min-width: 8em;
+	max-width: 10em;
+}
+
+input.title {
+	min-width: 10em;
+	max-width: 20em;
+}
+
+textarea.textual {
+	min-width: 40em;
+	width: 100%;
+	height: 7em;
+}
+
+*/

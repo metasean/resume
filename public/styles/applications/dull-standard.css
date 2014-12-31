@@ -1,0 +1,150 @@
+html, body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    color: #000000;
+    font-family: 'Muli', sans-serif;
+}
+
+/* temporarily using <pre> to deal with line breaks,
+   <pre> not designed to inherit typical typography,
+   so it must be intentially be set                  */
+pre.cover-letter {
+    color: #000000;
+    font-family: 'Muli', sans-serif;
+}
+
+.style-selector {
+    background-color: #666666;
+    color: #ffffff;
+    margin: 0;
+    padding: 1.00em 0 0.75em 0;
+}
+
+.style-selection-group {
+    width: calc(100% - 3.5em);
+    margin: auto;
+}
+
+.title,
+.cover-letter,
+.resume {
+    width: calc(100% - 3.5em);
+    margin: auto;
+}
+
+.yellow-box,
+.resume-addendum {
+    visibility: hidden;
+    display: none;
+}
+
+/*
+h1, h2, h3 {
+    width: 100%;
+    padding-top: 1.0em;
+    margin: auto;
+}
+
+table, table tr, table td {
+    padding: 0;
+    border: 0;
+    border-spacing: 0;
+}
+
+.resume-section table,
+.resume-section table tr,
+.resume-section table tr td,
+.resume-section table tr td div,
+.resume-section,
+.resume-section tr,
+.resume-section tr td,
+.resume-section tr td div {
+    width: 100%:
+}
+
+.resume-details {
+    width: 100%;
+}
+
+.resume-entry {
+    width: 100%;
+}
+
+.admin-input {
+    width: 100%;
+}
+
+.admin-input tr td {
+    border: 1px solid dimgray;
+    padding: 0.5em;
+    min-width: 25%;
+    max-width: 50%;
+}
+
+.admin-input tr td input {
+    width: 100%;
+    box-sizing: border-box;
+    -webkit-box-sizing:border-box;
+    -moz-box-sizing: border-box;
+}
+
+
+input.singular {
+    max-width: 2em;
+}
+
+input.date {
+    min-width: 8em;
+    max-width: 10em;
+}
+
+input.title {
+    min-width: 10em;
+    max-width: 20em;
+}
+
+textarea.textual {
+    min-width: 40em;
+    height: 7em;
+}
+
+*/
+
+h1, h4 {
+    text-decoration: none;
+    -moz-text-decoration-color: -moz-use-text-color;
+    -moz-text-decoration-line: none;
+    -moz-text-decoration-style: solid;
+    color: #2D1D3F;
+}
+
+h1 {
+    font-family: 'Muli', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+h2 {
+    font-family: "Julius Sans One", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+}
+
+h3 {
+    font-family: "Julius Sans One", sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    text-transform: uppercase;
+    color: #666666;
+}
+
+h4 {
+    font-family: 'woff', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 16px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+}

@@ -1,0 +1,59 @@
+/* add print-only elements */
+
+.print {
+    display: inline;
+}
+
+
+.footer {
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    margin: 0.25em 0 0 0;
+    padding: 0;
+}
+
+/* remove non-printing elements */
+.screen-only,
+.style-selector {
+    display: none;
+}
+
+
+/* make links visible */
+/* mostly from http://alistapart.com/article/goingtoprint/ */
+
+a:link,
+a:visited {
+    color: #520;
+    background: transparent;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.application a:link:after,
+.application a:visited:after {
+    content: " (" attr(href) ") ";
+    font-size: 90%;
+}
+
+
+/* resize for print */
+
+body {
+    margin:0;
+    padding:0;
+    line-height: 1.4em;
+    word-spacing:1px;
+    letter-spacing:0.2px;
+    font: 12pt Arial, Helvetica,"Lucida Grande", serif;
+}
+
+.title,
+.cover-letter,
+.resume {
+    width: 100%;
+    margin: 0;
+    border: 0;
+}
