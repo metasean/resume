@@ -98,9 +98,21 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 		})
 			.success(function(data, status, headers, config){
 				console.log("Successfully returned mainService getApplication(%s) ==> %o", applicationId, data);
-				return(data)
+				debugger;
+				return new Promise(function(resolve, reject) {
+					if (!data[0]) {
+						var error = "indicated application – %s – does not exist", applicationId;
+						console.log(error)
+						reject(Error(error));
+					}
+					else {
+						console.log("application URL defined; returning data")
+						resolve(data);
+					}
+				});
 			})
 			.error(function(err, status, headers, config){
+				debugger;
 				console.error("mainService getApplication(" + applicationId + "): error is " + err);
 				console.error(data);
 			})

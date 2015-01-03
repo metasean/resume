@@ -38,10 +38,21 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			templateUrl: '../partials/application.html',
 			controller: 'mainController',
 			resolve: {
+				//applicationRef: ['mainService', '$stateParams', function(mainService, $stateParams) {
+				//	var dataCall = mainService.getApplication($stateParams.applicationId);
+				//	console.log("dataCall is: %o", dataCall);
+				//	return dataCall;
+				//}]
 				applicationRef: ['mainService', '$stateParams', function(mainService, $stateParams) {
-					var dataCall = mainService.getApplication($stateParams.applicationId);
-					//return dataCall[0];
-					return dataCall;
+					return mainService.getApplication($stateParams.applicationId)
+						.success(function(data) {
+							console.log("applicationRef success");
+							return data;
+						})
+						.error(function(error) {
+							console.log("applicationRef error");
+							return;
+						});
 				}]
 			}
 		});
@@ -51,4 +62,3 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 
 //	$locationProvider.html5Mode(true);
 });
-

@@ -3,11 +3,13 @@
 <link rel="stylesheet" href="styles/applications/dull-standard.css" type="text/css" media="print" />
 <link rel="stylesheet" href="styles/print.css" type="text/css" media="print" />
 
+<div class="page">
+
 <div class="style-selector">
   <form>
     <div class="style-selection-group">
       <p> </p>
-      <label>The following is an interactive resume.  Please select how you would like it displayed:</label>
+      <!-- label>The following is an interactive resume.  Please select how you would like it displayed:</label -->
       <p>
         <select class="form-control" ng-model="style" ng-options="style.title for style in styles" ></select>
         {{ style.description }}
@@ -16,7 +18,15 @@
   </form>
 </div>
 
-<div class="application">
+<div class="style-selection-note" ng-hide=style.name>
+  <div class="message">
+    <p>Welcome to {{applicant}}'s Application for {{application.position}} <span ng-show={{application.organization}}> at </span>{{application.organization}}.</p>
+    <p>Please select a display style from the drop-down box above.</p>
+  </div>
+</div>
+
+
+<div class="application" ng-show=style.name>
 
   <div class="title">
     <h1>
@@ -317,7 +327,7 @@
 
 </div>
 
-
+</div>
 
 <div class="footer">
   <div class="print">

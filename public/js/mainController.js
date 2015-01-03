@@ -21,13 +21,21 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	// ADD: add available styles to the Applications model
 	/* REFACTOR: change "table: true|false" approach to an "html: partial.html" approach,
 	             or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
+
 	$scope.styles = [
-		{
-			name       : 'dull',
-			title      : 'Dull - Standard',
+		{ // Default prompt to select a style
+			name       : false,
+			title      : 'Please select a style',
 			css        : 'dull-standard',
 			table      : true,
-			description: 'Standard tabular resume'
+			description: ''
+		},
+		{
+			name       : 'dull',
+			title      : 'Standard',
+			css        : 'dull-standard',
+			table      : true,
+			description: 'A standard tabular resume'
 		},
 		{
 			name       : 'yellow_arrow_ui',
@@ -241,7 +249,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 /*****************************************************************************/
 
 	$scope.application = (applicationRef.data[0] === undefined) ?
-												"no application specified" :
+												{url: "resume"} :
 												applicationRef.data[0] ;
 	console.log("applicationRef.data[0] returned ==> %o ", $scope.application);
 

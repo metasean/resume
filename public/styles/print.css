@@ -1,3 +1,32 @@
+/* reset and resize for print */
+
+body {
+    width: auto;
+    border: 0;
+    margin: 0;
+    padding: 0;
+    float: none !important;
+    line-height: 1.4em;
+    word-spacing:1px;
+    letter-spacing:0.2px;
+    font: 65% Arial, Helvetica,"Lucida Grande", serif;
+}
+
+.title,
+.cover-letter,
+.resume {
+    width: 100%;
+    margin: 0;
+    border: 0;
+}
+
+@media print {
+    body {
+        margin: 0;
+    }
+}
+
+
 /* add print-only elements */
 
 .print {
@@ -12,6 +41,10 @@
     text-align: center;
     margin: 0.25em 0 0 0;
     padding: 0;
+}
+
+.resume {
+    page-break-before: always;
 }
 
 /* remove non-printing elements */
@@ -36,24 +69,4 @@ a:visited {
 .application a:visited:after {
     content: " (" attr(href) ") ";
     font-size: 90%;
-}
 
-
-/* resize for print */
-
-body {
-    margin:0;
-    padding:0;
-    line-height: 1.4em;
-    word-spacing:1px;
-    letter-spacing:0.2px;
-    font: 12pt Arial, Helvetica,"Lucida Grande", serif;
-}
-
-.title,
-.cover-letter,
-.resume {
-    width: 100%;
-    margin: 0;
-    border: 0;
-}

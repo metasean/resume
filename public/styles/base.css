@@ -2,6 +2,12 @@ html, body {
 	height: 100%;
 	width: 100%;
 	margin: 0;
+	font-size: 14px;
+}
+
+.page {
+	position: relative;
+	height: 100%;
 }
 
 .wrap-break {
@@ -12,6 +18,18 @@ html, body {
 /*.print-header ,*/
 .print {
 	display: none;
+}
+
+@media(max-width: 400px) {
+	html {
+		font-size: 80%;
+	}
+}
+
+@media(max-width: 800px) {
+	html {
+		font-size: 100%;
+	}
 }
 
 
