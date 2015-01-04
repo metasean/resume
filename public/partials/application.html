@@ -12,7 +12,7 @@
       <!-- label>The following is an interactive resume.  Please select how you would like it displayed:</label -->
       <p>
         <select class="form-control" ng-model="style" ng-options="style.title for style in styles" ></select>
-        {{ style.description }}
+        <span class="wrap-break">{{ style.description }}</span>
       </p>
     </div>
   </form>
@@ -30,18 +30,17 @@
 
   <div class="title">
     <h1>
-      <span class="wrap-break">{{applicant}}'s Application for</span>
-      <span class="wrap-break">
-        {{application.position}} <span ng-show={{application.organization}}> at </span>{{application.organization}}
-      </span>
+      <span class="wrap-break">{{applicant}}'s </span>
+      <span class="wrap-break">Application for </span>
+      <span class="wrap-break">{{application.position}} <span ng-show={{application.organization}}> at </span></span>
+      <span class="wrap-break" ng-show={{application.organization}}>{{application.organization}}</span>
     </h1>
   </div>
 
   <!-- STANDARD COVER LETTER STUFF -->
   <div class="cover-letter">
     <h2 class="screen-only">Cover Letter</h2>
-    <pre class="cover-letter">{{application.coverLetter}}
-    <pre>
+    <pre class="cover-letter"><p>{{application.coverLetter}}</p></pre>
   </div>
 
 
@@ -59,17 +58,17 @@
             class="resume-entry">
           <div>
             <div class="resume-details">
-              <!-- {{entry.level}} - -->{{entry.title}}
+              <p><span class="skill-level">{{entry.level}}</span>{{entry.title}}</p>
             </div>
           </div>
           <div>
             <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"></div>
+              <p><div class="speech-arrow"></div></p>
             </div>
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <p>{{entry.addendum}}</p>
             </div>
           </div>
         </div>
@@ -85,17 +84,17 @@
             class="resume-entry">
           <div>
             <div class="resume-details">
-              {{entry.title}}
+              <p>{{entry.title}}</p>
             </div>
           </div>
           <div>
             <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
+              <p><div class="speech-arrow"> </div></p>
             </div>
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <p>{{entry.addendum}}</p>
             </div>
           </div>
         </div>
@@ -111,8 +110,8 @@
             class="resume-entry">
           <div>
             <div class="resume-details">
-              {{entry.organization}} {{entry.title}}
-              ({{entry.start}} to {{entry.end}})
+              <p>{{entry.organization}} {{entry.title}}</p>
+              <p>({{entry.start}} to {{entry.end}})</p>
             </div>
           </div>
           <div>
@@ -122,7 +121,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <p>{{entry.addendum}}</p>
             </div>
           </div>
         </div>
@@ -138,8 +137,8 @@
             class="resume-entry">
           <div>
             <div class="resume-details">
-              {{entry.level}} in {{entry.program}}
-              <br/> {{entry.institution}} in {{entry.graduated}}
+              <p>{{entry.level}} in {{entry.program}}</p>
+              <p>{{entry.institution}} in {{entry.graduated}}</p>
             </div>
           </div>
           <div>
@@ -149,7 +148,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum || '&nbsp;'}}
+              <p>{{entry.addendum || '&nbsp;'}}</p>
             </div>
           </div>
         </div>
@@ -165,8 +164,8 @@
             class="resume-entry">
           <div>
             <div class="resume-details">
-              {{entry.title}} <br/>
-              {{entry.organization}} in {{entry.date}}
+              <p>{{entry.title}}</p>
+              </p>{{entry.organization}} in {{entry.date}}</p>
             </div>
           </div>
           <div>
@@ -176,7 +175,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <p>{{entry.addendum}}</p>
             </div>
           </div>
         </div>

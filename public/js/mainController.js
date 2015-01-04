@@ -20,7 +20,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	// ADD: set up styles model in database
 	// ADD: add available styles to the Applications model
 	/* REFACTOR: change "table: true|false" approach to an "html: partial.html" approach,
-	             or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
+		 REFACTOR: or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
 
 	$scope.styles = [
 		{ // Default prompt to select a style
@@ -40,7 +40,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		{
 			name       : 'yellow_arrow_ui',
 			title      : 'Interactive - Yellow Conversation',
-			css        : 'yellow_arrow_spastic_interactive',
+			css        : 'dull-standard',
 			table      : false,
 			description: 'COMING SOON (Will be a textual conversation about my resume details.)'
 		},
@@ -56,7 +56,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// initiallize a default style
 	// ADD: move default page style to applications model
-	$scope.style = $scope.styles[1];
+	$scope.style = $scope.styles[0];
 
 
 	/*****************************************************************************\

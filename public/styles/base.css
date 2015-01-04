@@ -1,8 +1,8 @@
 html, body {
 	height: 100%;
+	min-width: 338px;
 	width: 100%;
 	margin: 0;
-	font-size: 14px;
 }
 
 .page {
@@ -14,30 +14,54 @@ html, body {
 	display: inline-block;
 }
 
-/* By default, do not display print-only elements */
-/*.print-header ,*/
+
+/******************************************************************************
+ *
+ * NON-PRINT - do not display print-only elements
+ *
+ *****************************************************************************/
+
 .print {
 	display: none;
 }
 
-@media(max-width: 400px) {
-	html {
-		font-size: 80%;
+
+/******************************************************************************
+ *
+ * BASELINES FOR DIFFERENT SCREEN SIZES
+ *
+ *****************************************************************************/
+
+@media screen and (max-width: 400px) {
+	html, body {
+		font-size: 18px;
+		/*background: lightpink;*/
 	}
 }
 
-@media(max-width: 800px) {
-	html {
-		font-size: 100%;
+@media screen and (min-width: 400px) and (max-width: 800px) {
+	html, body {
+		font-size: 20px;
+		/*background: lightgoldenrodyellow;*/
+	}
+}
+
+@media screen and (min-width: 800px) {
+	html, body {
+		font-size: 22px;
+		/*background: lightgreen;*/
 	}
 }
 
 
+/******************************************************************************
+ *
+ * temporarily using <pre> to deal with line breaks, <pre> is not designed to
+ * inherit typical typography, so it must be intentially be set
+ * REFACTOR: implement Markdown for textareas
+ *
+ *****************************************************************************/
 
-/* temporarily using <pre> to deal with line breaks,
-   <pre> not designed to inherit typical typography,
-   so it must be intentially be set                  */
-/* REFACTOR: deal with line breaks in a more Angular way */
 pre.cover-letter {
 	width: 100%;
 	margin: 0;
@@ -50,103 +74,3 @@ pre.cover-letter {
 	white-space: -o-pre-wrap;    /* Opera 7 */
 	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
-
-/*
-h1, h2, h3 {
-	width: 100%;
-	padding-top: 1.0em;
-	margin: auto;
-}
-
-table, table tr, table td {
-	padding: 0;
-	border: 0;
-	border-spacing: 0;
-}
-
-.cover-letter {
-	width: calc(100% - 3.5em);
-	margin: auto;
-}
-
-.resume {
-	width: calc(100% - 3.5em);
-	margin: auto;
-}
-
-.resume-section table,
-.resume-section table tr,
-.resume-section table tr td,
-.resume-section table tr td div,
-.resume-section,
-.resume-section tr,
-.resume-section tr td,
-.resume-section tr td div {
-	width: 100%:
-}
-
-.resume-details {
-	min-width: 10em;
-	padding: 0.5em 0.5em 0.5em 0em;
-}
-
-.resume-entry {
-	width: 100%;
-}
-
-.admin-input {
-	width: 100%;
-}
-
-.admin-input tr td {
-	border: 1px solid dimgray;
-	padding: 0.5em;
-	/*min-width: 25%;*/ /*
-}
-
-.admin-input tr td input {
-	width: 100%;
-	box-sizing: border-box;
-	-webkit-box-sizing:border-box;
-	-moz-box-sizing: border-box;
-}
-
-td.order {
-	width: 2.5em;
-	text-align: center;
-	vertical-align: top;
-}
-
-td.skill-level {
-	width: 17.5em;
-	text-align: center;
-	vertical-align: top;
-}
-
-td.buttons {
-	width: 4em;
-	text-align: center;
-	vertical-align: top;
-}
-
-input.singular {
-	max-width: 3em;
-}
-
-input.date {
-	min-width: 8em;
-	max-width: 10em;
-}
-
-input.title {
-	min-width: 10em;
-	max-width: 20em;
-}
-
-textarea.textual {
-	min-width: 40em;
-	width: 100%;
-	height: 7em;
-}
-
-*/

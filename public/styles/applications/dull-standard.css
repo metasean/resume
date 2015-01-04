@@ -15,8 +15,8 @@ h1 {
     font-family: 'Muli', sans-serif;
     font-style: normal;
     font-weight: 600;
-    color: #302080;
-    font-size: 1.50em;
+    color: #220044;
+    font-size: 1.50rem;
 }
 
 h2 {
@@ -24,7 +24,11 @@ h2 {
     font-style: normal;
     font-weight: 800;
     color: #333333;
-    font-size: 1.25em;
+    font-size: 1.40rem;
+}
+
+h2 {
+    margin-bottom: -0.5em;
 }
 
 h3 {
@@ -33,7 +37,12 @@ h3 {
     font-weight: 600;
     text-transform: uppercase;
     color: #666666;
-    font-size: 1.15em;
+    font-size: 1.00rem;
+    margin-bottom: -0.1em;
+}
+
+h2 h3 {
+    margin-top: -0.25em;
 }
 
 h4 {
@@ -43,11 +52,11 @@ h4 {
     line-height: 16px;
     letter-spacing: 1px;
     padding-bottom: 1em;
-    font-size: 1.00em;
+    font-size: 1.00rem;
 }
 
 p {
-    font-size: 1.00em;
+    font-size: 0.95rem;
 }
 
 /* temporarily using <pre> to deal with line breaks,
@@ -56,18 +65,20 @@ p {
 pre.cover-letter {
     color: #000000;
     font-family: 'Muli', sans-serif;
-    font-size: 1.00em;
+    font-size: 1.00rem;
 }
 
 .style-selector {
     background-color: #666666;
     color: #ffffff;
     margin: 0;
-    padding: 1.00em 0 0.75em 0;
+    padding: 0.8em 0 0.5em 0;
+    border-bottom: thin solid #000000;
 }
 
 .style-selection-group {
     width: calc(100% - 3.5em);
+    max-width: 1200px;
     margin: auto;
 }
 
@@ -87,18 +98,20 @@ pre.cover-letter {
 
 
     min-height: calc(100% - 5.50em);
+}
 
+.style-selection-note .message {
+    padding: 0 0.5em;
+    text-align: center;
     text-decoration: none;
     font-family: 'Muli', sans-serif;
     font-style: normal;
     font-weight: 600;
     color: #803820;
-    font-size: 1.50em;
 }
 
-.style-selection-note .message {
-    padding: 0 1em;
-    text-align: center
+.style-selection-note .message p {
+    font-size: 1.25rem;
 }
 
 .style-selection-note,
@@ -106,6 +119,7 @@ pre.cover-letter {
 .cover-letter,
 .resume {
     width: calc(100% - 3.5em);
+    max-width: 1200px;
     margin: auto;
 }
 
