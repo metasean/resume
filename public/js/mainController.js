@@ -39,8 +39,8 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		},
 		{
 			name       : 'yellow_arrow_ui',
-			title      : 'Yellow Conversation',
-			css        : 'dull-standard',
+			title      : 'Interactive - Yellow Conversation',
+			css        : 'yellow_arrow_spastic_interactive',
 			table      : false,
 			description: 'COMING SOON (Will be a textual conversation about my resume details.)'
 		},
@@ -56,7 +56,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// initiallize a default style
 	// ADD: move default page style to applications model
-	$scope.style = $scope.styles[0];
+	$scope.style = $scope.styles[1];
 
 
 	/*****************************************************************************\

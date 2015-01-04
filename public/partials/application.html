@@ -54,26 +54,25 @@
     <!-- SKILLS -->
     <div class="resume-section">
       <h3>Skills</h3>
-      <table>
-        <tr ng-repeat="entry in skills" ng-init="showDiv=false"
+        <div ng-repeat="entry in skills" ng-init="showDiv=false"
             ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
             class="resume-entry">
-          <td>
+          <div>
             <div class="resume-details">
               <!-- {{entry.level}} - -->{{entry.title}}
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation yellow-box" ng-show="showDiv">
               <div class="speech-arrow"></div>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation resume-addendum" ng-show="showDiv">
               {{entry.addendum}}
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
       </table>
     </div>
 
@@ -81,25 +80,25 @@
     <div class="resume-section">
       <h3>Experience</h3>
       <table>
-        <tr ng-repeat="entry in experience" ng-init="showDiv=false"
+        <div ng-repeat="entry in experience" ng-init="showDiv=false"
             ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
             class="resume-entry">
-          <td>
+          <div>
             <div class="resume-details">
               {{entry.title}}
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation yellow-box" ng-show="showDiv">
               <div class="speech-arrow"> </div>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation resume-addendum" ng-show="showDiv">
               {{entry.addendum}}
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
       </table>
     </div>
 
@@ -107,26 +106,26 @@
     <div class="resume-section">
       <h3>Employment</h3>
       <table>
-        <tr ng-repeat="entry in employment" ng-init="showDiv=false"
+        <div ng-repeat="entry in employment" ng-init="showDiv=false"
             ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
             class="resume-entry">
-          <td>
+          <div>
             <div class="resume-details">
               {{entry.organization}} {{entry.title}}
               ({{entry.start}} to {{entry.end}})
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation yellow-box" ng-show="showDiv">
               <div class="speech-arrow"> </div>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation resume-addendum" ng-show="showDiv">
               {{entry.addendum}}
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
       </table>
     </div>
 
@@ -134,26 +133,26 @@
     <div class="resume-section">
       <h3>Education</h3>
       <table>
-        <tr ng-repeat="entry in education" ng-init="showDiv=false"
+        <div ng-repeat="entry in education" ng-init="showDiv=false"
             ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
             class="resume-entry">
-          <td>
+          <div>
             <div class="resume-details">
               {{entry.level}} in {{entry.program}}
               <br/> {{entry.institution}} in {{entry.graduated}}
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation yellow-box" ng-show="showDiv">
               <div class="speech-arrow"> </div>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation resume-addendum" ng-show="showDiv">
               {{entry.addendum || '&nbsp;'}}
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
       </table>
     </div>
 
@@ -161,26 +160,26 @@
     <div class="resume-section">
       <h3>Awards &amp; Honors</h3>
       <table>
-        <tr ng-repeat="entry in awards" ng-init="showDiv=false"
+        <div ng-repeat="entry in awards" ng-init="showDiv=false"
             ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
             class="resume-entry">
-          <td>
+          <div>
             <div class="resume-details">
               {{entry.title}} <br/>
               {{entry.organization}} in {{entry.date}}
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation yellow-box" ng-show="showDiv">
               <div class="speech-arrow"> </div>
             </div>
-          </td>
-          <td>
+          </div>
+          <div>
             <div class="animation resume-addendum" ng-show="showDiv">
               {{entry.addendum}}
             </div>
-          </td>
-        </tr>
+          </div>
+        </div>
       </table>
     </div>
   </div> <!-- tabular resume div -->
