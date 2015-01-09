@@ -37,12 +37,12 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Employment({
-		order: 999,
-		organization: 'organization',
-		title: 'title',
-		start: 'start',
-		end: 'end',
-		addendum: 'addendum'
+		order: '',
+		organization: '',
+		title: '',
+		start: '',
+		end: '',
+		addendum: ''
 	});
 	console.log('Insert Employment request ...');
 	data.save(function (err, data) {

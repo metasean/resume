@@ -35,10 +35,10 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Skill({
-		order: 999,
-		title: 'title',
-		level: 0,
-		addendum: 'addendum'
+		order: '',
+		title: '',
+		level: '',
+		addendum: ''
 	});
 	console.log('Insert Skill request ...');
 	data.save(function (err, data) {

@@ -36,11 +36,11 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Award({
-		order: 999,
-		organization: 'organization',
-		title: 'title',
-		date: 'date-field',
-		addendum: 'addendum'
+		order: '',
+		organization: '',
+		title: '',
+		date: '',
+		addendum: ''
 	});
 	console.log(data);
 	data.save(function (err, data) {

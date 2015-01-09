@@ -50,9 +50,9 @@ var show = function (req, res) {
 
 var insert = function(req, res) {
 	var data = new Experience({
-		order: 999,
-		title: 'title',
-		addendum: 'addendum'
+		order: '',
+		title: '',
+		addendum: ''
 	});
 	console.log(data);
 	data.save(function (err, newExperience) {

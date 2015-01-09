@@ -37,7 +37,7 @@ var show = function (req, res) {  // !!!!! FIND BY URL NOT BY ID !!!!!
 
 var insert = function(req, res) {
 	var data = new Application({
-		order: 99,
+		order: '',
 		position: '',
 		organization: '',
 		url: '',
