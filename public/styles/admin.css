@@ -59,11 +59,11 @@ table, table tr, table td {
 }
 
 .admin-input tr:nth-child(even) td {
-	background-color: rgba(34, 0, 68, 0.10);
+	background-color: rgba(34, 0, 68, 0.25);
 }
 
 .admin-input tr:nth-child(odd) td {
-	background-color: rgba(34, 0, 68, 0.25);
+	background-color: rgba(34, 0, 68, 0.10);
 }
 
 .admin-input tr:last-child td {
