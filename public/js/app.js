@@ -1,4 +1,4 @@
-var app = angular.module('resumeApp', ["ui.router", "ngAnimate"]);
+var app = angular.module('resumeApp', ["ui.router", "ngAnimate", "ngStorage", "btford.markdown"]);
 
 app.run(function() {
 

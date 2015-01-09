@@ -20,7 +20,10 @@
 
 <div class="style-selection-note" ng-hide=style.name>
   <div class="message">
-    <p>Welcome to {{applicant}}'s Application for {{application.position}} <span ng-show={{application.organization}}> at </span>{{application.organization}}.</p>
+    <p><span class="wrap-break">Welcome to {{applicant}}'s Application for </span>
+      <span class="wrap-break">{{application.position}} </span>
+      <span ng-show={{application.organization}}><span class="wrap-break"> at </span>
+      <span class="wrap-break">{{application.organization}}.</p></span></span>
     <p>Please select a display style from the drop-down box above.</p>
   </div>
 </div>
@@ -40,7 +43,7 @@
   <!-- STANDARD COVER LETTER STUFF -->
   <div class="cover-letter">
     <h2 class="screen-only">Cover Letter</h2>
-    <pre class="cover-letter"><p>{{application.coverLetter}}</p></pre>
+    <div class="cover-letter"><span btf-markdown="application.coverLetter"></span></div>
   </div>
 
 
@@ -68,7 +71,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              <p>{{entry.addendum}}</p>
+              <p><span btf-markdown="entry.addendum"></span></span>}</p>
             </div>
           </div>
         </div>
@@ -94,7 +97,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              <p>{{entry.addendum}}</p>
+              <p><span btf-markdown="entry.addendum"></span></p>
             </div>
           </div>
         </div>
@@ -121,7 +124,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              <p>{{entry.addendum}}</p>
+              <p><span btf-markdown="entry.addendum"></span></p>
             </div>
           </div>
         </div>
@@ -148,7 +151,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              <p>{{entry.addendum || '&nbsp;'}}</p>
+              <p><span btf-markdown="entry.addendum"></span></p>
             </div>
           </div>
         </div>
@@ -175,7 +178,7 @@
           </div>
           <div>
             <div class="animation resume-addendum" ng-show="showDiv">
-              <p>{{entry.addendum}}</p>
+              <p><span btf-markdown="entry.addendum"></span></p>
             </div>
           </div>
         </div>
@@ -207,7 +210,7 @@
           </td>
           <td>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <span btf-markdown="entry.addendum"></span>
             </div>
           </td>
         </tr>
@@ -233,7 +236,7 @@
           </td>
           <td>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <span btf-markdown="entry.addendum"></span>
             </div>
           </td>
         </tr>
@@ -260,7 +263,7 @@
           </td>
           <td>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <span btf-markdown="entry.addendum"></span>
             </div>
           </td>
         </tr>
@@ -287,7 +290,7 @@
           </td>
           <td>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum || '&nbsp;'}}
+              <p><span btf-markdown="entry.addendum"></span></p>
             </div>
           </td>
         </tr>
@@ -314,7 +317,7 @@
           </td>
           <td>
             <div class="animation resume-addendum" ng-show="showDiv">
-              {{entry.addendum}}
+              <span btf-markdown="entry.addendum"></span>
             </div>
           </td>
         </tr>

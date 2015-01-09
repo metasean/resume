@@ -98,7 +98,7 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 		})
 			.success(function(data, status, headers, config){
 				console.log("Successfully returned mainService getApplication(%s) ==> %o", applicationId, data);
-				debugger;
+				//debugger;
 				return new Promise(function(resolve, reject) {
 					if (!data[0]) {
 						var error = "indicated application – %s – does not exist", applicationId;
