@@ -8,18 +8,30 @@
   <table class="admin-input">
     <tr ng-repeat="entry in applications" class="resume-entry">
       <td>
-        <input ng-model="entry.position" placeholder="position" type='text' class="title"/> at
-        <input ng-model="entry.organization" placeholder="organization &amp;/or position" type='text' class="title"/>
+        <input ng-model="entry.position"
+               placeholder="position"
+               type='text'
+               class="title"/>
+        at
+        <input ng-model="entry.organization"
+               placeholder="organization &amp;/or position"
+               type='text'
+               class="title"/>
         <br />
         Available at:
-        <input ng-model="entry.url" placeholder="url" type='text' class="title"/>
+        <input ng-model="entry.url"
+               placeholder="url"
+               type='text'
+               class="title"/>
       </td>
       <td>
-        <textarea ng-model="entry.coverLetter" placeholder="cover letter" type='text' class="textual"></textarea>
+        <textarea ng-model="entry.coverLetter"
+                  ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                  placeholder="cover letter"
+                  type='text'
+                  class="textual"></textarea>
       </td>
       <td class="buttons">
-        <button ng-click="saveApplications(entry)">Save</button>
-        <br/><br/>
         <button ng-click="deleteApplications(entry._id)">Delete</button>
       </td>
     </tr>
@@ -31,22 +43,36 @@
     <h3>Skills</h3>
     <button ng-click="newSkills()">new</button>
     <table class="admin-input">
-      <tr ng-repeat="entry in skills" class="resume-entry">
+      <tr ng-repeat="entry in skills"
+          class="resume-entry">
         <td class="order">
-          <input ng-model="entry.order" placeholder="order" type='text' class="singular"/>
+          <input ng-model="entry.order"
+                 placeholder="order"
+                 type='text'
+                 class="singular"/>
         </td>
         <td class="skill-level">
-            <input ng-model="entry.level" placeholder="level" type='text' class="singular"/> - <input ng-model="entry.title" placeholder="title" type='text' class="title"/>
+            <input ng-model="entry.level"
+                   placeholder="level"
+                   type='text'
+                   class="singular"/>
+          -
+          <input ng-model="entry.title"
+                 placeholder="title"
+                 type='text'
+                 class="title"/>
         </td>
         <td>
           <div>
-            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+            <textarea ng-model="entry.addendum"
+                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      placeholder="addendum"
+                      type='text'
+                      class="textual"></textarea>
           </div>
         </td>
         <td class="buttons">
-          <button ng-click="saveSkills(entry)">Save</button>
-          <br/><br/>
-          <button ng-click="deleteSkills(entry._id)">Delete</button>
+          <button ng-click="deleteExperience(entry._id)">Delete</button>
         </td>
       </tr>
     </table>
@@ -59,19 +85,27 @@
     <table class="admin-input">
       <tr ng-repeat="entry in experience" class="resume-entry">
         <td class="order">
-          <input ng-model="entry.order" placeholder="order" type='text' class="singular"/>
+          <input ng-model="entry.order"
+                 placeholder="order"
+                 type='text'
+                 class="singular"/>
         </td>
         <td>
-            <input ng-model="entry.title" placeholder="title" type='text' class="title"/>
+            <input ng-model="entry.title"
+                   placeholder="title"
+                   type='text'
+                   class="title"/>
         </td>
         <td>
           <div>
-            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+            <textarea ng-model="entry.addendum"
+                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      placeholder="addendum"
+                      type='text'
+                      class="textual"></textarea>
           </div>
         </td>
         <td class="buttons">
-          <button ng-click="saveExperience(entry)">Save</button>
-          <br/><br/>
           <button ng-click="deleteExperience(entry._id)">Delete</button>
         </td>
       </tr>
@@ -88,18 +122,37 @@
           <input ng-model="entry.order" placeholder="order" type='text' class="singular"/>
         </td>
         <td>
-          <input ng-model="entry.title" placeholder="title" type='text' class="title"/><br/>
-          for <input ng-model="entry.organization" placeholder="organization" type='text' class="title"/><br/>
-          from <input ng-model="entry.start" placeholder="start" type='text' class="date"/> to <input ng-model="entry.end" placeholder="end" type='text' class="date"/>
+          <input ng-model="entry.title"
+                 placeholder="title"
+                 type='text'
+                 class="title"/><br/>
+          for
+          <input ng-model="entry.organization"
+                 placeholder="organization"
+                 type='text'
+                 class="title"/><br/>
+          from
+          <input ng-model="entry.start"
+                 placeholder="start"
+                 type='text'
+                 class="date"/>
+          to
+          <input ng-model="entry.end"
+                 placeholder="end"
+                 type='text'
+                 class="date"/>
         </td>
         <td>
           <div>
-            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+            <textarea ng-model="entry.addendum"
+                      ng-change="saveSkills(entry)"
+                      ng-model-options="{ updateOn: 'blur' }"
+                      placeholder="addendum"
+                      type='text'
+                      class="textual"></textarea>
           </div>
         </td>
         <td class="buttons">
-          <button ng-click="saveEmployment(entry)">Save</button>
-          <br/><br/>
           <button ng-click="deleteEmployment(entry._id)">Delete</button>
         </td>
       </tr>
@@ -113,22 +166,40 @@
     <table class="admin-input">
       <tr ng-repeat="entry in education" class="resume-entry">
         <td class="order">
-          <input ng-model="entry.order" placeholder="order" type='text' class="singular"/>
+          <input ng-model="entry.order"
+                 placeholder="order"
+                 type='text'
+                 class="singular"/>
         </td>
         <td>
-          Earned a <input ng-model="entry.level" placeholder="level" type='text' class="date"/><br/>
-          in <input ng-model="entry.program" placeholder="program" type='text' class="title"/><br/>
-          from <input ng-model="entry.institution" placeholder="institution" type='text' class="title"/><br/>
-          in <input ng-model="entry.graduated" placeholder="graduated" type='text' class="date"/>
+          Earned a <input ng-model="entry.level"
+                          placeholder="level"
+                          type='text'
+                          class="date"/><br/>
+          in <input ng-model="entry.program"
+                    placeholder="program"
+                    type='text'
+                    class="title"/><br/>
+          from <input ng-model="entry.institution"
+                      placeholder="institution"
+                      type='text'
+                      class="title"/><br/>
+          in <input ng-model="entry.graduated"
+                    ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                    placeholder="graduated"
+                    type='text'
+                    class="date"/>
         </td>
         <td>
           <div>
-            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+            <textarea ng-model="entry.addendum"
+                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      placeholder="addendum"
+                      type='text'
+                      class="textual"></textarea>
           </div>
         </td>
         <td class="buttons">
-          <button ng-click="saveEducation(entry)">Save</button>
-          <br/><br/>
           <button ng-click="deleteEducation(entry._id)">Delete</button>
         </td>
       </tr>
@@ -142,21 +213,35 @@
     <table class="admin-input">
       <tr ng-repeat="entry in awards" class="resume-entry">
         <td class="order">
-          <input ng-model="entry.order" placeholder="order" type='text' class="singular"/>
+          <input ng-model="entry.order"
+                 placeholder="order"
+                 type='text'
+                 class="singular"/>
         </td>
         <td>
-          Earned a <input ng-model="entry.title" placeholder="title" type='text' class="title"/><br/>
-          from <input ng-model="entry.organization" placeholder="organization" type='text' class="title"/><br/>
-          in <input ng-model="entry.date" placeholder="year" type='text' class="date"/>
+          Earned a <input ng-model="entry.title"
+                          placeholder="title"
+                          type='text'
+                          class="title"/><br/>
+          from <input ng-model="entry.organization"
+                      placeholder="organization"
+                      type='text'
+                      class="title"/><br/>
+          in <input ng-model="entry.date"
+                    placeholder="year"
+                    type='text'
+                    class="date"/>
         </td>
         <td>
           <div>
-            <textarea ng-model="entry.addendum" placeholder="addendum" type='text' class="textual"></textarea>
+            <textarea ng-model="entry.addendum"
+                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      placeholder="addendum"
+                      type='text'
+                      class="textual"></textarea>
           </div>
         </td>
         <td class="buttons">
-          <button ng-click="saveAwards(entry)">Save</button>
-          <br/><br/>
           <button ng-click="deleteAwards(entry._id)">Delete</button>
         </td>
       </tr>
