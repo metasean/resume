@@ -7,8 +7,10 @@ html, body {
 
 h1, h2, h3 {
 	width: 100%;
-	padding-top: 1.0em;
+	padding: 1.0em;
 	margin: auto;
+	color: white;
+	background-color: rgba(34, 0, 68, 1.00);
 }
 
 table, table tr, table td {
@@ -52,9 +54,21 @@ table, table tr, table td {
 }
 
 .admin-input tr td {
-	border: 1px solid dimgray;
+	border-top: 3px solid rgba(34, 0, 68, 1.00);
 	padding: 0.5em;
-	/*min-width: 25%;*/
+}
+
+.admin-input tr:nth-child(even) td {
+	background-color: rgba(34, 0, 68, 0.10);
+}
+
+.admin-input tr:nth-child(odd) td {
+	background-color: rgba(34, 0, 68, 0.25);
+}
+
+.admin-input tr:last-child td {
+	border-bottom: 3px solid rgba(34, 0, 68, 0.50);
+	padding: 0.5em;
 }
 
 .admin-input tr td input {
@@ -80,6 +94,10 @@ td.buttons {
 	width: 4em;
 	text-align: center;
 	vertical-align: top;
+}
+
+div > .buttons {
+	background-color: rgba(34, 0, 68, 1.00);
 }
 
 input.singular {

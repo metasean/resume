@@ -4,9 +4,11 @@
 <!-- APPLICATIONS -->
 <div class="">
   <h3>User Note</h3>
-  <p>Save for the entire entry happens automatically after editing <em>and</em> exiting the corresponding addendum field.</p>
+  <p>Save <em>for the entire entry</em> happens automatically after editing <em>and</em> exiting the corresponding addendum field.</p>
   <h3>Active Applications</h3>
-  <button ng-click="newApplications()">new</button>
+  <div class="buttons">
+    <button ng-click="newApplications()">new</button>
+  </div>
   <table class="admin-input">
     <tr ng-repeat="entry in applications" class="resume-entry">
       <td>
@@ -38,12 +40,13 @@
       </td>
     </tr>
   </table>
-  <hr />
 
   <!-- SKILLS -->
   <div class="resume-section">
     <h3>Skills</h3>
-    <button ng-click="newSkills()">new</button>
+    <div class="buttons">
+      <button ng-click="newSkills()">new</button>
+    </div>
     <table class="admin-input">
       <tr ng-repeat="entry in skills"
           class="resume-entry">
@@ -83,7 +86,9 @@
   <!-- EXPERIENCE -->
   <div class="resume-section">
     <h3>Experience</h3>
-    <button ng-click="newExperience()">new</button>
+    <div class="buttons">
+      <button ng-click="newExperience()">new</button>
+    </div>
     <table class="admin-input">
       <tr ng-repeat="entry in experience" class="resume-entry">
         <td class="order">
@@ -117,7 +122,9 @@
   <!-- EMPLOYMENT -->
   <div class="resume-section">
     <h3>Employment</h3>
-    <button ng-click="newEmployment()">new</button>
+    <div class="buttons">
+      <button ng-click="newEmployment()">new</button>
+    </div>
     <table class="admin-input">
       <tr ng-repeat="entry in employment" class="resume-entry">
         <td class="order">
@@ -164,7 +171,9 @@
   <!-- EDUCATION -->
   <div class="resume-section">
     <h3>Education</h3>
-    <button ng-click="newEducation()">new</button>
+    <div class="buttons">
+      <button ng-click="newEducation()">new</button>
+    </div>
     <table class="admin-input">
       <tr ng-repeat="entry in education" class="resume-entry">
         <td class="order">
@@ -188,7 +197,7 @@
                       class="title"/><br/>
           in <input ng-model="entry.graduated"
                     ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
-                    placeholder="graduated"
+                    placeholder="year graduated"
                     type='text'
                     class="date"/>
         </td>
@@ -211,7 +220,9 @@
   <!-- AWARDS -->
   <div class="resume-section">
     <h3>Awards &amp; Honors</h3>
-    <button ng-click="newAwards()">new</button>
+    <div class="buttons">
+      <button ng-click="newAwards()">new</button>
+    </div>
     <table class="admin-input">
       <tr ng-repeat="entry in awards" class="resume-entry">
         <td class="order">
