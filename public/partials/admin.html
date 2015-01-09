@@ -30,7 +30,7 @@
       </td>
       <td>
         <textarea ng-model="entry.coverLetter"
-                  ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                  ng-change="saveApplications(entry)" ng-model-options="{ updateOn: 'blur' }"
                   placeholder="cover letter"
                   type='text'
                   class="textual"></textarea>
@@ -106,7 +106,7 @@
         <td>
           <div>
             <textarea ng-model="entry.addendum"
-                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      ng-change="saveExperience(entry)" ng-model-options="{ updateOn: 'blur' }"
                       placeholder="addendum"
                       type='text'
                       class="textual"></textarea>
@@ -154,7 +154,7 @@
         <td>
           <div>
             <textarea ng-model="entry.addendum"
-                      ng-change="saveSkills(entry)"
+                      ng-change="saveEmployment(entry)"
                       ng-model-options="{ updateOn: 'blur' }"
                       placeholder="addendum"
                       type='text'
@@ -196,7 +196,6 @@
                       type='text'
                       class="title"/><br/>
           in <input ng-model="entry.graduated"
-                    ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
                     placeholder="year graduated"
                     type='text'
                     class="date"/>
@@ -204,7 +203,7 @@
         <td>
           <div>
             <textarea ng-model="entry.addendum"
-                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      ng-change="saveEducation(entry)" ng-model-options="{ updateOn: 'blur' }"
                       placeholder="addendum"
                       type='text'
                       class="textual"></textarea>
@@ -248,7 +247,7 @@
         <td>
           <div>
             <textarea ng-model="entry.addendum"
-                      ng-change="saveSkills(entry)" ng-model-options="{ updateOn: 'blur' }"
+                      ng-change="saveAwards(entry)" ng-model-options="{ updateOn: 'blur' }"
                       placeholder="addendum"
                       type='text'
                       class="textual"></textarea>
