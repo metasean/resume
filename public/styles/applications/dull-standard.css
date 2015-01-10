@@ -1,10 +1,14 @@
-html, body {
+html, body, {
     height: 100%;
     width: 100%;
     margin: 0;
     color: #000000;
     font-family: 'Muli', sans-serif;
     line-height: 1.5;
+}
+
+page {
+    height: calc(100% + 5rem);
 }
 
 h1, h4 {
@@ -15,7 +19,7 @@ h1 {
     font-family: 'Muli', sans-serif;
     font-style: normal;
     font-weight: 600;
-    color: #220044;
+    color: rgb(39, 0, 121);
     font-size: 1.50rem;
 }
 
@@ -25,10 +29,6 @@ h2 {
     font-weight: 800;
     color: #333333;
     font-size: 1.40rem;
-}
-
-h2 {
-    margin-bottom: -0.5em;
 }
 
 h3 {
@@ -56,15 +56,6 @@ h4 {
 }
 
 p {
-    font-size: 0.95rem;
-}
-
-/* temporarily using <pre> to deal with line breaks,
-   <pre> not designed to inherit typical typography,
-   so it must be intentially be set                  */
-pre.cover-letter {
-    color: #000000;
-    font-family: 'Muli', sans-serif;
     font-size: 1.00rem;
 }
 
@@ -116,87 +107,48 @@ pre.cover-letter {
 
 .style-selection-note,
 .title,
-.cover-letter,
+div.cover-letter,
 .resume {
     width: calc(100% - 3.5em);
     max-width: 1200px;
     margin: auto;
 }
 
+
+span.cover-letter {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    border: 0;
+}
+
+.skill-level,
 .yellow-box,
 .resume-addendum {
     visibility: hidden;
     display: none;
 }
 
-/*
-h1, h2, h3 {
+
+.footer {
+    position: fixed;
+    height: 3.0rem;
+    bottom: 0;
     width: 100%;
-    padding-top: 1.0em;
-    margin: auto;
+    text-align: center;
+    vertical-align: bottom;
+    margin: 1.25em auto 0 auto;
+    padding: 0.5em auto 0 auto;
+    border-top: 0.5em solid #323264;
+    background: #323264;
+    color: white;
+    font-size: 75%;
+    font-family: 'Muli', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+
 }
 
-table, table tr, table td {
-    padding: 0;
-    border: 0;
-    border-spacing: 0;
+.footer a {
+    color: #c0ffc0;
 }
-
-.resume-section table,
-.resume-section table tr,
-.resume-section table tr td,
-.resume-section table tr td div,
-.resume-section,
-.resume-section tr,
-.resume-section tr td,
-.resume-section tr td div {
-    width: 100%:
-}
-
-.resume-details {
-    width: 100%;
-}
-
-.resume-entry {
-    width: 100%;
-}
-
-.admin-input {
-    width: 100%;
-}
-
-.admin-input tr td {
-    border: 1px solid dimgray;
-    padding: 0.5em;
-    min-width: 25%;
-    max-width: 50%;
-}
-
-.admin-input tr td input {
-    width: 100%;
-    box-sizing: border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing: border-box;
-}
-
-
-input.singular {
-    max-width: 2em;
-}
-
-input.date {
-    min-width: 8em;
-    max-width: 10em;
-}
-
-input.title {
-    min-width: 10em;
-    max-width: 20em;
-}
-
-textarea.textual {
-    min-width: 40em;
-    height: 7em;
-}
-
-*/

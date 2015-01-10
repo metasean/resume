@@ -1,20 +1,26 @@
 var app = angular.module('resumeApp');
 
 // REFACTOR: separate out controller functionality
-app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef) {
+app.controller('mainController', function($scope, $window, mainService, $rootScope, $location, $stateParams, applicationRef, $localStorage) {
+
+
+	/*****************************************************************************\
+	 |
+	 |  GENERAL SETUP
+	 |
+	 \*****************************************************************************/
 
 	// ADD: add applicant to the Applications model
 	$scope.applicant = "Sean Duncan";
 	console.log("mainController $scope.title: " + $scope.title);
 	$scope.printUrl = $location.absUrl();
 
+
 	/*****************************************************************************\
 	 |
 	 |  STYLE SWITCHER
 	 |
 	 \*****************************************************************************/
-
-
 
 	// array of available styles
 	// ADD: set up styles model in database
@@ -23,13 +29,13 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		 REFACTOR: or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
 
 	$scope.styles = [
-		{ // Default prompt to select a style
-			name       : false,
-			title      : 'Please select a style',
-			css        : 'dull-standard',
-			table      : true,
-			description: ''
-		},
+		//{ // Default prompt to select a style
+		//	name       : false,
+		//	title      : 'Please select a style',
+		//	css        : 'dull-standard',
+		//	table      : true,
+		//	description: ''
+		//},
 		{
 			name       : 'dull',
 			title      : 'Standard',
@@ -54,9 +60,28 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		}
 	];
 
-	// initiallize a default style
+
+	// initiallize the localStorage.style or the default style
 	// ADD: move default page style to applications model
-	$scope.style = $scope.styles[0];
+	var localStyleDefined = ! ( ($localStorage.style === undefined)
+														 || ($localStorage.style === '')
+														 || ($localStorage.style === null)
+													  );
+	$localStorage.style =  localStyleDefined
+												 ?  $localStorage.style
+												 : $scope.styles[0];
+	$scope.style = $localStorage.style;
+
+
+	// LocalStorage
+	//$scope.$storage = $localStorage;
+
+	$scope.$watch('style', function(val) {
+		$localStorage.style = $scope.style;
+	});
+
+	// Clear LocalStorage - for TESTING purposes ONLY!
+	//$localStorage.$reset();
 
 
 	/*****************************************************************************\

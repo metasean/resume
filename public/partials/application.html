@@ -2,335 +2,341 @@
 <link rel="stylesheet" ng-href="styles/applications/{{ style.css }}.css">
 <link rel="stylesheet" href="styles/applications/dull-standard.css" type="text/css" media="print" />
 <link rel="stylesheet" href="styles/print.css" type="text/css" media="print" />
+<link href='http://fonts.googleapis.com/css?family=Muli|Julius+Sans+One' rel='stylesheet' type='text/css'>
 
-<div class="page">
+<div class="page" ng-cloak>
 
-<div class="style-selector">
-  <form>
-    <div class="style-selection-group">
-      <p> </p>
-      <!-- label>The following is an interactive resume.  Please select how you would like it displayed:</label -->
-      <p>
-        <select class="form-control" ng-model="style" ng-options="style.title for style in styles" ></select>
-        <span class="wrap-break">{{ style.description }}</span>
-      </p>
+  <div class="style-selector" ng-show=true>
+    <form>
+      <div class="style-selection-group">
+        <p> </p>
+        <!-- label>The following is an interactive resume.  Please select how you would like it displayed:</label -->
+        <p>
+          <select class="form-control" ng-model="style" ng-options="style.title for style in styles"
+                  ng></select>
+          <span class="wrap-break">{{ style.description }}</span>
+        </p>
+      </div>
+    </form>
+  </div>
+
+  <div class="style-selection-note" ng-hide=style.name>
+    <div class="message">
+      <p><span class="wrap-break">Welcome to {{applicant}}'s Application for </span>
+        <span class="wrap-break">{{application.position}} </span>
+        <span ng-show={{application.organization}}><span class="wrap-break"> at </span>
+        <span class="wrap-break">{{application.organization}}.</p></span></span>
+      <p>Please select a display style from the drop-down box above.</p>
     </div>
-  </form>
-</div>
-
-<div class="style-selection-note" ng-hide=style.name>
-  <div class="message">
-    <p><span class="wrap-break">Welcome to {{applicant}}'s Application for </span>
-      <span class="wrap-break">{{application.position}} </span>
-      <span ng-show={{application.organization}}><span class="wrap-break"> at </span>
-      <span class="wrap-break">{{application.organization}}.</p></span></span>
-    <p>Please select a display style from the drop-down box above.</p>
-  </div>
-</div>
-
-
-<div class="application" ng-show=style.name>
-
-  <div class="title">
-    <h1>
-      <span class="wrap-break">{{applicant}}'s </span>
-      <span class="wrap-break">Application for </span>
-      <span class="wrap-break">{{application.position}} <span ng-show={{application.organization}}> at </span></span>
-      <span class="wrap-break" ng-show={{application.organization}}>{{application.organization}}</span>
-    </h1>
-  </div>
-
-  <!-- STANDARD COVER LETTER STUFF -->
-  <div class="cover-letter">
-    <h2 class="screen-only">Cover Letter</h2>
-    <div class="cover-letter"><span btf-markdown="application.coverLetter"></span></div>
   </div>
 
 
+  <div class="application" ng-show=style.name>
 
-  <div class="resume">
-  <h2><span class="print">{{applicant}}'s </span>Resume</h2>
-
-  <!-- STANDARD RESUME STUFF IN NON-TABULAR FORMAT -->
-  <div class="non-tabular" ng-show="!style.table">
-    <!-- SKILLS -->
-    <div class="resume-section">
-      <h3>Skills</h3>
-        <div ng-repeat="entry in skills" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <div>
-            <div class="resume-details">
-              <p><span class="skill-level">{{entry.level}}</span>{{entry.title}}</p>
-            </div>
-          </div>
-          <div>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <p><div class="speech-arrow"></div></p>
-            </div>
-          </div>
-          <div>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></span>}</p>
-            </div>
-          </div>
-        </div>
-      </table>
+    <div class="title">
+      <h1>
+        <span class="wrap-break">{{applicant}}'s </span>
+        <span class="wrap-break">Application for </span>
+        <span class="wrap-break">{{application.position}} <span ng-show={{application.organization}}> at </span></span>
+        <span class="wrap-break" ng-show={{application.organization}}>{{application.organization}}</span>
+      </h1>
     </div>
 
-    <!-- EXPERIENCE -->
-    <div class="resume-section">
-      <h3>Experience</h3>
-      <table>
-        <div ng-repeat="entry in experience" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <div>
-            <div class="resume-details">
-              <p>{{entry.title}}</p>
-            </div>
-          </div>
-          <div>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <p><div class="speech-arrow"> </div></p>
-            </div>
-          </div>
-          <div>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></p>
-            </div>
-          </div>
-        </div>
-      </table>
+    <!-- STANDARD COVER LETTER STUFF -->
+    <div class="cover-letter">
+      <h2 class="screen-only">Cover Letter</h2>
+      <span class="cover-letter" btf-markdown="application.coverLetter"></span>
     </div>
 
-    <!-- EMPLOYMENT -->
-    <div class="resume-section">
-      <h3>Employment</h3>
-      <table>
-        <div ng-repeat="entry in employment" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <div>
-            <div class="resume-details">
-              <p>{{entry.organization}} {{entry.title}}</p>
-              <p>({{entry.start}} to {{entry.end}})</p>
+
+
+    <div class="resume">
+    <h2><span class="print">{{applicant}}'s </span>Resume</h2>
+
+    <!-- STANDARD RESUME STUFF IN NON-TABULAR FORMAT -->
+    <div class="non-tabular" ng-show="!style.table">
+      <!-- SKILLS -->
+      <div class="resume-section">
+        <h3>Skills</h3>
+          <div ng-repeat="entry in skills" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <div>
+              <div class="resume-details">
+                <p><span class="skill-level">{{entry.level}}</span>{{entry.title}}</p>
+              </div>
+            </div>
+            <div>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <p><div class="speech-arrow"></div></p>
+              </div>
+            </div>
+            <div>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></span>}</p>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
+        </table>
+      </div>
+
+      <!-- EXPERIENCE -->
+      <div class="resume-section">
+        <h3>Experience</h3>
+        <table>
+          <div ng-repeat="entry in experience" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <div>
+              <div class="resume-details">
+                <p>{{entry.title}}</p>
+              </div>
+            </div>
+            <div>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <p><div class="speech-arrow"> </div></p>
+              </div>
+            </div>
+            <div>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></p>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></p>
+        </table>
+      </div>
+
+      <!-- EMPLOYMENT -->
+      <div class="resume-section">
+        <h3>Employment</h3>
+        <table>
+          <div ng-repeat="entry in employment" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <div>
+              <div class="resume-details">
+                <p>{{entry.organization}} {{entry.title}}</p>
+                <p>({{entry.start}} to {{entry.end}})</p>
+              </div>
+            </div>
+            <div>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </div>
+            <div>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></p>
+              </div>
             </div>
           </div>
-        </div>
-      </table>
-    </div>
+        </table>
+      </div>
 
-    <!-- EDUCATION -->
-    <div class="resume-section">
-      <h3>Education</h3>
-      <table>
-        <div ng-repeat="entry in education" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <div>
-            <div class="resume-details">
-              <p>{{entry.level}} in {{entry.program}}</p>
-              <p>{{entry.institution}} in {{entry.graduated}}</p>
+      <!-- EDUCATION -->
+      <div class="resume-section">
+        <h3>Education</h3>
+        <table>
+          <div ng-repeat="entry in education" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <div>
+              <div class="resume-details">
+                <p>{{entry.level}} in {{entry.program}}</p>
+                <p>{{entry.institution}} in {{entry.graduated}}</p>
+              </div>
+            </div>
+            <div>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </div>
+            <div>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></p>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
+        </table>
+      </div>
+
+      <!-- AWARDS -->
+      <div class="resume-section">
+        <h3>Awards &amp; Honors</h3>
+        <table>
+          <div ng-repeat="entry in awards" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <div>
+              <div class="resume-details">
+                <p>{{entry.title}}</p>
+                </p>{{entry.organization}} in {{entry.date}}</p>
+              </div>
+            </div>
+            <div>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </div>
+            <div>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></p>
+              </div>
             </div>
           </div>
-          <div>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></p>
-            </div>
-          </div>
-        </div>
-      </table>
-    </div>
-
-    <!-- AWARDS -->
-    <div class="resume-section">
-      <h3>Awards &amp; Honors</h3>
-      <table>
-        <div ng-repeat="entry in awards" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <div>
-            <div class="resume-details">
-              <p>{{entry.title}}</p>
-              </p>{{entry.organization}} in {{entry.date}}</p>
-            </div>
-          </div>
-          <div>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
-            </div>
-          </div>
-          <div>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></p>
-            </div>
-          </div>
-        </div>
-      </table>
-    </div>
-  </div> <!-- tabular resume div -->
+        </table>
+      </div>
+    </div> <!-- tabular resume div -->
 
 
 
 
-  <!-- STANDARD RESUME STUFF IN TABULAR FORMAT -->
-  <div class="non-tabular" ng-show="style.table">
-    <!-- SKILLS -->
-    <div class="resume-section" ng-show="style.table">
-      <h3>Skills</h3>
-      <table>
-        <tr ng-repeat="entry in skills" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <td>
-            <div class="resume-details">
-              <!-- {{entry.level}} - -->{{entry.title}}
-            </div>
-          </td>
-          <td>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"></div>
-            </div>
-          </td>
-          <td>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <span btf-markdown="entry.addendum"></span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+    <!-- STANDARD RESUME STUFF IN TABULAR FORMAT -->
+    <div class="non-tabular" ng-show="style.table">
+      <!-- SKILLS -->
+      <div class="resume-section" ng-show="style.table">
+        <h3>Skills</h3>
+        <table>
+          <tr ng-repeat="entry in skills" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <td>
+              <div class="resume-details">
+                <!-- {{entry.level}} - -->{{entry.title}}
+              </div>
+            </td>
+            <td>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"></div>
+              </div>
+            </td>
+            <td>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <span btf-markdown="entry.addendum"></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <!-- EXPERIENCE -->
-    <div class="resume-section">
-      <h3>Experience</h3>
-      <table>
-        <tr ng-repeat="entry in experience" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <td>
-            <div class="resume-details">
-              {{entry.title}}
-            </div>
-          </td>
-          <td>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
-            </div>
-          </td>
-          <td>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <span btf-markdown="entry.addendum"></span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <!-- EXPERIENCE -->
+      <div class="resume-section">
+        <h3>Experience</h3>
+        <table>
+          <tr ng-repeat="entry in experience" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <td>
+              <div class="resume-details">
+                {{entry.title}}
+              </div>
+            </td>
+            <td>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </td>
+            <td>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <span btf-markdown="entry.addendum"></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <!-- EMPLOYMENT -->
-    <div class="resume-section">
-      <h3>Employment</h3>
-      <table>
-        <tr ng-repeat="entry in employment" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <td>
-            <div class="resume-details">
-              {{entry.title}} at {{entry.organization}}
-              ({{entry.start}} to {{entry.end}})
-            </div>
-          </td>
-          <td>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
-            </div>
-          </td>
-          <td>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <span btf-markdown="entry.addendum"></span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <!-- EMPLOYMENT -->
+      <div class="resume-section">
+        <h3>Employment</h3>
+        <table>
+          <tr ng-repeat="entry in employment" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <td>
+              <div class="resume-details">
+                {{entry.title}} at {{entry.organization}}
+                ({{entry.start}} to {{entry.end}})
+              </div>
+            </td>
+            <td>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </td>
+            <td>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <span btf-markdown="entry.addendum"></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <!-- EDUCATION -->
-    <div class="resume-section">
-      <h3>Education</h3>
-      <table>
-        <tr ng-repeat="entry in education" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <td>
-            <div class="resume-details">
-              {{entry.level}} in {{entry.program}}
-              <br/> {{entry.institution}} in {{entry.graduated}}
-            </div>
-          </td>
-          <td>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
-            </div>
-          </td>
-          <td>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <p><span btf-markdown="entry.addendum"></span></p>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
+      <!-- EDUCATION -->
+      <div class="resume-section">
+        <h3>Education</h3>
+        <table>
+          <tr ng-repeat="entry in education" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <td>
+              <div class="resume-details">
+                {{entry.level}} in {{entry.program}}
+                <br/> {{entry.institution}} in {{entry.graduated}}
+              </div>
+            </td>
+            <td>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </td>
+            <td>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <p><span btf-markdown="entry.addendum"></span></p>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
 
-    <!-- AWARDS -->
-    <div class="resume-section">
-      <h3>Awards &amp; Honors</h3>
-      <table>
-        <tr ng-repeat="entry in awards" ng-init="showDiv=false"
-            ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-            class="resume-entry">
-          <td>
-            <div class="resume-details">
-              {{entry.title}} <br/>
-              {{entry.organization}} in {{entry.date}}
-            </div>
-          </td>
-          <td>
-            <div class="animation yellow-box" ng-show="showDiv">
-              <div class="speech-arrow"> </div>
-            </div>
-          </td>
-          <td>
-            <div class="animation resume-addendum" ng-show="showDiv">
-              <span btf-markdown="entry.addendum"></span>
-            </div>
-          </td>
-        </tr>
-      </table>
-    </div>
-    </div>
-  </div> <!-- resume div -->
+      <!-- AWARDS -->
+      <div class="resume-section">
+        <h3>Awards &amp; Honors</h3>
+        <table>
+          <tr ng-repeat="entry in awards" ng-init="showDiv=false"
+              ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
+              class="resume-entry">
+            <td>
+              <div class="resume-details">
+                {{entry.title}} <br/>
+                {{entry.organization}} in {{entry.date}}
+              </div>
+            </td>
+            <td>
+              <div class="animation yellow-box" ng-show="showDiv">
+                <div class="speech-arrow"> </div>
+              </div>
+            </td>
+            <td>
+              <div class="animation resume-addendum" ng-show="showDiv">
+                <span btf-markdown="entry.addendum"></span>
+              </div>
+            </td>
+          </tr>
+        </table>
+      </div>
+      </div>
+    </div> <!-- resume div -->
 
+  </div>
 </div>
 
-</div>
+<div class="pseudofooter"> </div>
 
 <div class="footer">
+  <div>
+    Generated by &nbsp;<a href="https://github.com/metasean/resume">MetaSean's Resume Application</a>.
+  </div>
   <div class="print">
     Interactive version available at <i>{{printUrl}}</i>
   </div>

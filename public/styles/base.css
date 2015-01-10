@@ -33,44 +33,22 @@ html, body {
  *****************************************************************************/
 
 @media screen and (max-width: 400px) {
-	html, body {
+	html, body, table {
 		font-size: 18px;
 		/*background: lightpink;*/
 	}
 }
 
 @media screen and (min-width: 400px) and (max-width: 800px) {
-	html, body {
+	html, body, table {
 		font-size: 20px;
 		/*background: lightgoldenrodyellow;*/
 	}
 }
 
 @media screen and (min-width: 800px) {
-	html, body {
+	html, body, table {
 		font-size: 22px;
 		/*background: lightgreen;*/
 	}
-}
-
-
-/******************************************************************************
- *
- * temporarily using <pre> to deal with line breaks, <pre> is not designed to
- * inherit typical typography, so it must be intentially be set
- * REFACTOR: implement Markdown for textareas
- *
- *****************************************************************************/
-
-pre.cover-letter {
-	width: 100%;
-	margin: 0;
-	padding: 0;
-	font-size: 1rem;
-	/* http://stackoverflow.com/a/248013/4285306 */
-	white-space: pre-wrap;       /* CSS 3 */
-	white-space: -moz-pre-wrap;  /* Mozilla, since 1999 */
-	white-space: -pre-wrap;      /* Opera 4-6 */
-	white-space: -o-pre-wrap;    /* Opera 7 */
-	word-wrap: break-word;       /* Internet Explorer 5.5+ */
 }
