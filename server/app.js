@@ -26,6 +26,50 @@ app.use(bodyParser.json());
 //app.use(express.cookieParser());
 //app.use(express.session({ secret: 'double dapple'}));
 
+// PASSPORT
+app.use(passport.initialize());
+app.use(passport.session());
+
+var Account = require('./account.js');
+passport.use(new LocalStrategy(Account.authenticate()));
+passport.serializeUser(Account.serializeUser());
+passport.deserializeUser(Account.deserializeUser());
+
+// index
+//app.get('/', function(req, res) {
+//	res.render('index', {use: req.user});
+//});
+
+// get register
+app.get('/register', function(req, res) {
+	res.render('register', {});
+});
+
+// post register
+app.post('/register', function(req, res) {
+	Account.register(new Account({ username: req.body.username }),
+		req.body.password, function(err, account) {
+		if (err) {
+			return res.render('register', {account : account });
+		}
+
+		passport.authenticate('local')(req, res, function () {
+			res.redirect('/');
+		});
+	});
+});
+
+// login
+app.get ('/login', function(req, res){
+	res.render('login', { user : req.user });
+});
+
+// logout
+app.get('/logout', function(req, res) {
+	req.logout();
+	res.redirect('/');
+});
+
 
 
 // EDUCATION API
@@ -110,8 +154,6 @@ app.set('port', (process.env.PORT || 4200));
 app.use(express.static(__dirname + '/../public'));
 
 
-app.use(passport.initialize());
-app.use(passport.session());
 
 app.listen(app.get('port'), function() {
 	console.log("Express server listening on port: %d", app.get('port'));
