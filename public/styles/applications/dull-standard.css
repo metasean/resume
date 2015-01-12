@@ -170,7 +170,7 @@ span.cover-letter {
     content: " (";
 }
 
-.job .resume-details span:nth-child(3):after {
+.job .resume-details > span:nth-child(3):after {
     content: ")";
 }
 
