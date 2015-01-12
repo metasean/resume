@@ -79,7 +79,7 @@
 
       <!-- EXPERIENCE -->
       <div class="resume-section experiences" ng-show="experience.length > 0">
-        <h3 title="{{applicant}}'s experience contains the following:">Experience</h3>
+        <h3 title="{{applicant}}'s experience contains the following:">Notable Non-Employment Experiences</h3>
           <span ng-repeat="entry in experience" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
               class="resume-entry experience">
@@ -170,7 +170,7 @@
     <div class="non-tabular skills" ng-show="style.table">
       <!-- SKILLS -->
       <div class="resume-section" ng-show="style.table">
-        <h3>Skills</h3>
+        <h3>Skills & Tools</h3>
         <table>
           <tr ng-repeat="entry in skills" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
@@ -196,7 +196,7 @@
 
       <!-- EXPERIENCE -->
       <div class="resume-section experiences">
-        <h3>Experience</h3>
+        <h3>Notable Non-Employment Experience</h3>
         <table>
           <tr ng-repeat="entry in experience" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
