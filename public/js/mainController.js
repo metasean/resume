@@ -11,7 +11,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	 \*****************************************************************************/
 
 	// ADD: add applicant to the Applications model
-	$scope.applicant = "Dr. Who";
+	$scope.applicant = "Sean Duncan";
 	// console.log("mainController $scope.title: " + $scope.title);
 	$scope.printUrl = $location.absUrl();
 
