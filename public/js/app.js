@@ -23,8 +23,8 @@ app.config(function ($stateProvider, $urlRouterProvider, $locationProvider) {
 			}
 		})
 		.state('admin', {
-			url: '/meta-admin',
-			templateUrl: '../partials/meta-admin.html',
+			url: '/admin',
+			templateUrl: '../partials/admin.html',
 			controller: 'mainController',
 			resolve: {
 				applicationRef: ['mainService', '$stateParams', function(mainService, $stateParams) {
