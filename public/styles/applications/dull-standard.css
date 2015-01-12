@@ -7,10 +7,6 @@ html, body, {
     line-height: 1.5;
 }
 
-page {
-    height: calc(100% + 5rem);
-}
-
 h1, h4 {
     text-decoration: none;
 }
@@ -38,7 +34,7 @@ h3 {
     text-transform: uppercase;
     color: #666666;
     font-size: 1.00rem;
-    margin-bottom: -0.1em;
+    margin-bottom: 0.5rem;
 }
 
 h2 h3 {
@@ -68,8 +64,7 @@ p {
 }
 
 .style-selection-group {
-    width: calc(100% - 3.5em);
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
 }
 
@@ -109,8 +104,7 @@ p {
 .title,
 div.cover-letter,
 .resume {
-    width: calc(100% - 3.5em);
-    max-width: 1200px;
+    width: 100%;
     margin: auto;
 }
 
@@ -130,15 +124,53 @@ span.cover-letter {
 }
 
 
+/******************************************************************************
+ *
+ * BULLETED ITEMS
+ *
+ * http://stackoverflow.com/a/14301918/4285306
+ * http://rishida.net/tools/conversion/
+ *
+ *****************************************************************************/
+
+.skills, .experiences, .jobs, .degrees, .awards {
+    list-style: none;
+    padding: 0;
+}
+
+.skill, .experience, .job, .degree, .award {
+    display: list-item;
+    margin-left: 0.5em;
+    list-style-position: outside;
+    overflow: visible;
+    padding-left: 1.0rem;
+    position: relative;
+}
+
+.skills .skill:before, .experiences .experience:before,
+.jobs .job:before, .degrees .degree:before,
+.awards .award:before {
+    content: "\2727";
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************************
+ *
+ * FOOTER
+ *
+ *****************************************************************************/
+
 .footer {
     position: fixed;
-    height: 3.0rem;
+    height: 1.5rem;
     bottom: 0;
     width: 100%;
     text-align: center;
     vertical-align: bottom;
     margin: 1.25em auto 0 auto;
-    padding: 0.5em auto 0 auto;
+    padding: 0.75em auto 0 auto;
     border-top: 0.5em solid #323264;
     background: #323264;
     color: white;
@@ -146,9 +178,28 @@ span.cover-letter {
     font-family: 'Muli', sans-serif;
     font-style: normal;
     font-weight: 500;
-
 }
 
 .footer a {
     color: #c0ffc0;
 }
+
+.pseudo {
+    position: inherit;
+    background-color: transparent;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

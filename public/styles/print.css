@@ -1,15 +1,15 @@
 /* reset and resize for print */
 
 body {
-    width: auto;
-    border: 0;
+    /* border is a hack to make Firefox show the footer
+       correctly; no idea why it works *pulls hair* */
+    border: 1px white solid;
     margin: 0;
     padding: 0;
     float: none !important;
     line-height: 1.4em;
-    word-spacing:1px;
-    letter-spacing:0.2px;
-    font: 14px Arial, Helvetica,"Lucida Grande", serif;
+    word-spacing: 1px;
+    font: 14px Arial, Helvetica,"Lucida Grande", sans-serif;
 }
 
 .title,
@@ -20,28 +20,69 @@ body {
     border: 0;
 }
 
+@page {
+    width: 8.5in;
+    height: 11.0in;
+    margin: 0.75in;
+}
+
 @media print {
     body {
         margin: 0;
     }
+    .footer {
+        display: block;
+        position: fixed;
+        bottom: 2.5rem;
+    }
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: Arial, Helvetica,"Lucida Grande", sans-serif;
+}
+
+.cover-letter-markdown p
+{
+    font-size: 95%;
 }
 
 
 /* add print-only elements */
 
-.print {
-    display: inline;
+.resume .print {
+    display: inline-block;
+    margin-top: 0.25in;
 }
-
+.footer .print {
+    display: block;
+}
 
 .footer {
     position: fixed;
     height: 2.5rem;
-    bottom: 0;
-    width: 100%;
-    text-align: center;
     margin: 0.25em 0 0 0;
     padding: 0;
+    font-family: sans-serif;
+    font-size: 75%;
+    border-top: 4px #666666 double;
+}
+.gecko .footer {
+    bottom: -0.5rem;
+    width: 100%;
+}
+.chrome .footer {
+    bottom: -0.25rem;
+    width: 7.0in;
+}
+
+.footer div:first-child {
+    padding: 0.5em 0 0 0;
+    text-align: center;
+}
+
+.footer div:last-child {
+    padding: 0.2em 0 0 0;
+    text-align: center;
 }
 
 .resume {
@@ -55,32 +96,34 @@ body {
 }
 
 
-/* make links visible */
-/* mostly from http://alistapart.com/article/goingtoprint/ */
+/******************************************************************************
+ *
+ * PRINT LINK URLS
+ *
+ * mostly from http://alistapart.com/article/goingtoprint/
+ *
+ *****************************************************************************/
 
 a:link,
 a:visited {
-    color: #520;
-    background: transparent;
-    font-weight: bold;
-    text-decoration: underline;
+    color: #0d0040;
+    font-family: sans-serif;
     font-style: normal;
+    text-decoration: none; /* remove 'underline' */
+    border-bottom: 1px solid rgb(143, 147, 191);
 }
 
 a:link:before,
 a:visited:before {
-    content: "   ";
-    font-size: 90%;
+    content: " ";
 }
 
 a:link:after,
 a:visited:after {
-    content: "   ( " attr(href) " ) ";
-    font-size: 90%;
-    color: #520;
-    background: transparent;
-    font-weight: bold;
-    text-decoration: underline;
+    font-size: 80%;
+    content: "   (" attr(href) ")   ";
+    color: #004000;
     font-style: normal;
+    text-decoration: none; /* remove 'underline' */
+    border-bottom: 1px solid rgb(143, 191, 143);
 }
-

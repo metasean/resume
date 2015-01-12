@@ -1,3 +1,11 @@
+/******************************************************************************
+ *
+ * IMPORTANT NOTES
+ *
+ * - uses http://rafael.adm.br/css_browser_selector/
+ *
+ *****************************************************************************/
+
 html, body {
 	height: 100%;
 	min-width: 338px;
@@ -11,6 +19,7 @@ html, body {
 }
 
 .wrap-break {
+	/* hack to allow specified text-wrap locations */
 	display: inline-block;
 }
 
@@ -37,6 +46,12 @@ html, body {
 		font-size: 18px;
 		/*background: lightpink;*/
 	}
+
+	form .style-selection-group,
+	.application {
+		max-width: 95%;
+		margin: 0 auto;
+	}
 }
 
 @media screen and (min-width: 400px) and (max-width: 800px) {
@@ -44,11 +59,26 @@ html, body {
 		font-size: 20px;
 		/*background: lightgoldenrodyellow;*/
 	}
+
+	form .style-selection-group,
+	.application {
+		max-width: 95%;
+		margin: 0 auto;
+	}
 }
 
 @media screen and (min-width: 800px) {
 	html, body, table {
 		font-size: 22px;
+		margin: 0;
+		padding: 0;
 		/*background: lightgreen;*/
+	}
+
+	form .style-selection-group,
+	.application {
+		width: 1000px;
+		max-width: 95%;
+		margin: 0 auto;
 	}
 }

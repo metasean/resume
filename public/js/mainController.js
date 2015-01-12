@@ -40,16 +40,16 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 			name       : 'dull',
 			title      : 'Standard',
 			css        : 'dull-standard',
-			table      : true,
+			table      : false,
 			description: 'A standard tabular resume'
 		},
-		{
-			name       : 'yellow_arrow_ui',
-			title      : 'Interactive - Yellow Conversation',
-			css        : 'dull-standard',
-			table      : false,
-			description: 'COMING SOON (Will be a textual conversation about my resume details.)'
-		},
+		//{
+		//	name       : 'yellow_arrow_ui',
+		//	title      : 'Interactive - Yellow Conversation',
+		//	css        : 'dull-standard',
+		//	table      : false,
+		//	description: 'COMING SOON (Will be a textual conversation about my resume details.)'
+		//},
 		{
 			name       : 'spastic',
 			title      : 'Spastic - Yellow Larson',

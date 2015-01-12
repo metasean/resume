@@ -45,148 +45,113 @@
     <!-- STANDARD COVER LETTER STUFF -->
     <div class="cover-letter">
       <h2 class="screen-only">Cover Letter</h2>
-      <span class="cover-letter" btf-markdown="application.coverLetter"></span>
+        <div class="cover-letter-markdown" btf-markdown="application.coverLetter"></div>
     </div>
 
 
-
     <div class="resume">
-    <h2><span class="print">{{applicant}}'s </span>Resume</h2>
+    <h2><span class="print">{{applicant}}'s </span> Resume</h2>
 
     <!-- STANDARD RESUME STUFF IN NON-TABULAR FORMAT -->
     <div class="non-tabular" ng-show="!style.table">
       <!-- SKILLS -->
-      <div class="resume-section">
-        <h3>Skills</h3>
-          <div ng-repeat="entry in skills" ng-init="showDiv=false"
+      <div class="resume-section skills" ng-show="skills.length > 0">
+        <h3 title="{{applicant}}'s skills contains the following:">Skills</h3>
+          <span ng-repeat="entry in skills" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
-            <div>
-              <div class="resume-details">
-                <p><span class="skill-level">{{entry.level}}</span>{{entry.title}}</p>
-              </div>
-            </div>
-            <div>
-              <div class="animation yellow-box" ng-show="showDiv">
-                <p><div class="speech-arrow"></div></p>
-              </div>
-            </div>
-            <div>
-              <div class="animation resume-addendum" ng-show="showDiv">
-                <p><span btf-markdown="entry.addendum"></span></span>}</p>
-              </div>
-            </div>
-          </div>
-        </table>
+              class="resume-entry skill">
+            <span>
+              <span class="resume-details">
+                <span class="skill-level">{{entry.level}}</span>{{entry.title}}
+              </span>
+            </span>
+            <span>
+              <span class="animation resume-addendum" ng-show="showDiv">
+                <span><span btf-markdown="entry.addendum"></span></span>
+              </span>
+            </span>
+          </span>
       </div>
 
       <!-- EXPERIENCE -->
-      <div class="resume-section">
-        <h3>Experience</h3>
-        <table>
-          <div ng-repeat="entry in experience" ng-init="showDiv=false"
+      <div class="resume-section experiences" ng-show="experience.length > 0">
+        <h3 title="{{applicant}}'s experience contains the following:">Experience</h3>
+          <span ng-repeat="entry in experience" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
-            <div>
-              <div class="resume-details">
-                <p>{{entry.title}}</p>
-              </div>
-            </div>
-            <div>
-              <div class="animation yellow-box" ng-show="showDiv">
-                <p><div class="speech-arrow"> </div></p>
-              </div>
-            </div>
-            <div>
-              <div class="animation resume-addendum" ng-show="showDiv">
-                <p><span btf-markdown="entry.addendum"></span></p>
-              </div>
-            </div>
-          </div>
-        </table>
+              class="resume-entry experience">
+            <span>
+              <span class="resume-details">
+                <span>{{entry.title}}</span>
+              </span>
+            </span>
+            <span>
+              <span class="animation resume-addendum" ng-show="showDiv">
+                <span><span btf-markdown="entry.addendum"></span></span>
+              </span>
+            </span>
+          </span>
       </div>
 
       <!-- EMPLOYMENT -->
-      <div class="resume-section">
-        <h3>Employment</h3>
-        <table>
-          <div ng-repeat="entry in employment" ng-init="showDiv=false"
+      <div class="resume-section jobs" ng-show="employment.length > 0">
+        <h3 title="{{applicant}}'s employment contains the following:">Employment</h3>
+          <span ng-repeat="entry in employment" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
-            <div>
-              <div class="resume-details">
-                <p>{{entry.organization}} {{entry.title}}</p>
-                <p>({{entry.start}} to {{entry.end}})</p>
-              </div>
-            </div>
-            <div>
-              <div class="animation yellow-box" ng-show="showDiv">
-                <div class="speech-arrow"> </div>
-              </div>
-            </div>
-            <div>
-              <div class="animation resume-addendum" ng-show="showDiv">
-                <p><span btf-markdown="entry.addendum"></span></p>
-              </div>
-            </div>
-          </div>
-        </table>
+              class="resume-entry job">
+            <span>
+              <span class="resume-details">
+                <span>{{entry.organization}} {{entry.title}}</span>
+                <span>{{entry.start}} {{entry.end}}</span>
+              </span>
+            </span>
+            <span>
+              <span class="animation resume-addendum" ng-show="showDiv">
+                <span><span btf-markdown="entry.addendum"></span></span>
+              </span>
+            </span>
+          </span>
       </div>
 
       <!-- EDUCATION -->
-      <div class="resume-section">
-        <h3>Education</h3>
-        <table>
-          <div ng-repeat="entry in education" ng-init="showDiv=false"
+      <div class="resume-section degrees" ng-show="education.length > 0">
+        <h3 title="{{applicant}}'s higher education degrees are:">Education</h3>
+          <span ng-repeat="entry in education" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
-            <div>
-              <div class="resume-details">
-                <p>{{entry.level}} in {{entry.program}}</p>
-                <p>{{entry.institution}} in {{entry.graduated}}</p>
-              </div>
-            </div>
-            <div>
-              <div class="animation yellow-box" ng-show="showDiv">
-                <div class="speech-arrow"> </div>
-              </div>
-            </div>
-            <div>
-              <div class="animation resume-addendum" ng-show="showDiv">
-                <p><span btf-markdown="entry.addendum"></span></p>
-              </div>
-            </div>
-          </div>
-        </table>
+              class="resume-entry degree">
+            <span>
+              <span class="resume-details">
+                <span>{{entry.level}} {{entry.program}}</span>
+                <span>{{entry.institution}} {{entry.graduated}}</span>
+              </span>
+            </span>
+            <span>
+              <span class="animation resume-addendum" ng-show="showDiv">
+                <span><span btf-markdown="entry.addendum"></span></span>
+              </span>
+            </span>
+          </span>
       </div>
 
       <!-- AWARDS -->
-      <div class="resume-section">
-        <h3>Awards &amp; Honors</h3>
-        <table>
-          <div ng-repeat="entry in awards" ng-init="showDiv=false"
+      <div class="resume-section awards" ng-show="awards.length > 0">
+        <h3 title="{{applicant}}'s has been awarded the following:">Awards &amp; Honors</h3>
+          <span ng-repeat="entry in awards" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
-            <div>
-              <div class="resume-details">
-                <p>{{entry.title}}</p>
-                </p>{{entry.organization}} in {{entry.date}}</p>
-              </div>
-            </div>
-            <div>
-              <div class="animation yellow-box" ng-show="showDiv">
-                <div class="speech-arrow"> </div>
-              </div>
-            </div>
-            <div>
-              <div class="animation resume-addendum" ng-show="showDiv">
-                <p><span btf-markdown="entry.addendum"></span></p>
-              </div>
-            </div>
-          </div>
-        </table>
+              class="resume-entry award">
+            <span>
+              <span class="resume-details">
+                <span>{{entry.title}}</span>
+                <span>{{entry.organization}} {{entry.date}}</span>
+              </span>
+            </span>
+            <span>
+              <span class="animation resume-addendum" ng-show="showDiv">
+                <span><span btf-markdown="entry.addendum"></span></span>
+              </span>
+            </span>
+          </span>
       </div>
-    </div> <!-- tabular resume div -->
+    </div> <!-- non-tabular resume div -->
 
 
 
@@ -329,15 +294,17 @@
     </div> <!-- resume div -->
 
   </div>
+
+  <div class="pseudo footer"> </div>
+
 </div>
 
-<div class="pseudofooter"> </div>
 
 <div class="footer">
   <div>
-    Generated by &nbsp;<a href="https://github.com/metasean/resume">MetaSean's Resume Application</a>.
+    Generated by <a href="https://github.com/metasean/resume" target="_blank">MetaSean's Resume Application</a>
   </div>
   <div class="print">
-    Interactive version available at <i>{{printUrl}}</i>
+    <a href="{{printUrl}}">Interactive version</a>
   </div>
 </div>
