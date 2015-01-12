@@ -35,15 +35,19 @@
 
     <div class="title">
       <h1>
-        <span class="wrap-break">{{applicant}}'s </span>
-        <span class="wrap-break">Application for </span>
+        <span class="wrap-break">{{applicant}}<span ng-show="application.position">'s </span>
+        </span>
+        <span class="wrap-break"
+              ng-show="application.position">
+          Application for
+        </span>
         <span class="wrap-break">{{application.position}} <span ng-show={{application.organization}}> at </span></span>
         <span class="wrap-break" ng-show={{application.organization}}>{{application.organization}}</span>
       </h1>
     </div>
 
     <!-- STANDARD COVER LETTER STUFF -->
-    <div class="cover-letter">
+    <div class="cover-letter" ng-show="application.coverLetter.length > 0">
       <h2 class="screen-only">Cover Letter</h2>
         <div class="cover-letter-markdown" btf-markdown="application.coverLetter"></div>
     </div>

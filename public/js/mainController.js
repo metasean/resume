@@ -12,7 +12,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// ADD: add applicant to the Applications model
 	$scope.applicant = "Sean Duncan";
-	console.log("mainController $scope.title: " + $scope.title);
+	// console.log("mainController $scope.title: " + $scope.title);
 	$scope.printUrl = $location.absUrl();
 
 
@@ -113,7 +113,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	// Skills
 	mainService.getSkills()
 		.then(function(data) {
-			//console.log("mainController.getSkills");
+			//// console.log("mainController.getSkills");
 			$scope.skills = data.data;
 		});
 
@@ -143,7 +143,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Experience
 	mainService.getExperience().then(function(data) {
-		//console.log("mainController.getExperience");
+		//// console.log("mainController.getExperience");
 		$scope.experience = data.data;
 	});
 
@@ -173,7 +173,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Employment
 	mainService.getEmployment().then(function(data) {
-		//console.log("mainController.getEmployment");
+		//// console.log("mainController.getEmployment");
 		$scope.employment = data.data;
 	});
 
@@ -203,7 +203,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Education
 	mainService.getEducation().then(function(data) {
-		//console.log("mainController.getEducation");
+		//// console.log("mainController.getEducation");
 		$scope.education = data.data;
 	});
 
@@ -234,7 +234,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Awards
 	mainService.getAwards().then(function(data) {
-		//console.log("mainController.getAwards");
+		//// console.log("mainController.getAwards");
 		$scope.awards = data.data;
 	});
 
@@ -266,7 +266,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 
 	// Applications
 	mainService.getApplications().then(function(data) {
-		//console.log("mainController.getApplications");
+		//// console.log("mainController.getApplications");
 		$scope.applications = data.data;
 	});
 
@@ -276,7 +276,10 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 	$scope.application = (applicationRef.data[0] === undefined) ?
 												{url: "resume"} :
 												applicationRef.data[0] ;
-	console.log("applicationRef.data[0] returned ==> %o ", $scope.application);
+
+	$localStorage.resume_url = $scope.application.url;
+	// console.log("applicationRef.data[0] returned ==> %o ", $scope.application);
+	// console.log("$localStorage.resume_url is ==> %o", $localStorage.resume_url);
 
 /*****************************************************************************/
 

@@ -8,7 +8,7 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 	var categories = ['Applications', 'Skills', 'Experience', 'Employment', 'Education', 'Awards'];
 	var baseUrl = $location.protocol() + "://" + $location.host() + ":" + $location.port();
 
-	console.log("baseUrl is: " + baseUrl);
+	// console.log("baseUrl is: " + baseUrl);
 
 	// GET CATEGORY LISTS
 	categories.forEach(function(category) {
@@ -19,7 +19,7 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url: baseUrl + '/' + lower
 			})
 				.success(function (data) {
-					console.log("Successfully retrieved %s ==> %o", category, data);
+					// console.log("Successfully retrieved %s ==> %o", category, data);
 				})
 				.error(function (data) {
 					console.error("mainService get" + category + ": error is " + err);
@@ -37,8 +37,8 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url   : baseUrl + '/' + lower
 			})
 				.success(function (data) {
-					console.log("Successfully created a new " + category + " entry");
-					console.log(data);
+					// console.log("Successfully created a new " + category + " entry");
+					// console.log(data);
 				})
 				.error(function (data) {
 					console.error("mainService created" + category + ": error is " + err);
@@ -51,15 +51,15 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 	categories.forEach(function(category) {
 		var lower = category.toLowerCase();
 		factoryReturn['save' + category] = function (data) {
-			console.log(data);
+			// console.log(data);
 			return $http({
 				method: 'POST',
 				url   : baseUrl + '/' + lower + '/' + data._id + '/update',
 				data  : data
 			})
 				.success(function(data) {
-					console.log("Successfully updated " + category + " " + data._id + " entry");
-					console.log(data);
+					// console.log("Successfully updated " + category + " " + data._id + " entry");
+					// console.log(data);
 				})
 				.error(function(data) {
 					console.error("mainService save" + category + ": error is " + err);
@@ -78,8 +78,8 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url: baseUrl + '/' + lower + '/' + id + '/delete'
 			})
 				.success(function(data) {
-					console.log("Successfully deleted " + category + " " + data._id + " entry");
-					console.log(data);
+					// console.log("Successfully deleted " + category + " " + data._id + " entry");
+					// console.log(data);
 				})
 				.error(function(data) {
 					console.error("mainService delete" + category + ": error is " + err);
@@ -91,22 +91,23 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 	// GET APPLICATION BY URL
 	// used to facilitate application-specific urls
 	factoryReturn.getApplication = function(applicationId) {
-		console.log("mainService getApplication: " + baseUrl + '/applications/' + applicationId);
+		// console.log("mainService getApplication: " + baseUrl + '/applications/' + applicationId);
 		return $http({
 			method: 'GET',
 			url: baseUrl + '/applications/' + applicationId
 		})
 			.success(function(data, status, headers, config){
-				console.log("Successfully returned mainService getApplication(%s) ==> %o", applicationId, data);
+				// console.log("Successfully returned mainService getApplication(%s) ==> %o", applicationId, data);
 				//debugger;
 				return new Promise(function(resolve, reject) {
 					if (!data[0]) {
 						var error = "indicated application – %s – does not exist", applicationId;
-						console.log(error)
+						// console.log(error);
 						reject(Error(error));
 					}
 					else {
-						console.log("application URL defined; returning data")
+						// console.log("application URL defined; returning data");
+						// console.log("url is " + data[0].url);
 						resolve(data);
 					}
 				});
