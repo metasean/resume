@@ -27,7 +27,7 @@ var testApi = function(req, res){
 };
 
 var list = function (req, res) {
-	Education.find(function (err, data) {
+	Education.find().sort('-order').exec(function (err, data) {
 		console.log('GET education list request ...');
 		try {
 			res.json(data);

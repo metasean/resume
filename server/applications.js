@@ -10,7 +10,7 @@ var ApplicationSchema = new mongoose.Schema({
 var Application = mongoose.model('Application', ApplicationSchema);
 
 var list = function (req, res) {
-	Application.find(function (err, data) {
+	Application.find().sort('-order').exec(function (err, data) {
 		console.log('GET Applications list request ...');
 		try {
 			res.json(data);

@@ -11,7 +11,7 @@ var EmpSchema = new mongoose.Schema({
 var Employment = mongoose.model('Employment', EmpSchema);
 
 var list = function (req, res) {
-	Employment.find(function (err, data) {
+	Employment.find().sort('-order').exec(function (err, data) {
 		console.log('GET Employment list request ...');
 		try {
 			res.json(data);

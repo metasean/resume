@@ -10,7 +10,7 @@ var AwardSchema = new mongoose.Schema({
 var Award = mongoose.model('Award', AwardSchema);
 
 var list = function (req, res) {
-	Award.find(function (err, data) {
+	Award.find().sort('-order').exec(function (err, data) {
 		console.log('GET Award list request ...');
 		try {
 			res.json(data);

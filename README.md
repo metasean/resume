@@ -1,6 +1,13 @@
 First things first, this application desperately needs refactoring.   It is far from DRY, has no tests, has a monstrosity for a mainController, and -while functional- the administrative page is ugly and non-Angular-ish.  ("If you're not embarrassed by the first version of your product, you've launched too late." ~Reid Hoffman)  But for recently learning MongoDB and Angular, this was a decent first go and I'm learning a ton from refactoring!
 
+Demonstration
+-------------
+ - Initial Demo Resume based on Dr. Who (may have been changed based on others looking at the demo) - https://metasean-resume.herokuapp.com/#/resume
+ - Administrative interface - https://metasean-resume.herokuapp.com/#/admin
 
+
+Running Locally
+---------------
 
 To run locally:
 

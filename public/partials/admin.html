@@ -4,7 +4,7 @@
 <!-- APPLICATIONS -->
 <div class="">
   <h3>User Note</h3>
-  <p>Save <em>for an entire entry</em> happens automatically after editing <em>and</em> exiting the corresponding addendum field.</p>
+  <p>Save <em>for an entire entry</em> happens automatically after editing <em>and</em> exiting the corresponding addendum field.  Alternatively, if only editing another field the "Save" button can be used.</p>
   <h3>Active Applications</h3>
   <div class="buttons">
     <button ng-click="newApplications()">new</button>
@@ -36,6 +36,7 @@
                   class="textual"></textarea>
       </td>
       <td class="buttons">
+        <button ng-click="saveApplications(entry)">Save</button>
         <button ng-click="deleteApplications(entry._id)">Delete</button>
       </td>
     </tr>
@@ -77,6 +78,7 @@
           </div>
         </td>
         <td class="buttons">
+          <button ng-click="saveSkills(entry)">Save</button>
           <button ng-click="deleteSkills(entry._id)">Delete</button>
         </td>
       </tr>
@@ -113,6 +115,7 @@
           </div>
         </td>
         <td class="buttons">
+          <button ng-click="saveExperience(entry)">Save</button>
           <button ng-click="deleteExperience(entry._id)">Delete</button>
         </td>
       </tr>
@@ -162,6 +165,7 @@
           </div>
         </td>
         <td class="buttons">
+          <button ng-click="saveEmployment(entry)">Save</button>
           <button ng-click="deleteEmployment(entry._id)">Delete</button>
         </td>
       </tr>
@@ -210,6 +214,7 @@
           </div>
         </td>
         <td class="buttons">
+          <button ng-click="saveEducation(entry)">Save</button>
           <button ng-click="deleteEducation(entry._id)">Delete</button>
         </td>
       </tr>
@@ -254,6 +259,7 @@
           </div>
         </td>
         <td class="buttons">
+          <button ng-click="saveAwards(entry)">Save</button>
           <button ng-click="deleteAwards(entry._id)">Delete</button>
         </td>
       </tr>

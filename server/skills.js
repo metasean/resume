@@ -9,7 +9,7 @@ var SkillSchema = new mongoose.Schema({
 var Skill = mongoose.model('Skill', SkillSchema);
 
 var list = function (req, res) {
-	Skill.find(function (err, data) {
+	Skill.find().sort('-order').exec(function (err, data) {
 		console.log('List Skills request ...');
 		try {
 			res.json(data);

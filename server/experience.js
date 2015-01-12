@@ -24,7 +24,7 @@ var testApi = function(req, res){
 };
 
 var list = function (req, res) {
-	Experience.find(function (err, data) {
+	Experience.find().sort('-order').exec(function (err, data) {
 		console.log('GET Experience list request ...');
 		try {
 			res.json(data);
