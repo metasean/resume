@@ -1,31 +1,215 @@
-html, body {
+html, body, {
     height: 100%;
     width: 100%;
     margin: 0;
-    color: #717073;
+    color: #000000;
+    font-family: 'Muli', sans-serif;
+    line-height: 1.5;
 }
 
-h1, h2, h3 {
+h1, h4 {
+    text-decoration: none;
+}
+
+h1 {
+    font-family: 'Arvo', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: rgb(150, 2, 0);
+    font-size: 1.50rem;
+}
+
+h2 {
+    font-family: "Dosis", sans-serif;
+    font-style: normal;
+    font-weight: 800;
+    padding: 0.25rem;
+    background-color: #ce6c47;
+    color: #ffffff;
+    text-align: center;
+    font-size: 1.40rem;
+}
+
+h3 {
+    font-family: "Dosis", sans-serif;
+    font-style: normal;
+    font-weight: 900;
+    text-transform: uppercase;
+    color: #241e4e;
+    border-top: #241e4e 6px solid;
+    padding-top: 0.5rem;
+    text-align: center;
+    font-size: 1.00rem;
+    margin-bottom: 0.5rem;
+}
+
+h2 h3 {
+    margin-top: -0.25em;
+}
+
+h2:nth-child(2) {
+    margin-bottom: -3.0rem;
+    padding-bottom: -1.0rem;
+}
+
+h4 {
+    font-family: 'woff', sans-serif;
+    font-style: normal;
+    font-weight: normal;
+    line-height: 16px;
+    letter-spacing: 1px;
+    padding-bottom: 1em;
+    font-size: 1.00rem;
+}
+
+p {
+    font-size: 1.00rem;
+}
+
+.style-selector {
+    background-color: #666666;
+    color: #ffffff;
+    margin: 0;
+    padding: 0.8em 0 0.5em 0;
+    border-bottom: thin solid #000000;
+}
+
+.style-selection-group {
     width: 100%;
-    padding-top: 1.0em;
     margin: auto;
+}
+
+.style-selection-note {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: flex;
+
+    justify-content: center; /* align horizontal */
+
+    align-items: center; /* align vertical */
+    -webkit-flex-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+
+
+    min-height: calc(100% - 5.50em);
+}
+
+.style-selection-note .message {
+    padding: 0 0.5em;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Muli', sans-serif;
+    font-style: normal;
+    font-weight: 600;
+    color: #803820;
+}
+
+.style-selection-note .message p {
+    font-size: 1.25rem;
+}
+
+.style-selection-note,
+.title,
+div.cover-letter,
+.resume {
+    width: 100%;
+    margin: auto;
+}
+
+
+.cover-letter-markdown {
+    width: calc(100% - 2.0rem);
+    padding: 0 ;
+    margin: 0 1.0rem;
+    border: 0;
+}
+
+.cover-letter p {
+    font-family: 'Open Sans Condensed', serif;
+}
+
+
+/******************************************************************************
+ *
+ * BULLETED ITEMS
+ *
+ * http://stackoverflow.com/a/14301918/4285306
+ * http://rishida.net/tools/conversion/
+ *
+ *****************************************************************************/
+
+.skills, .experiences, .jobs, .degrees, .awards {
+    list-style: none;
+    padding: 0;
+}
+
+.skill, .experience, .job, .degree, .award {
+    display: list-item;
+    margin-left: 0.5em;
+    list-style-position: outside;
+    overflow: visible;
+    padding-left: 1.0rem;
+    position: relative;
+}
+
+.skills .skill:before, .experiences .experience:before,
+.jobs .job:before, .degrees .degree:before,
+.awards .award:before {
+    content: "\2727";
+    left: 0;
+    position: absolute;
+}
+
+
+/******************************************************************************
+ *
+ * FOOTER
+ *
+ *****************************************************************************/
+
+.footer {
+    position: fixed;
+    height: 1.5rem;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+    vertical-align: bottom;
+    margin: 1.25em auto 0 auto;
+    padding: 0.75em auto 0 auto;
+    border-top: 0.5em solid #333333;
+    background: #333333;
+    color: white;
+    font-size: 75%;
+    font-family: 'Muli', sans-serif;
+    font-style: normal;
+    font-weight: 500;
+}
+
+.footer a {
+    color: #c8ffbe;
+}
+
+.pseudo {
+    position: inherit;
+    background-color: transparent;
 }
 
 table, table tr, table td {
     padding: 0;
     border: 0;
     border-spacing: 0;
+    border-top: #241e4e 1px solid;
 }
 
-.cover-letter {
-    width: calc(100% - 3.5em);
-    margin: auto;
+td .resume-details,
+td .resume-addendum {
+    padding: 0 0.50rem;
+    font-size: 90%;
 }
 
-.resume {
-    width: calc(100% - 3.5em);
-    margin: auto;
-}
 
 .resume-section table,
 .resume-section table tr,
@@ -42,6 +226,7 @@ table, table tr, table td {
     min-width: 10em;
     /*max-width: 50%; */
     padding: 0.5em 0.5em 0.5em 0em;
+    font-family: 'Coming Soon', sans-serif;
 }
 
 .speech-arrow {
@@ -49,7 +234,7 @@ table, table tr, table td {
     height: 0;
     border-top: 0.5em solid transparent;
     border-bottom: 0.5em solid transparent;
-    border-right: 0.5em solid #FFF008;
+    border-right: 0.5em solid #EDFFAB;
 }
 
 .resume-entry {
@@ -57,52 +242,14 @@ table, table tr, table td {
 }
 
 .resume-addendum {
-    background-color: #FFF008;
+    background-color: #EDFFAB;
     width: 100%;
     min-width: 25em;
     /* height: 100%; */
     padding: 0.5em 1.0em 0.5em 0.5em;
     border-radius: 0.15em;
-    font-style: italic;
+    font-family: 'Neucha';
     display: block;
-}
-
-.admin-input {
-    width: 100%;
-}
-
-.admin-input tr td {
-    border: 1px solid dimgray;
-    padding: 0.5em;
-    min-width: 25%;
-    max-width: 50%;
-}
-
-.admin-input tr td input {
-    width: 100%;
-    box-sizing: border-box;
-    -webkit-box-sizing:border-box;
-    -moz-box-sizing: border-box;
-}
-
-
-input.singular {
-    max-width: 2em;
-}
-
-input.date {
-    min-width: 8em;
-    max-width: 10em;
-}
-
-input.title {
-    min-width: 10em;
-    max-width: 20em;
-}
-
-textarea.textual {
-    min-width: 40em;
-    height: 7em;
 }
 
 /* yellow_box{padding-top:6px;white-space:normal;position:absolute;font-style:italic} */

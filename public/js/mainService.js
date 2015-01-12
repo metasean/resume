@@ -19,7 +19,7 @@ app.factory('mainService', ['$location', '$http', function($location, $http) {
 				url: baseUrl + '/' + lower
 			})
 				.success(function (data) {
-					// console.log("Successfully retrieved %s ==> %o", category, data);
+					console.log("Successfully retrieved %s ==> %o", category, data);
 				})
 				.error(function (data) {
 					console.error("mainService get" + category + ": error is " + err);

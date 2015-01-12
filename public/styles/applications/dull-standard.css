@@ -140,10 +140,10 @@ span.cover-letter {
 
 .skill, .experience, .job, .degree, .award {
     display: list-item;
-    margin-left: 0.5em;
+    margin-left: 0.75em;
     list-style-position: outside;
     overflow: visible;
-    padding-left: 1.0rem;
+    padding-left: 1.25rem;
     position: relative;
 }
 
@@ -154,6 +154,54 @@ span.cover-letter {
     left: 0;
     position: absolute;
 }
+
+
+/******************************************************************************
+ *
+ * PUNCTUATION & RELATED STYLING
+ *
+ *****************************************************************************/
+
+.job .resume-details span:nth-child(1):after {
+    content: "at ";
+}
+
+.job .resume-details span:nth-child(3):before {
+    content: " (";
+}
+
+.job .resume-details span:nth-child(3):after {
+    content: ")";
+}
+
+.degree .resume-details span:nth-child(1):after {
+    content: "in ";
+}
+
+.degree .resume-details span:nth-child(2):after {
+    content: " from ";
+}
+
+.degree .resume-details span:nth-child(4):before {
+    content: " (";
+}
+
+.degree .resume-details span:nth-child(4):after {
+    content: ")";
+}
+
+.award .resume-details span:nth-child(1):after {
+    content: " from";
+}
+
+.award .resume-details span:nth-child(3):before {
+    content: " (";
+}
+
+.award .resume-details span:nth-child(3):after {
+    content: ")";
+}
+
 
 
 /******************************************************************************
