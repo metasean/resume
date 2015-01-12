@@ -127,7 +127,8 @@ div.cover-letter,
     border: 0;
 }
 
-.cover-letter p {
+.cover-letter p,
+.cover-letter li {
     font-family: 'Open Sans Condensed', serif;}
 
 
