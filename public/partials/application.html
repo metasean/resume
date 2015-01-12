@@ -1,8 +1,8 @@
 
-<link rel="stylesheet" ng-href="styles/applications/{{ style.css }}.css">
+<link rel="stylesheet" ng-href="styles/applications/{{ style.css }}.css" media="screen">
 <link rel="stylesheet" href="styles/applications/dull-standard.css" type="text/css" media="print" />
 <link rel="stylesheet" href="styles/print.css" type="text/css" media="print" />
-<link href='http://fonts.googleapis.com/css?family=Muli|Julius+Sans+One|Arvo|Dosis|Neucha|Coming+Soon|Open+Sans+Condensed' rel='stylesheet' type='text/css'>
+<link href='http://fonts.googleapis.com/css?family=Muli|Julius+Sans+One|Arvo|Dosis|Neucha|Coming+Soon|Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
 
 <div class="page" ng-cloak>
 
@@ -167,14 +167,14 @@
 
 
     <!-- STANDARD RESUME STUFF IN TABULAR FORMAT -->
-    <div class="non-tabular" ng-show="style.table">
+    <div class="non-tabular skills" ng-show="style.table">
       <!-- SKILLS -->
       <div class="resume-section" ng-show="style.table">
         <h3>Skills</h3>
         <table>
           <tr ng-repeat="entry in skills" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
+              class="resume-entry skill">
             <td>
               <div class="resume-details">
                 <!-- {{entry.level}} - -->{{entry.title}}
@@ -195,12 +195,12 @@
       </div>
 
       <!-- EXPERIENCE -->
-      <div class="resume-section">
+      <div class="resume-section experiences">
         <h3>Experience</h3>
         <table>
           <tr ng-repeat="entry in experience" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
+              class="resume-entry experience">
             <td>
               <div class="resume-details">
                 {{entry.title}}
@@ -221,12 +221,12 @@
       </div>
 
       <!-- EMPLOYMENT -->
-      <div class="resume-section">
+      <div class="resume-section jobs">
         <h3>Employment</h3>
         <table>
           <tr ng-repeat="entry in employment" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
+              class="resume-entry job">
             <td>
               <div class="resume-details">
                 {{entry.title}} at {{entry.organization}}
@@ -248,12 +248,12 @@
       </div>
 
       <!-- EDUCATION -->
-      <div class="resume-section">
+      <div class="resume-section degrees">
         <h3>Education</h3>
         <table>
           <tr ng-repeat="entry in education" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
+              class="resume-entry degree">
             <td>
               <div class="resume-details">
                 {{entry.level}} in {{entry.program}}
@@ -275,12 +275,12 @@
       </div>
 
       <!-- AWARDS -->
-      <div class="resume-section">
+      <div class="resume-section awards">
         <h3>Awards &amp; Honors</h3>
         <table>
           <tr ng-repeat="entry in awards" ng-init="showDiv=false"
               ng-mouseenter="showDiv=!showDiv" ng-mouseleave="showDiv=!showDiv"
-              class="resume-entry">
+              class="resume-entry award">
             <td>
               <div class="resume-details">
                 {{entry.title}} <br/>

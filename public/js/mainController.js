@@ -56,7 +56,7 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 			css        : 'yellow_arrow_spastic_interactive',
 			table      : true,
 			description: 'Move your mouse up and down over the resume portion to see a vertical Larson Scanner effect.' +
-			'\n Or take your time and learn a bit more about me.  NOTE: Some entries do not have any additional information.'
+			'\n Or take your time and hover your mouse over entries to learn a bit more about me.  \nNOTE: Some entries do not have any additional information.'
 		}
 	];
 
