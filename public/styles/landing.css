@@ -16,7 +16,7 @@ html, body {
 
 #content {
     display: inline-block;
-    width: 34em;
+    max-width: 34em;
     padding: 1em;
     text-align: left;
 }
@@ -26,7 +26,7 @@ h1, h4 {
     -moz-text-decoration-color: -moz-use-text-color;
     -moz-text-decoration-line: none;
     -moz-text-decoration-style: solid;
-    color: #2D1D3F;\
+    color: #2D1D3F;
     text-shadow: 0px 1px 4px rgba(0, 0, 0, 0.3);
 }
 
@@ -38,6 +38,7 @@ h1 {
 }
 
 h2 {
+    margin: 1.5em auto 0.50em auto;
     font-family: "Julius Sans One", sans-serif;
     font-style: normal;
     font-weight: 400;
