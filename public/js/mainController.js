@@ -29,19 +29,19 @@ app.controller('mainController', function($scope, $window, mainService, $rootSco
 		 REFACTOR: or – better yet – go all http://www.csszengarden.com/ with a single partial!!! */
 
 	$scope.styles = [
-		//{ // Default prompt to select a style
-		//	name       : false,
-		//	title      : 'Please select a style',
-		//	css        : 'dull-standard',
-		//	table      : true,
-		//	description: ''
-		//},
+		{ // Default prompt to select a style
+			name       : false,
+			title      : 'Please select a style',
+			css        : 'dull-standard',
+			table      : true,
+			description: ''
+		},
 		{
 			name       : 'dull',
 			title      : 'Standard',
 			css        : 'dull-standard',
 			table      : false,
-			description: 'A standard tabular resume'
+			description: 'A standard tabular resume.  Currently the best view for mobile devices and printing.'
 		},
 		//{
 		//	name       : 'yellow_arrow_ui',
