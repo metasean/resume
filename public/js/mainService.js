@@ -1,14 +1,11 @@
 var app = angular.module('resumeApp');
 
-app.factory('mainService', ['$location', '$http', function($location, $http) {
-
-	var categoriesTEST = ['Applications'];
+app.factory('mainService', ['$location', '$http', '$q', function($location, $http, $q) {
 
 	var factoryReturn = {};
 	var categories = ['Applications', 'Skills', 'Experience', 'Employment', 'Education', 'Awards'];
 	var baseUrl = $location.protocol() + "://" + $location.host() + ":" + $location.port();
 
-	// console.log("baseUrl is: " + baseUrl);
 
 	// GET CATEGORY LISTS
 	categories.forEach(function(category) {

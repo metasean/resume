@@ -17,6 +17,12 @@ var app = express();
 // parse json with body-parser module
 app.use(bodyParser.json());
 
+// AUTH API
+var user = require('./user.js');
+app.post('/users/register', user.register);
+app.post('/users/login', user.login);
+app.post('/users/delete', user.remove);
+
 
 // EDUCATION API
 var education = require('./education.js');
